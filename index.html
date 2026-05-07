@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>李卓豪 醫師 ・ Cho-Hao Howard Lee, MD ｜ Hematology &amp; Oncology</title>
+<meta name="description" content="李卓豪醫師個人網站 — 三軍總醫院血液腫瘤科主治醫師。Personal website of Dr. Cho-Hao Lee, Tri-Service General Hospital." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   設計系統  Design Tokens
+   ========================================================= */
+:root{
+  --ink:        #1a1a18;
+  --ink-soft:   #3b3a36;
+  --paper:      #f5f1ea;
+  --paper-warm: #ede6d8;
+  --line:       #d8cfbd;
+  --green:      #143b34;
+  --green-deep: #0c2a25;
+  --moss:       #5b7a64;
+  --bronze:     #a8703f;
+  --bronze-soft:#c79a6e;
+  --stone:      #948a78;
+
+  --serif-en: "Fraunces", "Noto Serif TC", Georgia, serif;
+  --serif-cjk:"Noto Serif TC", "Fraunces", serif;
+  --sans:     "Manrope", "Noto Sans TC", -apple-system, sans-serif;
+  --sans-cjk: "Noto Sans TC", "Manrope", sans-serif;
+
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 56px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--sans-cjk);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-weight:400;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(168,112,63,.04), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20,59,52,.05), transparent 50%);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+
+/* =========================================================
+   雙語切換  Bilingual System
+   ========================================================= */
+/* 預設顯示中文，隱藏英文 */
+.en, .en-block{display:none}
+.zh{display:inline}
+.zh-block{display:block}
+/* 切換到英文 */
+body.en .zh,body.en .zh-block{display:none}
+body.en .en{display:inline}
+body.en .en-block{display:block}
+/* 英文模式時調整字型偏好 */
+body.en{font-family:var(--sans)}
+body.en .section-title,body.en .hero h1,body.en .contact h2{font-family:var(--serif-en);font-weight:400}
+body.en .article h3,body.en .research-card h3,body.en .member h4{font-family:var(--serif-en);font-weight:500}
+body.en .about-text p:first-of-type::first-letter{font-family:var(--serif-en)}
+
+/* =========================================================
+   導航  Navigation
+   ========================================================= */
+nav.top{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px var(--gutter);
+  background:rgba(245,241,234,.78);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, padding .3s ease;
+}
+nav.top.scrolled{border-color:var(--line);padding:14px var(--gutter)}
+nav.top .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{
+  font-family:var(--serif-en);
+  font-size:21px;font-weight:500;letter-spacing:.01em;
+  color:var(--green-deep);
+  display:flex;align-items:baseline;gap:10px;
+}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--bronze);display:inline-block;transform:translateY(-3px)}
+.brand .ko{font-family:var(--serif-cjk);font-weight:600}
+.brand .role{font-size:13px;color:var(--stone);font-weight:400;letter-spacing:.06em;font-family:var(--sans)}
+
+.nav-right{display:flex;align-items:center;gap:24px}
+
+.menu{display:flex;gap:30px;font-size:14px;letter-spacing:.04em;font-family:var(--sans-cjk)}
+body.en .menu{font-family:var(--sans)}
+.menu a{color:var(--ink-soft);position:relative;padding:4px 0;transition:color .25s}
+.menu a:hover{color:var(--green-deep)}
+.menu a::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;
+  background:var(--bronze);transition:width .3s ease;
+}
+.menu a:hover::after{width:100%}
+
+/* 語言切換按鈕 */
+.lang-toggle{
+  display:flex;border:1px solid var(--line);border-radius:30px;
+  overflow:hidden;font-size:12px;letter-spacing:.08em;
+  background:rgba(245,241,234,.5);
+}
+.lang-toggle button{
+  padding:6px 12px;color:var(--stone);
+  font-family:var(--sans);font-weight:500;
+  transition:all .25s;
+}
+.lang-toggle button.active{
+  background:var(--green-deep);color:var(--paper);
+}
+
+.menu-toggle{display:none}
+
+@media (max-width:980px){
+  .menu{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:8px 0;
+    transform:translateY(-10px);opacity:0;pointer-events:none;
+    transition:all .25s ease;
+  }
+  .menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .menu a{padding:14px var(--gutter);border-bottom:1px solid var(--line)}
+  .menu a:last-child{border-bottom:none}
+  .menu-toggle{display:flex;flex-direction:column;gap:5px;padding:6px}
+  .menu-toggle span{width:22px;height:1.5px;background:var(--ink)}
+}
+@media (max-width:560px){
+  .brand .role{display:none}
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero{padding:160px var(--gutter) 100px;position:relative;overflow:hidden}
+.hero .grid{
+  max-width:var(--container);margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;
+}
+.hero-eyebrow{
+  font-family:var(--sans);
+  font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--bronze);margin-bottom:24px;
+  display:flex;align-items:center;gap:14px;
+}
+.hero-eyebrow::before{content:"";width:36px;height:1px;background:var(--bronze)}
+.hero h1{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(40px, 6.4vw, 86px);
+  line-height:1.08;letter-spacing:-.01em;
+  color:var(--green-deep);margin-bottom:32px;
+}
+.hero h1 .em{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;color:var(--bronze);
+}
+body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
+.hero-sub{
+  font-size:17px;line-height:1.8;
+  color:var(--ink-soft);max-width:48ch;margin-bottom:40px;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:32px;
+  padding-top:32px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--stone);letter-spacing:.04em;
+}
+.hero-meta div strong{
+  display:block;color:var(--ink);font-weight:600;font-size:14px;
+  margin-bottom:4px;letter-spacing:0;
+}
+
+.portrait{
+  position:relative;aspect-ratio:4/5;
+  background:var(--paper-warm);overflow:hidden;
+  border:1px solid var(--line);
+}
+.portrait::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(20,59,52,.18), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(168,112,63,.15), transparent 55%);
+}
+.portrait .placeholder{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--stone);font-size:13px;letter-spacing:.1em;text-align:center;
+}
+.portrait .placeholder strong{
+  display:block;font-family:var(--serif-cjk);font-style:normal;
+  font-size:42px;color:var(--green);font-weight:500;letter-spacing:.05em;
+}
+.portrait-tag{
+  position:absolute;left:24px;bottom:24px;
+  background:var(--paper);padding:10px 14px;
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  color:var(--green-deep);border:1px solid var(--line);
+}
+
+.deco-no{
+  position:absolute;
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--bronze);opacity:.18;
+  font-size:clamp(80px,14vw,200px);font-weight:300;
+  pointer-events:none;user-select:none;
+}
+.hero .deco-no{top:80px;right:-20px}
+
+@media (max-width:880px){
+  .hero{padding:130px var(--gutter) 70px}
+  .hero .grid{grid-template-columns:1fr;gap:40px}
+  .portrait{max-width:340px}
+}
+
+/* =========================================================
+   Section base
+   ========================================================= */
+section{padding:100px 0;position:relative}
+
+.section-head{
+  display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:start;
+  margin-bottom:64px;padding-bottom:28px;border-bottom:1px solid var(--line);
+}
+.section-num{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:14px;color:var(--bronze);font-weight:400;letter-spacing:.05em;
+  white-space:nowrap;padding-top:10px;
+}
+.section-title{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(30px,4.5vw,52px);
+  line-height:1.15;letter-spacing:-.005em;
+  color:var(--green-deep);
+}
+.section-title .sub{
+  display:block;font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:.42em;color:var(--bronze);letter-spacing:.04em;margin-top:8px;
+}
+
+@media (max-width:680px){
+  .section-head{grid-template-columns:1fr;gap:14px}
+}
+
+/* =========================================================
+   About
+   ========================================================= */
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+.about-text p{
+  font-size:17px;line-height:1.85;
+  color:var(--ink-soft);margin-bottom:22px;
+}
+.about-text p:first-of-type::first-letter{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:3.4em;line-height:1;
+  float:left;margin:6px 12px -2px 0;color:var(--green-deep);
+}
+.about-text .quote{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:21px;line-height:1.55;color:var(--green-deep);
+  padding:24px 0 24px 28px;border-left:2px solid var(--bronze);
+  margin:32px 0;
+}
+.cv-block h4{
+  font-family:var(--sans);font-size:11px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--bronze);font-weight:600;
+  margin-bottom:18px;
+}
+.cv-list{list-style:none}
+.cv-list li{
+  display:grid;grid-template-columns:90px 1fr;gap:20px;
+  padding:14px 0;border-bottom:1px dashed var(--line);
+  font-size:14.5px;
+}
+.cv-list li:last-child{border-bottom:none}
+.cv-list .yr{font-family:var(--serif-en);font-style:italic;font-size:14px;color:var(--bronze)}
+.cv-list .what strong{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+.cv-list .what span{color:var(--stone);font-size:13px}
+
+@media (max-width:880px){.about-grid{grid-template-columns:1fr;gap:50px}}
+
+/* =========================================================
+   Research
+   ========================================================= */
+.research{
+  background:var(--green-deep);color:var(--paper);
+  margin:80px 0;position:relative;overflow:hidden;
+}
+.research::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at top right, rgba(168,112,63,.18), transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(91,122,100,.2), transparent 50%);
+}
+.research .wrap{position:relative}
+.research .section-head{border-color:rgba(245,241,234,.18)}
+.research .section-num{color:var(--bronze-soft)}
+.research .section-title{color:var(--paper)}
+.research .section-title .sub{color:var(--bronze-soft)}
+
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.research-card{
+  padding:36px 32px;
+  border:1px solid rgba(245,241,234,.18);
+  background:rgba(245,241,234,.03);
+  transition:all .35s ease;position:relative;
+}
+.research-card:hover{
+  background:rgba(245,241,234,.06);transform:translateY(-4px);
+}
+.research-card .num{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:13px;color:var(--bronze-soft);margin-bottom:24px;
+}
+.research-card h3{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:22px;line-height:1.4;
+  color:var(--paper);margin-bottom:14px;
+}
+.research-card p{font-size:14.5px;line-height:1.7;color:rgba(245,241,234,.72)}
+.research-card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.research-card .tag{
+  font-size:11px;letter-spacing:.08em;
+  padding:5px 10px;
+  border:1px solid rgba(199,154,110,.4);
+  color:var(--bronze-soft);border-radius:2px;
+}
+
+.spotlight{
+  margin-top:50px;padding:36px 40px;
+  border:1px solid rgba(199,154,110,.35);
+  background:rgba(168,112,63,.06);
+  display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;
+}
+.spotlight .label{
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  color:var(--bronze-soft);letter-spacing:.04em;
+}
+.spotlight .label::before{content:"❋ ";color:var(--bronze-soft)}
+.spotlight h4{
+  font-family:var(--serif-cjk);font-weight:500;font-size:20px;
+  color:var(--paper);margin:8px 0 6px;
+}
+body.en .spotlight h4{font-family:var(--serif-en);font-weight:500}
+.spotlight p{font-size:14px;line-height:1.65;color:rgba(245,241,234,.7)}
+
+@media (max-width:880px){
+  .research-grid{grid-template-columns:1fr}
+  .spotlight{grid-template-columns:1fr;gap:18px;padding:28px}
+}
+
+/* =========================================================
+   Articles
+   ========================================================= */
+.tabs{display:flex;gap:6px;margin-bottom:48px;border-bottom:1px solid var(--line)}
+.tab{
+  padding:14px 24px;
+  font-family:var(--sans-cjk);font-size:14.5px;font-weight:500;
+  color:var(--stone);letter-spacing:.02em;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:all .25s;
+}
+body.en .tab{font-family:var(--sans)}
+.tab .lbl{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:12px;color:var(--bronze);margin-left:6px;font-weight:400;
+}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--green-deep);border-color:var(--bronze)}
+
+.articles-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid var(--line);
+}
+.article{
+  padding:36px 32px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  transition:background .3s;cursor:pointer;display:block;
+}
+.article:nth-child(3n){border-right:none}
+.article:hover{background:var(--paper-warm)}
+.article .meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bronze);margin-bottom:20px;
+}
+.article .cat{font-weight:600}
+.article .date{font-family:var(--serif-en);font-style:italic;letter-spacing:.04em;text-transform:none;color:var(--stone)}
+.article h3{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:21px;line-height:1.45;
+  color:var(--green-deep);margin-bottom:16px;transition:color .25s;
+}
+.article:hover h3{color:var(--bronze)}
+.article p{font-size:14px;line-height:1.7;color:var(--ink-soft);margin-bottom:24px}
+.article .more{
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  color:var(--green-deep);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.article .more::after{content:"→";transition:transform .25s}
+.article:hover .more::after{transform:translateX(4px)}
+
+.tab-panel{display:none}
+.tab-panel.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:880px){
+  .articles-grid{grid-template-columns:1fr}
+  .article{border-right:none}
+  .tabs{overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap}
+}
+
+/* =========================================================
+   Lab Members
+   ========================================================= */
+.lab-intro{max-width:64ch;font-size:17px;line-height:1.85;color:var(--ink-soft);margin-bottom:64px}
+.members-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 28px}
+.member{position:relative;text-align:left}
+.member .avatar{
+  aspect-ratio:1/1;background:var(--paper-warm);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif-cjk);font-size:48px;font-weight:500;color:var(--moss);
+  margin-bottom:18px;position:relative;overflow:hidden;
+  transition:all .3s;
+}
+.member .avatar::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 50%, rgba(168,112,63,.08) 100%);
+}
+.member:hover .avatar{border-color:var(--bronze);transform:translateY(-4px)}
+.member .role{
+  font-family:var(--sans);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--bronze);font-weight:600;margin-bottom:6px;
+}
+.member h4{
+  font-family:var(--serif-cjk);font-weight:500;font-size:17px;
+  color:var(--green-deep);margin-bottom:4px;line-height:1.3;
+}
+.member .focus{font-size:13px;color:var(--stone);line-height:1.55}
+
+@media (max-width:880px){.members-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.members-grid{gap:24px 18px}}
+
+/* =========================================================
+   Publications
+   ========================================================= */
+.pub-list{list-style:none}
+.pub-list li{
+  display:grid;grid-template-columns:60px 1fr auto;gap:28px;align-items:baseline;
+  padding:22px 0;border-bottom:1px solid var(--line);transition:padding .25s;
+}
+.pub-list li:hover{padding-left:8px}
+.pub-list .yr{font-family:var(--serif-en);font-style:italic;font-size:15px;color:var(--bronze)}
+.pub-list .ref{font-size:14.5px;line-height:1.65;color:var(--ink-soft)}
+.pub-list .ref strong{color:var(--ink);font-weight:600}
+.pub-list .ref em{font-family:var(--serif-en);font-style:italic;color:var(--green-deep)}
+.pub-list .link{
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  color:var(--bronze);white-space:nowrap;
+}
+.pub-list .link:hover{text-decoration:underline}
+
+.pub-cta{
+  margin-top:36px;padding:20px 24px;
+  background:var(--paper-warm);border:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-size:14px;
+}
+.pub-cta a{
+  font-family:var(--serif-en);font-style:italic;color:var(--bronze);font-size:14px;
+}
+.pub-cta a:hover{text-decoration:underline}
+
+@media (max-width:680px){
+  .pub-list li{grid-template-columns:1fr;gap:6px}
+  .pub-list .yr{margin-bottom:4px}
+}
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact{background:var(--paper-warm);padding:100px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.contact h2{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(34px,4.8vw,60px);line-height:1.15;
+  color:var(--green-deep);margin-bottom:24px;
+}
+.contact h2 .em{font-family:var(--serif-en);font-style:italic;color:var(--bronze)}
+.contact p{font-size:17px;line-height:1.8;color:var(--ink-soft);max-width:46ch;margin-bottom:32px}
+.contact-info{list-style:none;border-top:1px solid var(--line)}
+.contact-info li{
+  display:grid;grid-template-columns:130px 1fr;gap:24px;
+  padding:20px 0;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.contact-info .label{
+  font-family:var(--sans);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--bronze);font-weight:600;padding-top:3px;
+}
+.contact-info .val a:hover{color:var(--bronze)}
+
+@media (max-width:880px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+footer{
+  background:var(--green-deep);color:rgba(245,241,234,.72);
+  padding:50px var(--gutter) 30px;font-size:13px;
+}
+footer .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
+}
+footer .brand{color:var(--paper)}
+footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,234,.5)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.hero .reveal{transition-duration:1s}
+</style>
+</head>
+<body class="zh">
+
+<!-- ============================== 導航 ============================== -->
+<nav class="top" id="topnav">
+  <div class="row">
+    <a href="#top" class="brand">
+      <span class="dot"></span>
+      <span class="ko">李卓豪</span>
+      <span class="role">CHO-HAO LEE, M.D.</span>
+    </a>
+
+    <div class="nav-right">
+      <div class="menu" id="menu">
+        <a href="#about"><span class="zh">關於</span><span class="en">About</span></a>
+        <a href="#research"><span class="zh">研究</span><span class="en">Research</span></a>
+        <a href="#articles"><span class="zh">文章</span><span class="en">Writing</span></a>
+        <a href="#lab"><span class="zh">團隊</span><span class="en">Team</span></a>
+        <a href="#publications"><span class="zh">著作</span><span class="en">Publications</span></a>
+        <a href="#contact"><span class="zh">聯繫</span><span class="en">Contact</span></a>
+      </div>
+
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="zh" class="active">中</button>
+        <button data-lang="en">EN</button>
+      </div>
+
+      <button class="menu-toggle" aria-label="Menu" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================== Hero ============================== -->
+<header class="hero" id="top">
+  <span class="deco-no">№. 01</span>
+  <div class="grid">
+    <div class="reveal">
+      <div class="hero-eyebrow">
+        Internal Medicine ・ Hematology &amp; Oncology
+      </div>
+
+      <h1>
+        <span class="zh-block">在臨床與研究<br>之間，<span class="em">尋找答案。</span></span>
+        <span class="en-block">Between bedside<br>and bench, <span class="em">seeking answers.</span></span>
+      </h1>
+
+      <p class="hero-sub zh-block">
+        我是李卓豪，三軍總醫院血液腫瘤科主治醫師，國防醫學院醫學系助理教授。
+        長年致力於將病房裡未被回答的問題，
+        透過系統性回顧、薈萃分析與真實世界資料分析，轉化為可被驗證的科學證據。
+      </p>
+      <p class="hero-sub en-block">
+        I'm Dr. Cho-Hao Howard Lee — clinical physician in Hematology &amp; Oncology
+        at Tri-Service General Hospital, and Assistant Professor at National Defense Medical Center.
+        My work translates unanswered bedside questions into testable evidence through systematic reviews,
+        meta-analyses, and real-world data.
+      </p>
+
+      <div class="hero-meta">
+        <div>
+          <strong><span class="zh">主治醫師</span><span class="en">Clinical Physician</span></strong>
+          <span class="zh">三軍總醫院 血液腫瘤科</span>
+          <span class="en">TSGH ・ Hematology &amp; Oncology</span>
+        </div>
+        <div>
+          <strong><span class="zh">助理教授</span><span class="en">Assistant Professor</span></strong>
+          <span class="zh">國防醫學院 醫學系</span>
+          <span class="en">NDMC ・ School of Medicine</span>
+        </div>
+        <div>
+          <strong><span class="zh">研究方向</span><span class="en">Research Focus</span></strong>
+          ICI ・ RWE ・ Meta-analysis
+        </div>
+      </div>
+    </div>
+
+    <div class="portrait reveal">
+      <div class="placeholder">
+        <strong>李卓豪</strong>
+        <span>[ Replace with your photo ]</span>
+      </div>
+      <div class="portrait-tag">Taipei ・ Est. 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================== About ============================== -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-num">§ 02 — Bio</div>
+      <h2 class="section-title">
+        <span class="zh">關於我</span><span class="en">About</span>
+        <span class="sub">Physician ・ Scientist ・ Educator</span>
+      </h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="zh-block">李卓豪醫師現任三軍總醫院血液腫瘤科主治醫師，並於國防醫學院醫學系任助理教授。畢業於國防醫學院醫學系後，先後完成內科住院醫師訓練（2015–2018）與血液腫瘤次專科訓練（2020–2023），由戴明燊教授與陳宇欽教授指導。</p>
+        <p class="zh-block">臨床工作之外，致力於以實證醫學方法回答尚未解決的臨床問題，已發表逾 45 篇 SCI 期刊論文，研究涵蓋系統性回顧與網絡薈萃分析（含 Cochrane Review）、真實世界資料（TriNetX），以及免疫檢查點抑制劑相關的安全性議題。</p>
+
+        <div class="quote zh-block">「最好的臨床問題，往往在病房裡誕生；好的研究方法，能讓它們找到答案。」</div>
+
+        <p class="zh-block">近期重要發表包括兩篇刊登於 <em>JAMA Dermatology</em> 的免疫治療相關不良反應研究，以及刊載於 <em>The Breast</em> 上關於 CDK4/6 抑制劑（abemaciclib vs palbociclib）的真實世界比較性研究。並獲選為 ASH 亞太臨床試驗訓練計劃（CTTI 2025）與 ASCO 國際臨床研究課程（ICRC Poland 2025）學員，2026 年入圍 ASCO 亞太區國際臨床研究學者（ICRS Finalist）。</p>
+
+        <p class="en-block">Dr. Cho-Hao Howard Lee is a Clinical Physician in the Division of Hematology and Oncology at Tri-Service General Hospital, and an Assistant Professor at the School of Medicine, National Defense Medical Center. After receiving his MD from NDMC, he completed Internal Medicine residency (2015–2018) and Hematology &amp; Oncology fellowship (2020–2023) at TSGH, mentored by Dr. Ming-Shen Dai and Dr. Yeu-Chin Chen.</p>
+        <p class="en-block">Beyond clinical practice, he is committed to answering unresolved bedside questions through evidence-based methods, with over 45 SCI-indexed publications spanning systematic reviews and network meta-analyses (including Cochrane Reviews), real-world evidence (TriNetX), and the safety of immune checkpoint inhibitors.</p>
+
+        <div class="quote en-block">"The best clinical questions are born at the bedside; the right methods help them find their answers."</div>
+
+        <p class="en-block">Recent work includes two papers in <em>JAMA Dermatology</em> on immunotherapy-related cutaneous adverse events, and a real-world comparative study of CDK4/6 inhibitors (abemaciclib vs. palbociclib) in <em>The Breast</em>. He was selected for the ASH Clinical Trial Training Institute Asia Pacific (CTTI 2025) and the ASCO International Clinical Research Course (ICRC Poland 2025), and is a 2026 Finalist of the ASCO International Clinical Research Scholar program (Asia Pacific).</p>
+      </div>
+
+      <div class="cv-block reveal">
+        <h4><span class="zh">學歷與資歷</span><span class="en">Curriculum Vitae</span></h4>
+        <ul class="cv-list">
+          <li>
+            <span class="yr">2023 –</span>
+            <div class="what">
+              <strong><span class="zh">助理教授</span><span class="en">Assistant Professor</span></strong>
+              <span class="zh">國防醫學院 醫學系</span>
+              <span class="en">School of Medicine, NDMC</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2021 –</span>
+            <div class="what">
+              <strong><span class="zh">主治醫師</span><span class="en">Clinical Physician</span></strong>
+              <span class="zh">三軍總醫院 內科部 血液腫瘤科</span>
+              <span class="en">Hematology &amp; Oncology, Internal Medicine, TSGH</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2020 – 2023</span>
+            <div class="what">
+              <strong><span class="zh">血液腫瘤次專科訓練</span><span class="en">Hem/Onc Fellowship</span></strong>
+              <span class="zh">三軍總醫院／指導：戴明燊、陳宇欽 教授</span>
+              <span class="en">TSGH ・ Mentors: Dr. Ming-Shen Dai, Dr. Yeu-Chin Chen</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2015 – 2018</span>
+            <div class="what">
+              <strong><span class="zh">內科住院醫師</span><span class="en">Internal Medicine Residency</span></strong>
+              <span class="zh">三軍總醫院／指導：何景良 教授</span>
+              <span class="en">TSGH ・ Mentor: Dr. Ching-Liang Ho</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2006 – 2013</span>
+            <div class="what">
+              <strong><span class="zh">醫學士 (M.D.)</span><span class="en">Doctor of Medicine</span></strong>
+              <span class="zh">國防醫學院 醫學系</span>
+              <span class="en">School of Medicine, National Defense Medical Center</span>
+            </div>
+          </li>
+        </ul>
+
+        <h4 style="margin-top:40px">
+          <span class="zh">國際培訓與獎項</span><span class="en">International Training &amp; Honors</span>
+        </h4>
+        <ul class="cv-list">
+          <li>
+            <span class="yr">2026</span>
+            <div class="what">
+              <strong>ASCO ICRS — Asia Pacific Finalist</strong>
+              <span class="zh">國際臨床研究學者計劃 入圍</span>
+              <span class="en">International Clinical Research Scholar</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2025</span>
+            <div class="what">
+              <strong>ASH CTTI ・ ASCO ICRC Poland</strong>
+              <span class="zh">血液學會臨床試驗訓練 ・ 腫瘤學會國際課程</span>
+              <span class="en">Clinical Trial Training Institute ・ Int'l Research Course</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2017–22</span>
+            <div class="what">
+              <strong><span class="zh">最佳臨床教育獎</span><span class="en">Best Clinical Educator</span></strong>
+              <span class="zh">三軍總醫院 (4 度獲獎)</span>
+              <span class="en">TSGH (4 times)</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2020</span>
+            <div class="what">
+              <strong>HST Roth's Hematological Research Award</strong>
+              <span class="zh">中華民國血液病學會</span>
+              <span class="en">Hematology Society of Taiwan</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Research ============================== -->
+<section class="research" id="research">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-num">§ 03 — Research</div>
+      <h2 class="section-title">
+        <span class="zh">研究領域</span><span class="en">Research Focus</span>
+        <span class="sub">Where bedside meets evidence.</span>
+      </h2>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="num">i.</div>
+        <h3>
+          <span class="zh">免疫檢查點抑制劑安全性</span>
+          <span class="en">Immune Checkpoint Inhibitor Safety</span>
+        </h3>
+        <p class="zh-block">關注免疫治療相關不良反應（irAE）的發生率、預測生物指標，與長期預後。近期作品包括兩篇刊載於 <em>JAMA Dermatology</em> 的免疫治療皮膚毒性研究。</p>
+        <p class="en-block">Investigating the incidence, predictive biomarkers, and long-term outcomes of immune-related adverse events (irAEs). Recent work includes two papers in <em>JAMA Dermatology</em> on cutaneous toxicity.</p>
+        <div class="tags">
+          <span class="tag">ICI</span><span class="tag">irAE</span><span class="tag">JAMA Derm</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="num">ii.</div>
+        <h3>
+          <span class="zh">真實世界資料分析</span>
+          <span class="en">Real-World Evidence in Oncology</span>
+        </h3>
+        <p class="zh-block">運用 TriNetX 跨國研究網絡，採用 target trial emulation 與傾向分數配對方法，比較治療效果與評估罕見事件。代表作為 <em>The Breast</em> 上 abemaciclib vs palbociclib 的真實世界比較研究。</p>
+        <p class="en-block">Leveraging TriNetX with target trial emulation and propensity-score matching to compare treatment effectiveness and assess rare events. Representative work: abemaciclib vs. palbociclib comparison in <em>The Breast</em>.</p>
+        <div class="tags">
+          <span class="tag">TriNetX</span><span class="tag">PSM</span><span class="tag">TTE</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="num">iii.</div>
+        <h3>
+          <span class="zh">系統性回顧與薈萃分析</span>
+          <span class="en">Systematic Reviews &amp; Meta-Analyses</span>
+        </h3>
+        <p class="zh-block">作為 Cochrane Library 的 Review Author，發表三篇 Cochrane Database 系統性回顧（CLL 維持治療、SMM 早期介入、FLT3-AML 移植後 TKI 維持），並廣泛應用網絡薈萃分析與 trial sequential analysis。</p>
+        <p class="en-block">As a Cochrane Review Author, published three Cochrane Database reviews (CLL maintenance, SMM early intervention, post-transplant TKI in FLT3-AML), with broad use of network meta-analysis and trial sequential analysis.</p>
+        <div class="tags">
+          <span class="tag">Cochrane</span><span class="tag">Network MA</span><span class="tag">TSA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spotlight: 進行中研究 -->
+    <div class="spotlight reveal">
+      <div>
+        <div class="label">
+          <span class="zh">進行中研究</span><span class="en">Ongoing Project</span>
+        </div>
+        <h4>
+          <span class="zh">COVID-19 mRNA 疫苗與免疫治療不良反應</span>
+          <span class="en">COVID-19 mRNA Vaccination &amp; irAEs in ICI-Treated Cancer Patients</span>
+        </h4>
+      </div>
+      <p class="zh-block">運用 TriNetX 跨國研究網絡，探討 mRNA 疫苗接種時機與接受免疫檢查點抑制劑的癌症病人發生免疫相關不良反應之關聯（每組預計 ≥ 400 例）。延伸自 Grippin et al. 2025 <em>Nature</em> 之發現。</p>
+      <p class="en-block">Using the TriNetX research network to investigate the association between COVID-19 mRNA vaccination timing and irAEs in cancer patients receiving ICIs (≥ 400 per group). Building on Grippin et al. 2025 <em>Nature</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Articles ============================== -->
+<section id="articles">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-num">§ 04 — Writing</div>
+      <h2 class="section-title">
+        <span class="zh">文章</span><span class="en">Notes &amp; Articles</span>
+        <span class="sub">For colleagues, patients, and curious minds.</span>
+      </h2>
+    </div>
+
+    <div class="tabs reveal" role="tablist">
+      <button class="tab active" data-tab="news">
+        <span class="zh">最新醫療資訊</span><span class="en">Updates</span>
+        <span class="lbl">/ Updates</span>
+      </button>
+      <button class="tab" data-tab="edu">
+        <span class="zh">病人衛教文章</span><span class="en">Patient Education</span>
+        <span class="lbl">/ Education</span>
+      </button>
+      <button class="tab" data-tab="research">
+        <span class="zh">研究筆記</span><span class="en">Research Notes</span>
+        <span class="lbl">/ Methods</span>
+      </button>
+    </div>
+
+    <!-- Tab 1: 最新醫療資訊 -->
+    <div class="tab-panel active" id="tab-news">
+      <div class="articles-grid reveal">
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">最新研究</span><span class="en">New Study</span></span>
+            <span class="date">May 2026</span>
+          </div>
+          <h3>
+            <span class="zh">2026 ASCO 年會：HR+/HER2− 早期乳癌輔助治療新進展</span>
+            <span class="en">2026 ASCO: New Adjuvant Strategies in HR+/HER2− Early Breast Cancer</span>
+          </h3>
+          <p class="zh-block">本月年會公布的隨機試驗，對標準輔助療程帶來幾項重要修正，本文整理我的臨床觀察與門診因應建議……</p>
+          <p class="en-block">Highlights from the latest randomized trials presented this month, with my clinical takeaways for outpatient practice...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">指引更新</span><span class="en">Guideline</span></span>
+            <span class="date">Apr 2026</span>
+          </div>
+          <h3>
+            <span class="zh">NCCN CLL/SLL v.2.2026 重點摘要</span>
+            <span class="en">NCCN CLL/SLL v.2.2026 ・ What's New</span>
+          </h3>
+          <p class="zh-block">第一線 BTKi 與 venetoclax-based 療程的選擇，以及 fixed-duration vs continuous 治療策略的最新演變……</p>
+          <p class="en-block">Choices between first-line BTKi and venetoclax-based regimens, and the evolving landscape of fixed-duration vs continuous therapy...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">真實世界資料</span><span class="en">RWE</span></span>
+            <span class="date">Mar 2026</span>
+          </div>
+          <h3>
+            <span class="zh">免疫治療在亞洲族群的真實世界毒性差異</span>
+            <span class="en">irAE Profiles Across Ethnic Groups: A TriNetX Analysis</span>
+          </h3>
+          <p class="zh-block">透過 TriNetX 全球網絡，比較東亞與西方人群在 ICI 治療下 irAE 譜系的差異，與其臨床意涵……</p>
+          <p class="en-block">Comparing irAE profiles between East Asian and Western populations using the TriNetX global network, with clinical implications...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tab 2: 病人衛教 -->
+    <div class="tab-panel" id="tab-edu">
+      <div class="articles-grid reveal">
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">給病人</span><span class="en">For Patients</span></span>
+            <span class="date">Apr 2026</span>
+          </div>
+          <h3>
+            <span class="zh">剛被診斷出血液癌症，第一週可以做哪些準備？</span>
+            <span class="en">Newly Diagnosed with a Blood Cancer ・ What to Do in the First Week</span>
+          </h3>
+          <p class="zh-block">從就醫流程、家屬陪同、第一次門診該帶什麼資料，到情緒與營養的調適，給病人完整的入門建議……</p>
+          <p class="en-block">From navigating clinic visits and what to bring to your first appointment, to nutrition and emotional adjustment — a complete starter guide...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">給家屬</span><span class="en">For Family</span></span>
+            <span class="date">Mar 2026</span>
+          </div>
+          <h3>
+            <span class="zh">化療期間居家照護：發燒、感染、出血該怎麼處理？</span>
+            <span class="en">Home Care During Chemotherapy ・ Fever, Infection, Bleeding</span>
+          </h3>
+          <p class="zh-block">白血球低下時的感染預防、何時必須回急診、以及照顧者最常忽略的小細節，門診常被問到的整理……</p>
+          <p class="en-block">Infection prevention during neutropenia, when to return to the ER, and the small caregiver details that are most often overlooked...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">免疫治療衛教</span><span class="en">Immunotherapy</span></span>
+            <span class="date">Feb 2026</span>
+          </div>
+          <h3>
+            <span class="zh">免疫治療的「免疫不良反應」是什麼？</span>
+            <span class="en">Understanding Immune-Related Adverse Events (irAEs)</span>
+          </h3>
+          <p class="zh-block">用病人聽得懂的方式說明 irAE：哪些症狀要立刻回診、哪些可以觀察、為什麼類固醇會被用上……</p>
+          <p class="en-block">Explaining irAEs in plain language: which symptoms warrant urgent return, which can be observed, and why corticosteroids are sometimes needed...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tab 3: 研究筆記 -->
+    <div class="tab-panel" id="tab-research">
+      <div class="articles-grid reveal">
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">方法學</span><span class="en">Methods</span></span>
+            <span class="date">Apr 2026</span>
+          </div>
+          <h3>
+            <span class="zh">PSM 中常被忽略的三個陷阱</span>
+            <span class="en">Three Pitfalls in Propensity Score Matching</span>
+          </h3>
+          <p class="zh-block">我在審 RWE 論文時最常看到的方法學錯誤，以及如何用 E-value 與敏感性分析強化結論……</p>
+          <p class="en-block">The most common methodological errors I see in RWE manuscripts, and how to fortify conclusions with E-values and sensitivity analyses...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">教學</span><span class="en">Tutorial</span></span>
+            <span class="date">Mar 2026</span>
+          </div>
+          <h3>
+            <span class="zh">用 TriNetX 做 target trial emulation：從定義到 IRB</span>
+            <span class="en">Target Trial Emulation on TriNetX ・ From PICOT to IRB</span>
+          </h3>
+          <p class="zh-block">給臨床醫師的逐步指南：如何把一個臨床問題，轉成一個能在 TriNetX 上跑出來的研究設計……</p>
+          <p class="en-block">A step-by-step guide for clinicians: turning a bedside question into an executable TriNetX study design...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article" href="#">
+          <div class="meta">
+            <span class="cat"><span class="zh">心得</span><span class="en">Reflection</span></span>
+            <span class="date">Feb 2026</span>
+          </div>
+          <h3>
+            <span class="zh">ASCO ICRC Poland 2025 ─ 國際課程心得</span>
+            <span class="en">Notes from ASCO ICRC Poland 2025</span>
+          </h3>
+          <p class="zh-block">兩週密集培訓回來後，我對「設計一個能改變實作的臨床試驗」這件事，有了完全不同的想法……</p>
+          <p class="en-block">After two weeks of intensive training, my view on what it takes to "design a trial that changes practice" has fundamentally shifted...</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Lab Members ============================== -->
+<section id="lab">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-num">§ 05 — Team</div>
+      <h2 class="section-title">
+        <span class="zh">研究團隊</span><span class="en">The Team</span>
+        <span class="sub">Clinicians, fellows, and collaborators.</span>
+      </h2>
+    </div>
+
+    <p class="lab-intro reveal zh-block">
+      這是一個跨機構、跨次專科的臨床研究團隊，核心成員來自三軍總醫院血液腫瘤科與國防醫學院，
+      並與彰化基督教醫院、衛福部桃園醫院等機構長期合作。
+      我們聚焦於血液腫瘤、免疫治療安全性、以及實證醫學方法的應用。
+    </p>
+    <p class="lab-intro reveal en-block">
+      A cross-institutional, multi-specialty clinical research team. Core members are based in
+      Hematology &amp; Oncology at Tri-Service General Hospital and the National Defense Medical Center,
+      with longstanding collaborations across Changhua Christian Hospital, Taoyuan Armed Forces General Hospital, and others.
+      Our focus: hematology-oncology, immunotherapy safety, and evidence-based methods.
+    </p>
+
+    <div class="members-grid">
+      <div class="member reveal">
+        <div class="avatar">李</div>
+        <div class="role">Principal Investigator</div>
+        <h4>
+          <span class="zh">李卓豪 醫師</span>
+          <span class="en">Cho-Hao Lee, MD</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">血液腫瘤 ・ 真實世界資料</span>
+          <span class="en">Heme/Onc ・ Real-World Evidence</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">陳</div>
+        <div class="role">Hem/Onc Fellow</div>
+        <h4>
+          <span class="zh">陳柏皇 醫師</span>
+          <span class="en">Po-Huang Chen, MD</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">薈萃分析 ・ 機器學習</span>
+          <span class="en">Meta-analysis ・ Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">周</div>
+        <div class="role">Co-Investigator</div>
+        <h4>
+          <span class="zh">周宏傑 醫師</span>
+          <span class="en">Hong-Jie Jhou, MD</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">神經內科 ・ 資料科學</span>
+          <span class="en">Neurology ・ Data Science</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">陳</div>
+        <div class="role">Research Fellow</div>
+        <h4>
+          <span class="zh">陳郁涵 醫師</span>
+          <span class="en">Yu-Han Chen, MD</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">血液腫瘤 ・ 急性白血病</span>
+          <span class="en">Heme/Onc ・ Acute Leukemia</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">楊</div>
+        <div class="role">Research Collaborator</div>
+        <h4>
+          <span class="zh">楊東隆 醫師</span>
+          <span class="en">Tung-Lung Yang, MD</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">頭頸腫瘤 ・ 系統性回顧</span>
+          <span class="en">Head &amp; Neck ・ Systematic Review</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">孫</div>
+        <div class="role">Research Collaborator</div>
+        <h4>
+          <span class="zh">Andrea Yue-En Sun</span>
+          <span class="en">Andrea Yue-En Sun</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">臨床流行病學 ・ 真實世界資料</span>
+          <span class="en">Clinical Epi ・ Real-World Data</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">＋</div>
+        <div class="role">Open Position</div>
+        <h4>
+          <span class="zh">徵：研究助理</span>
+          <span class="en">Research Assistant</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">熟悉統計與資料庫者佳</span>
+          <span class="en">Statistics / database experience preferred</span>
+        </div>
+      </div>
+
+      <div class="member reveal">
+        <div class="avatar">＋</div>
+        <div class="role">Open Position</div>
+        <h4>
+          <span class="zh">徵：醫學生／住院醫師</span>
+          <span class="en">Medical Student / Resident</span>
+        </h4>
+        <div class="focus">
+          <span class="zh">對 RWE 與血液腫瘤有興趣</span>
+          <span class="en">Interested in RWE &amp; heme-onc research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Publications ============================== -->
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-num">§ 06 — Publications</div>
+      <h2 class="section-title">
+        <span class="zh">代表著作</span><span class="en">Selected Publications</span>
+        <span class="sub">45+ SCI-indexed papers ・ 2017–present</span>
+      </h2>
+    </div>
+
+    <ul class="pub-list reveal">
+      <li>
+        <span class="yr">2025</span>
+        <span class="ref">
+          To SY, <strong>Lee CH</strong>*, Chen YH, et al. Psoriasis risk with immune checkpoint inhibitors. <em>JAMA Dermatology.</em> 2025;161(1):31-38.
+        </span>
+        <a class="link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Lee+CH+JAMA+dermatology+psoriasis" target="_blank">PubMed →</a>
+      </li>
+
+      <li>
+        <span class="yr">2025</span>
+        <span class="ref">
+          To SY, <strong>Lee CH</strong>, Chen YH, et al. Autoimmune skin diseases and survival outcomes after antineoplastic treatment in patients with cancer. <em>JAMA Dermatology.</em> 2025.
+        </span>
+        <a class="link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Lee+CH+JAMA+dermatology+autoimmune" target="_blank">PubMed →</a>
+      </li>
+
+      <li>
+        <span class="yr">2025</span>
+        <span class="ref">
+          <strong>Lee CH</strong>, Chen PH, Jhou HJ, et al. Real-world comparative effectiveness of first-line abemaciclib versus palbociclib in HR+/HER2− metastatic breast cancer: a propensity-matched retrospective analysis. <em>The Breast.</em> 2025.
+        </span>
+        <a class="link" href="https://www.thebreastonline.com/article/S0960-9776(25)00614-9/fulltext" target="_blank">DOI →</a>
+      </li>
+
+      <li>
+        <span class="yr">2025</span>
+        <span class="ref">
+          Chen PH, Jhou HJ, <strong>Lee CH</strong>. Tyrosine kinase inhibitor maintenance therapy after stem cell transplantation for FLT3-mutated acute myeloid leukemia. <em>Cochrane Database of Systematic Reviews.</em> 2025;2025(4):CD016090.
+        </span>
+        <a class="link" href="https://www.cochranelibrary.com/cdsr" target="_blank">Cochrane →</a>
+      </li>
+
+      <li>
+        <span class="yr">2025</span>
+        <span class="ref">
+          Chen YH, Sun AE, Narain K, et al., <strong>Lee CH</strong>. Efficacy and safety of early antibiotic de-escalation in febrile neutropenia for patients with hematologic malignancy: a systematic review and meta-analysis. <em>Antimicrobial Agents and Chemotherapy.</em> 2025;69(4):e01597-24.
+        </span>
+        <a class="link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Lee+CH+febrile+neutropenia+de-escalation" target="_blank">PubMed →</a>
+      </li>
+
+      <li>
+        <span class="yr">2024</span>
+        <span class="ref">
+          <strong>Lee CH</strong>, Wu YY, Huang TC, et al. Maintenance therapy for chronic lymphocytic leukaemia. <em>Cochrane Database of Systematic Reviews.</em> 2024.
+        </span>
+        <a class="link" href="https://www.cochranelibrary.com/cdsr" target="_blank">Cochrane →</a>
+      </li>
+
+      <li>
+        <span class="yr">2023</span>
+        <span class="ref">
+          Chen PH, Jhou HJ, Ho CL, Huang HL, <strong>Lee CH</strong>. Early intervention for high risk smoldering multiple myeloma (SMM). <em>Cochrane Database of Systematic Reviews.</em> 2023;2023(9):CD015494.
+        </span>
+        <a class="link" href="https://www.cochranelibrary.com/cdsr" target="_blank">Cochrane →</a>
+      </li>
+
+      <li>
+        <span class="yr">2020</span>
+        <span class="ref">
+          <strong>Lee CH</strong>, Chen PH, Lin C, Wang CY, Ho CL. A network meta-analysis of maintenance therapy in chronic lymphocytic leukemia. <em>PLoS One.</em> 2020;15(1):e0226879.
+        </span>
+        <a class="link" href="https://pubmed.ncbi.nlm.nih.gov/31905214/" target="_blank">PubMed →</a>
+      </li>
+
+      <li>
+        <span class="yr">2018</span>
+        <span class="ref">
+          <strong>Lee CH</strong>, Lin C, Ho CL, Lin JC. Primary fungal prophylaxis in hematological malignancy: a network meta-analysis of randomized controlled trials. <em>Antimicrobial Agents and Chemotherapy.</em> 2018;62(8).
+        </span>
+        <a class="link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Lee+CH+fungal+prophylaxis+network" target="_blank">PubMed →</a>
+      </li>
+    </ul>
+
+    <div class="pub-cta">
+      <span>
+        <span class="zh"><strong>逾 45 篇 SCI 期刊論文</strong>　完整著作清單：</span>
+        <span class="en"><strong>45+ SCI-indexed publications</strong>　Full list:</span>
+      </span>
+      <a href="https://reurl.cc/lgYxz6" target="_blank">
+        <span class="zh">查看完整列表 →</span>
+        <span class="en">View full list →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Contact ============================== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-num" style="margin-bottom:16px">§ 07 — Contact</div>
+        <h2>
+          <span class="zh">歡迎合作 <span class="em">與學術交流。</span></span>
+          <span class="en">Open to collaboration <span class="em">&amp; scholarly exchange.</span></span>
+        </h2>
+        <p class="zh-block">
+          無論您是病人尋求第二意見、媒體採訪、學生希望加入研究團隊，
+          或是其他研究團隊想討論合作計畫，都歡迎透過下方方式聯繫。
+          我會盡快回覆。
+        </p>
+        <p class="en-block">
+          Whether you're a patient seeking a second opinion, a journalist requesting an interview,
+          a student hoping to join the team, or a researcher proposing a collaboration —
+          please reach out using the contact information below. I'll respond as soon as I can.
+        </p>
+      </div>
+
+      <ul class="contact-info reveal">
+        <li>
+          <span class="label">Email</span>
+          <span class="val"><a href="mailto:drleechohao@gmail.com">drleechohao@gmail.com</a></span>
+        </li>
+        <li>
+          <span class="label"><span class="zh">辦公室</span><span class="en">Office</span></span>
+          <span class="val">
+            <span class="zh">三軍總醫院 ・ 內科部 血液腫瘤科</span>
+            <span class="en">TSGH ・ Hematology &amp; Oncology</span>
+          </span>
+        </li>
+        <li>
+          <span class="label"><span class="zh">地址</span><span class="en">Address</span></span>
+          <span class="val">
+            <span class="zh">台北市內湖區成功路二段 325 號</span>
+            <span class="en">No. 325, Sec. 2, Chenggong Rd., Neihu Dist., Taipei</span>
+          </span>
+        </li>
+        <li>
+          <span class="label">Google Scholar</span>
+          <span class="val"><a href="https://scholar.google.com/citations?user=mHGS_nkAAAAJ" target="_blank">scholar.google.com →</a></span>
+        </li>
+        <li>
+          <span class="label">ResearchGate</span>
+          <span class="val"><a href="https://www.researchgate.net/profile/Cho-Hao-Lee" target="_blank">researchgate.net →</a></span>
+        </li>
+        <li>
+          <span class="label"><span class="zh">編輯職務</span><span class="en">Editorial</span></span>
+          <span class="val">
+            <span class="zh">PLOS ONE 學術編輯 ・ MDPI Life / Diagnostics 客座編輯</span>
+            <span class="en">PLOS ONE Academic Editor ・ MDPI Life / Diagnostics Guest Editor</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== Footer ============================== -->
+<footer>
+  <div class="row">
+    <div class="brand">
+      <span class="ko" style="font-family:var(--serif-cjk);font-weight:600">李卓豪</span>
+      <span style="margin-left:10px;font-family:var(--serif-en);font-style:italic;color:rgba(245,241,234,.7);font-size:13px">Cho-Hao Lee, MD ・ Physician · Researcher · Educator</span>
+    </div>
+    <div class="legal">© 2026 ・ Tri-Service General Hospital ・ Taipei, Taiwan</div>
+  </div>
+</footer>
+
+<script>
+/* ===== 滾動產生 nav 邊線 ===== */
+const nav = document.getElementById('topnav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+/* ===== 行動版選單切換 ===== */
+const menuBtn = document.getElementById('menuBtn');
+const menu = document.getElementById('menu');
+menuBtn.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+/* ===== 雙語切換 ===== */
+const langButtons = document.querySelectorAll('.lang-toggle button');
+function setLang(lang){
+  document.body.classList.remove('zh','en');
+  document.body.classList.add(lang);
+  document.documentElement.lang = (lang === 'zh') ? 'zh-Hant' : 'en';
+  langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+}
+langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+/* ===== Tabs ===== */
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + target).classList.add('active');
+  });
+});
+
+/* ===== Reveal on scroll ===== */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -60px 0px'});
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 80 + 'ms';
+  io.observe(el);
+});
+
+document.querySelectorAll('.hero .reveal').forEach(el => {
+  setTimeout(() => el.classList.add('in'), 100);
+});
+</script>
+
+</body>
+</html>
