@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Ribociclib eBC article cover">
+  <defs>
+    <linearGradient id="paperBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f5f1ea"/>
+      <stop offset="1" stop-color="#ede6d8"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.7" cy="0.7" r="0.7">
+      <stop offset="0" stop-color="rgba(181,107,122,0.10)"/>
+      <stop offset="1" stop-color="rgba(181,107,122,0)"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#paperBg)"/>
+  <rect width="1200" height="630" fill="url(#warm)"/>
+
+  <!-- Top label -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="6" height="22" fill="#b56b7a"/>
+    <text x="22" y="17" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#3b3a36" letter-spacing="3" font-weight="500">健保新給付 ・ NHI NEWLY COVERED</text>
+  </g>
+  <line x1="80" y1="125" x2="280" y2="125" stroke="#b56b7a" stroke-width="0.6"/>
+
+  <!-- Main title -->
+  <text x="80" y="220" font-family="Noto Serif TC, Fraunces, serif" font-size="58" fill="#0c2a25" font-weight="500" letter-spacing="-0.5">早期乳癌新選擇：</text>
+  <text x="80" y="295" font-family="Fraunces, serif" font-style="italic" font-size="62" fill="#b56b7a" font-weight="400">Ribociclib</text>
+  <text x="80" y="370" font-family="Noto Serif TC, Fraunces, serif" font-size="42" fill="#0c2a25" font-weight="500" letter-spacing="-0.3">健保通過後您該知道的事</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="430" font-family="Manrope, Noto Sans TC, sans-serif" font-size="18" fill="#3b3a36" font-weight="400">
+    NATALEE 試驗結果 ・ 適用條件 ・ 與 abemaciclib 的選擇 ・ 副作用監測
+  </text>
+  <text x="80" y="455" font-family="Manrope, Noto Sans TC, sans-serif" font-size="18" fill="#3b3a36" font-weight="400">
+    一位血液腫瘤科醫師整理的進階衛教文章
+  </text>
+
+  <!-- Divider -->
+  <line x1="80" y1="510" x2="1120" y2="510" stroke="#d8cfbd" stroke-width="0.8"/>
+
+  <!-- Footer -->
+  <g transform="translate(80,545)">
+    <text x="0" y="20" font-family="Fraunces, serif" font-size="22" fill="#0c2a25" font-weight="500">Cho-Hao Howard Lee, MD</text>
+    <text x="0" y="48" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#948a78" letter-spacing="2">三軍總醫院 ・ 血液腫瘤科 ・ 2026・05</text>
+  </g>
+
+  <!-- Right-side: stylized cell-cycle ring with red block -->
+  <g transform="translate(990,290)">
+    <!-- ring -->
+    <circle cx="0" cy="0" r="105" fill="none" stroke="#d8cfbd" stroke-width="1" stroke-dasharray="3,4"/>
+    <!-- G1 -->
+    <circle cx="-105" cy="0" r="32" fill="#cfdce3" stroke="#4f7a8c" stroke-width="0.6"/>
+    <text x="-105" y="6" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="600" fill="#143b34">G1</text>
+    <!-- S -->
+    <circle cx="0" cy="-105" r="32" fill="#ede6d8" stroke="#a8703f" stroke-width="0.6"/>
+    <text x="0" y="-100" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="600" fill="#a8703f">S</text>
+    <!-- G2 -->
+    <circle cx="105" cy="0" r="32" fill="#ede6d8" stroke="#5b7a64" stroke-width="0.6"/>
+    <text x="105" y="6" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="600" fill="#5b7a64">G2</text>
+    <!-- M -->
+    <circle cx="0" cy="105" r="32" fill="#ede6d8" stroke="#5b7a64" stroke-width="0.6"/>
+    <text x="0" y="111" text-anchor="middle" font-family="Manrope, sans-serif" font-size="16" font-weight="600" fill="#5b7a64">M</text>
+
+    <!-- Block: ribociclib blocks G1→S -->
+    <g transform="translate(-50,-58)">
+      <line x1="0" y1="0" x2="42" y2="-32" stroke="#b56b7a" stroke-width="4"/>
+      <line x1="0" y1="-32" x2="42" y2="0" stroke="#b56b7a" stroke-width="4"/>
+    </g>
+
+    <text x="0" y="160" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#3b3a36">CDK4/6 inhibition · G1 arrest</text>
+  </g>
+
+  <!-- Site mark -->
+  <g transform="translate(1080,80)">
+    <circle cx="0" cy="0" r="4" fill="#b56b7a"/>
+    <text x="14" y="5" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0c2a25" font-weight="500">doctor-howard-lee.github.io</text>
+  </g>
+</svg>

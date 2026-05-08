@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Research Note 01 cover">
+  <defs>
+    <linearGradient id="paperBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f5f1ea"/>
+      <stop offset="1" stop-color="#ede6d8"/>
+    </linearGradient>
+    <radialGradient id="cool" cx="0.7" cy="0.7" r="0.7">
+      <stop offset="0" stop-color="rgba(44,91,110,0.10)"/>
+      <stop offset="1" stop-color="rgba(44,91,110,0)"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#paperBg)"/>
+  <rect width="1200" height="630" fill="url(#cool)"/>
+
+  <!-- Top label -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="6" height="22" fill="#2c5b6e"/>
+    <text x="22" y="17" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#3b3a36" letter-spacing="3" font-weight="500">研究筆記 № 01 ・ RESEARCH NOTE</text>
+  </g>
+  <line x1="80" y1="125" x2="280" y2="125" stroke="#2c5b6e" stroke-width="0.6"/>
+
+  <!-- Main title -->
+  <text x="80" y="225" font-family="Noto Serif TC, Fraunces, serif" font-size="46" fill="#0c2a25" font-weight="500" letter-spacing="-0.5">真實世界裡，</text>
+  <text x="80" y="297" font-family="Fraunces, serif" font-style="italic" font-size="56" fill="#2c5b6e" font-weight="400">Abemaciclib</text>
+  <text x="80" y="362" font-family="Noto Serif TC, Fraunces, serif" font-size="40" fill="#0c2a25" font-weight="500" letter-spacing="-0.3">真的比 <tspan font-family="Fraunces, serif" font-style="italic" fill="#2c5b6e">Palbociclib</tspan> 好嗎？</text>
+
+  <!-- Citation hint -->
+  <text x="80" y="425" font-family="Manrope, Noto Sans TC, sans-serif" font-size="16" fill="#3b3a36" font-weight="400">
+    Lee CH et al. <tspan font-family="Fraunces, serif" font-style="italic">The Breast.</tspan> 2025
+  </text>
+  <text x="80" y="450" font-family="Manrope, Noto Sans TC, sans-serif" font-size="14" fill="#948a78" font-weight="400">
+    Real-world propensity-matched comparison ・ TriNetX ・ HR+/HER2− metastatic BC
+  </text>
+
+  <!-- Divider -->
+  <line x1="80" y1="510" x2="1120" y2="510" stroke="#d8cfbd" stroke-width="0.8"/>
+
+  <!-- Footer -->
+  <g transform="translate(80,545)">
+    <text x="0" y="20" font-family="Fraunces, serif" font-size="22" fill="#0c2a25" font-weight="500">Cho-Hao Howard Lee, MD</text>
+    <text x="0" y="48" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#948a78" letter-spacing="2">三軍總醫院 ・ 血液腫瘤科 ・ 2026・05</text>
+  </g>
+
+  <!-- Right-side: stylized forest plot -->
+  <g transform="translate(870,170)">
+    <text x="120" y="-8" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#2c5b6e" letter-spacing="2" font-weight="600">FOREST PLOT</text>
+
+    <!-- center axis (HR=1) -->
+    <line x1="120" y1="10" x2="120" y2="240" stroke="#948a78" stroke-width="0.6" stroke-dasharray="2,3"/>
+    <text x="120" y="258" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" font-style="italic">HR = 1</text>
+
+    <!-- All-cause mortality (favors abemaciclib) -->
+    <g transform="translate(0,30)">
+      <text x="-4" y="4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">All-cause death</text>
+      <line x1="60" y1="4" x2="135" y2="4" stroke="#143b34" stroke-width="1.5"/>
+      <rect x="84" y="-2" width="12" height="12" fill="#143b34"/>
+      <text x="146" y="8" font-family="Manrope, sans-serif" font-size="10" fill="#143b34" font-weight="600">0.78</text>
+    </g>
+
+    <!-- Neutropenia (favors abemaciclib) -->
+    <g transform="translate(0,60)">
+      <text x="-4" y="4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">Neutropenia</text>
+      <line x1="40" y1="4" x2="100" y2="4" stroke="#143b34" stroke-width="1.5"/>
+      <rect x="56" y="-2" width="12" height="12" fill="#143b34"/>
+      <text x="146" y="8" font-family="Manrope, sans-serif" font-size="10" fill="#143b34" font-weight="600">0.49</text>
+    </g>
+
+    <!-- CV events (no diff) -->
+    <g transform="translate(0,90)">
+      <text x="-4" y="4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">CV events</text>
+      <line x1="100" y1="4" x2="148" y2="4" stroke="#948a78" stroke-width="1.5"/>
+      <rect x="118" y="-2" width="10" height="10" fill="#948a78"/>
+      <text x="158" y="8" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" font-weight="600">0.96</text>
+    </g>
+
+    <!-- Liver enzymes (favors palbociclib) -->
+    <g transform="translate(0,120)">
+      <text x="-4" y="4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">Liver enzymes</text>
+      <line x1="115" y1="4" x2="180" y2="4" stroke="#a8703f" stroke-width="1.5"/>
+      <rect x="138" y="-2" width="10" height="10" fill="#a8703f"/>
+      <text x="190" y="8" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f" font-weight="600">1.53</text>
+    </g>
+
+    <!-- Diarrhea (favors palbociclib) -->
+    <g transform="translate(0,150)">
+      <text x="-4" y="4" text-anchor="end" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">Diarrhea</text>
+      <line x1="120" y1="4" x2="220" y2="4" stroke="#a8703f" stroke-width="1.5"/>
+      <rect x="178" y="-2" width="12" height="12" fill="#a8703f"/>
+      <text x="230" y="8" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f" font-weight="600">2.91</text>
+    </g>
+
+    <!-- Direction labels -->
+    <text x="50" y="200" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="#143b34">← favors abemaciclib</text>
+    <text x="190" y="200" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="#a8703f">favors palbociclib →</text>
+  </g>
+
+  <!-- Site mark -->
+  <g transform="translate(1080,80)">
+    <circle cx="0" cy="0" r="4" fill="#2c5b6e"/>
+    <text x="14" y="5" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0c2a25" font-weight="500">doctor-howard-lee.github.io</text>
+  </g>
+</svg>
