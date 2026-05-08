@@ -1,0 +1,8 @@
+# Cho-Hao Howard Lee, MD — Personal site
+# https://doctor-howard-lee.github.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://doctor-howard-lee.github.io/sitemap.xml
