@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Cooling cap article cover">
+  <defs>
+    <linearGradient id="paperBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f5f1ea"/>
+      <stop offset="1" stop-color="#ede6d8"/>
+    </linearGradient>
+    <linearGradient id="coolGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#6f9aae"/>
+      <stop offset="1" stop-color="#3e6675"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="0.7" cy="0.7" r="0.6">
+      <stop offset="0" stop-color="rgba(168,112,63,0.10)"/>
+      <stop offset="1" stop-color="rgba(168,112,63,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#paperBg)"/>
+  <rect width="1200" height="630" fill="url(#warm)"/>
+
+  <!-- Top label bar -->
+  <g transform="translate(80,80)">
+    <rect x="0" y="0" width="6" height="22" fill="#a8703f"/>
+    <text x="22" y="17" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#3b3a36" letter-spacing="3" font-weight="500">衛教文章 ・ PATIENT EDUCATION</text>
+  </g>
+  <line x1="80" y1="125" x2="280" y2="125" stroke="#a8703f" stroke-width="0.6"/>
+
+  <!-- Main title -->
+  <text x="80" y="220" font-family="Noto Serif TC, Fraunces, serif" font-size="64" fill="#0c2a25" font-weight="500" letter-spacing="-0.5">當化療遇上頭髮：</text>
+  <text x="80" y="300" font-family="Noto Serif TC, Fraunces, serif" font-size="64" fill="#0c2a25" font-weight="500" letter-spacing="-0.5">
+    <tspan font-family="Fraunces, serif" font-style="italic" fill="#a8703f" font-weight="400">頭皮冷卻帽</tspan>
+    <tspan>能幫上忙嗎？</tspan>
+  </text>
+
+  <!-- Subtitle / abstract -->
+  <text x="80" y="370" font-family="Manrope, Noto Sans TC, sans-serif" font-size="20" fill="#3b3a36" font-weight="400" letter-spacing="0.3">
+    頭皮冷卻帽（cooling cap）的機轉、成功率、流程、誰適合誰不適合 —
+  </text>
+  <text x="80" y="400" font-family="Manrope, Noto Sans TC, sans-serif" font-size="20" fill="#3b3a36" font-weight="400" letter-spacing="0.3">
+    一位血液腫瘤科醫師整理的進階衛教文章。
+  </text>
+
+  <!-- Hairline divider -->
+  <line x1="80" y1="465" x2="1120" y2="465" stroke="#d8cfbd" stroke-width="0.8"/>
+
+  <!-- Footer info -->
+  <g transform="translate(80,510)">
+    <text x="0" y="20" font-family="Fraunces, serif" font-size="22" fill="#0c2a25" font-weight="500" letter-spacing="0.2">Cho-Hao Howard Lee, MD</text>
+    <text x="0" y="48" font-family="Manrope, Noto Sans TC, sans-serif" font-size="13" fill="#948a78" letter-spacing="2">三軍總醫院 ・ 血液腫瘤科 ・ 2026・05</text>
+  </g>
+
+  <!-- Right-side schematic illustration: cap + follicle -->
+  <g transform="translate(840,160)">
+    <!-- Cap -->
+    <path d="M 30 90 Q 140 50, 250 90 L 252 110 L 28 110 Z" fill="url(#coolGrad)" />
+    <!-- snowflake dots -->
+    <g fill="#f5f1ea" opacity="0.75">
+      <circle cx="70"  cy="92" r="2"/>
+      <circle cx="105" cy="80" r="2"/>
+      <circle cx="140" cy="78" r="2.4"/>
+      <circle cx="175" cy="80" r="2"/>
+      <circle cx="210" cy="92" r="2"/>
+    </g>
+    <text x="140" y="100" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#f5f1ea" letter-spacing="3">~18 °C</text>
+
+    <!-- Skin -->
+    <rect x="35" y="115" width="210" height="45" fill="#cfdce3" stroke="#4f7a8c" stroke-width="0.6"/>
+    <!-- Constricted vessels -->
+    <path d="M 45 132 Q 100 128, 155 132 T 240 132" fill="none" stroke="#4f7a8c" stroke-width="1.2" opacity="0.85"/>
+    <path d="M 45 148 Q 110 144, 175 148 T 240 148" fill="none" stroke="#4f7a8c" stroke-width="0.9" opacity="0.6"/>
+
+    <!-- Follicles standing -->
+    <g transform="translate(35,165)">
+      <ellipse cx="30"  cy="14" rx="9" ry="12" fill="#143b34" opacity="0.9"/>
+      <ellipse cx="75"  cy="14" rx="9" ry="12" fill="#143b34" opacity="0.9"/>
+      <ellipse cx="120" cy="14" rx="9" ry="12" fill="#143b34" opacity="0.9"/>
+      <ellipse cx="165" cy="14" rx="9" ry="12" fill="#143b34" opacity="0.9"/>
+      <ellipse cx="210" cy="14" rx="9" ry="12" fill="#143b34" opacity="0.9"/>
+      <line x1="30"  y1="0" x2="30"  y2="-32" stroke="#1a1a18" stroke-width="1.6"/>
+      <line x1="75"  y1="0" x2="75"  y2="-32" stroke="#1a1a18" stroke-width="1.6"/>
+      <line x1="120" y1="0" x2="120" y2="-32" stroke="#1a1a18" stroke-width="1.6"/>
+      <line x1="165" y1="0" x2="165" y2="-32" stroke="#1a1a18" stroke-width="1.6"/>
+      <line x1="210" y1="0" x2="210" y2="-32" stroke="#1a1a18" stroke-width="1.6"/>
+    </g>
+    <text x="140" y="225" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#5b7a64">vasoconstriction · preserved follicles</text>
+  </g>
+
+  <!-- Right top corner: site mark -->
+  <g transform="translate(1080,80)">
+    <circle cx="0" cy="0" r="4" fill="#a8703f"/>
+    <text x="14" y="5" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#0c2a25" font-weight="500">doctor-howard-lee.github.io</text>
+  </g>
+</svg>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>當化療遇上頭髮：頭皮冷卻帽能不能幫上忙？｜李卓豪 醫師</title>
+<meta name="description" content="頭皮冷卻帽（cooling cap）預防化療性掉髮的原理、實證效果、使用流程、適合與不適合對象 — 由血液腫瘤科醫師整理的進階衛教文章。" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:        #1a1a18;
+  --ink-soft:   #3b3a36;
+  --paper:      #f5f1ea;
+  --paper-warm: #ede6d8;
+  --line:       #d8cfbd;
+  --green:      #143b34;
+  --green-deep: #0c2a25;
+  --moss:       #5b7a64;
+  --bronze:     #a8703f;
+  --bronze-soft:#c79a6e;
+  --stone:      #948a78;
+  --cool:       #4f7a8c;
+  --cool-soft:  #8baab8;
+
+  --serif-en: "Fraunces", "Noto Serif TC", Georgia, serif;
+  --serif-cjk:"Noto Serif TC", "Fraunces", serif;
+  --sans:     "Manrope", "Noto Sans TC", -apple-system, sans-serif;
+  --sans-cjk: "Noto Sans TC", "Manrope", sans-serif;
+
+  --container: 720px;
+  --gutter: clamp(20px, 4vw, 40px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--sans-cjk);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-weight:400;
+  background-image:
+    radial-gradient(circle at 15% 5%, rgba(79,122,140,.05), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(168,112,63,.04), transparent 50%);
+}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+
+/* ===== Top nav ===== */
+nav.top{
+  position:sticky;top:0;z-index:50;
+  padding:18px var(--gutter);
+  background:rgba(245,241,234,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav.top .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{
+  font-family:var(--serif-en);font-size:18px;font-weight:500;
+  color:var(--green-deep);letter-spacing:.01em;
+  display:flex;align-items:baseline;gap:8px;
+}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--bronze);transform:translateY(-2px)}
+.brand .ko{font-family:var(--serif-cjk);font-weight:600}
+.back-link{
+  font-family:var(--sans);font-size:13px;color:var(--ink-soft);
+  letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .25s;
+}
+.back-link:hover{color:var(--bronze)}
+.back-link .arrow{font-family:var(--serif-en);font-style:italic}
+
+/* ===== Article container ===== */
+article{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:60px var(--gutter) 80px;
+}
+
+/* ===== Hero ===== */
+.article-meta{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:var(--sans-cjk);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:32px;
+}
+.article-meta .tag{
+  padding:4px 10px;background:var(--paper-warm);
+  border:1px solid var(--line);border-radius:30px;
+  letter-spacing:.1em;color:var(--green-deep);
+}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--stone)}
+
+h1.title{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(34px,5vw,52px);line-height:1.18;
+  letter-spacing:-.01em;color:var(--green-deep);
+  margin-bottom:28px;
+}
+h1.title .em{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--bronze);font-weight:400;
+}
+.lead{
+  font-family:var(--serif-cjk);font-weight:400;
+  font-size:20px;line-height:1.7;
+  color:var(--ink-soft);margin-bottom:8px;
+  border-left:2px solid var(--bronze);padding-left:18px;
+}
+.author{
+  margin:36px 0 50px;padding:18px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:14px;
+}
+.author-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--green);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif-cjk);font-weight:500;font-size:18px;
+}
+.author-text{font-size:14px;color:var(--ink-soft)}
+.author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+/* ===== Body content ===== */
+section{margin-bottom:48px}
+.section-num{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--bronze);font-size:14px;letter-spacing:.02em;
+  margin-bottom:8px;
+}
+h2{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:28px;line-height:1.3;letter-spacing:-.005em;
+  color:var(--green-deep);margin-bottom:18px;
+}
+h2 .en{
+  display:block;font-family:var(--serif-en);font-style:italic;
+  font-weight:400;font-size:16px;color:var(--stone);
+  margin-top:4px;letter-spacing:.01em;
+}
+h3{
+  font-family:var(--serif-cjk);font-weight:600;
+  font-size:18px;color:var(--green);
+  margin:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+h3::before{
+  content:"";width:14px;height:1px;background:var(--bronze);flex-shrink:0;
+}
+p{
+  font-size:16.5px;line-height:1.85;
+  color:var(--ink);margin-bottom:18px;
+}
+p strong{color:var(--green-deep);font-weight:600}
+em.term{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--bronze);font-weight:400;
+}
+ul, ol{margin:0 0 22px 22px;font-size:16.5px;line-height:1.85}
+li{margin-bottom:8px}
+
+/* Inline blockquote / aside */
+.aside{
+  margin:24px 0;padding:18px 22px;
+  background:var(--paper-warm);
+  border-left:3px solid var(--bronze);
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+}
+.aside strong{color:var(--green-deep);display:block;margin-bottom:4px;letter-spacing:.04em}
+
+.warning{
+  margin:24px 0;padding:18px 22px;
+  background:#f4ebdf;
+  border-left:3px solid var(--bronze);
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+}
+.warning::before{
+  content:"⚠ 提醒";
+  display:block;font-weight:600;color:var(--bronze);
+  font-size:13px;letter-spacing:.1em;margin-bottom:6px;
+  font-family:var(--sans-cjk);
+}
+
+/* Figure container */
+figure{
+  margin:36px 0;
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:32px 24px 24px;
+}
+figure svg{margin:0 auto 14px;display:block}
+figcaption{
+  text-align:center;font-size:13px;color:var(--stone);
+  font-family:var(--serif-en);font-style:italic;
+  letter-spacing:.02em;line-height:1.6;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+figcaption .zh{font-family:var(--serif-cjk);font-style:normal;color:var(--ink-soft);display:block;margin-bottom:4px;font-size:13.5px}
+
+/* Comparison / data tables */
+.data-table{
+  width:100%;border-collapse:collapse;
+  font-size:14px;margin:20px 0 28px;
+}
+.data-table th, .data-table td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top;
+}
+.data-table th{
+  font-family:var(--sans-cjk);font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--bronze);font-weight:600;
+  border-bottom:2px solid var(--green);
+}
+.data-table td:first-child{font-weight:500;color:var(--green-deep)}
+.data-table .bar{
+  display:inline-block;height:8px;border-radius:4px;
+  background:linear-gradient(90deg, var(--moss), var(--green));
+  vertical-align:middle;margin-right:8px;
+}
+.data-table small{color:var(--stone);font-size:12px}
+
+/* References */
+.refs{
+  margin-top:60px;padding-top:36px;
+  border-top:1px solid var(--line);
+}
+.refs h2{font-size:18px;margin-bottom:18px}
+.refs ol{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-left:20px}
+.refs li{margin-bottom:10px}
+.refs em{font-style:italic;color:var(--ink)}
+
+/* Bottom CTA */
+.bottom-cta{
+  margin-top:50px;padding:32px 28px;
+  background:var(--green-deep);color:var(--paper);
+  text-align:center;
+}
+.bottom-cta h3{
+  color:var(--paper);font-family:var(--serif-cjk);font-size:22px;
+  margin-bottom:10px;display:block;
+}
+.bottom-cta h3::before{display:none}
+.bottom-cta p{
+  color:rgba(245,241,234,.85);font-size:15px;
+  margin-bottom:0;line-height:1.7;
+}
+.bottom-cta a{color:var(--bronze-soft);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* Footer */
+footer{
+  background:var(--paper-warm);padding:30px var(--gutter);
+  font-size:13px;color:var(--stone);text-align:center;
+  border-top:1px solid var(--line);
+}
+footer a{color:var(--green-deep)}
+
+@media (max-width:680px){
+  article{padding:36px var(--gutter) 60px}
+  h1.title{font-size:32px}
+  .lead{font-size:17px}
+  h2{font-size:22px}
+  p, ul, ol{font-size:16px}
+  figure{padding:20px 14px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a class="brand" href="../index.html">
+      Cho-Hao Lee<span class="dot"></span><span class="ko">李</span>
+    </a>
+    <a class="back-link" href="../index.html"><span class="arrow">←</span> 回首頁</a>
+  </div>
+</nav>
+
+<article>
+
+  <!-- ============================== Hero ============================== -->
+  <header>
+    <div class="article-meta">
+      <span class="tag">衛教文章</span>
+      <span class="dot"></span>
+      <span>2026・05</span>
+      <span class="dot"></span>
+      <span>約 10 分鐘</span>
+      <span class="dot"></span>
+      <span>血液腫瘤</span>
+    </div>
+
+    <h1 class="title">
+      當化療遇上頭髮：<br>
+      <span class="em">頭皮冷卻帽</span>能不能幫上忙？
+    </h1>
+
+    <p class="lead">
+      化療性掉髮（chemotherapy-induced alopecia, CIA）是癌症治療中
+      最被低估、卻最令人卻步的副作用之一。
+      頭皮冷卻帽（scalp cooling / cooling cap）已經有超過十年的臨床證據，
+      不是新奇裝置，也不是萬靈丹。這篇文章帶您看清它的機轉、效果、限制，
+      以及在台灣可以怎麼取得。
+    </p>
+
+    <div class="author">
+      <div class="author-avatar">李</div>
+      <div class="author-text">
+        <strong>李卓豪 醫師</strong>
+        三軍總醫院 ・ 血液腫瘤科
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== 1. 為什麼會掉髮 ============================== -->
+  <section>
+    <div class="section-num">§ 01</div>
+    <h2>
+      為什麼化療會掉頭髮？
+      <span class="en">Why chemotherapy causes hair loss</span>
+    </h2>
+    <p>
+      化療藥物的設計邏輯，是「攻擊快速分裂的細胞」。癌細胞符合這個條件，
+      但身體裡也有其他組織同樣高速分裂 — 骨髓、消化道黏膜，以及<strong>毛囊基質細胞</strong>。
+      這就是為什麼掉髮、口腔黏膜炎、白血球低下這幾個副作用幾乎總是同時出現。
+    </p>
+    <p>
+      頭髮中約 <strong>85% 處於生長期（anagen phase）</strong>，
+      代表多數毛囊隨時都在分裂中，是化療藥物最容易擊中的目標。
+      不同藥物的掉髮風險差異很大 — taxane 類（紫杉醇、剋癌易）跟 anthracycline 類（小紅莓）
+      是最常見會引起明顯掉髮的化療藥；mFOLFOX、FOLFIRI 等大腸癌方案則相對溫和。
+    </p>
+
+    <div class="aside">
+      <strong>不只是外觀問題</strong>
+      跨國研究顯示，約 <em class="term">8%</em> 的女性病人會因為害怕掉髮
+      而考慮拒絕對自己最有利的化療方案。掉髮影響的是身分認同、社交意願、回到職場的心理門檻 —
+      不該被當成「小事」。
+    </div>
+  </section>
+
+  <!-- ============================== 2. 頭皮冷卻是什麼 ============================== -->
+  <section>
+    <div class="section-num">§ 02</div>
+    <h2>
+      頭皮冷卻帽是什麼？
+      <span class="en">What is a cooling cap?</span>
+    </h2>
+    <p>
+      頭皮冷卻帽是一頂在化療前後戴上、能把頭皮溫度降到大約 <strong>18 °C</strong> 的特殊帽子。
+      它的目標不是讓您舒服，而是透過兩個生理機制保護毛囊：
+    </p>
+
+    <h3>機制一：血管收縮，降低藥物送達</h3>
+    <p>
+      低溫讓頭皮真皮層的微血管收縮，化療藥物隨血流進入毛囊的量因此減少。
+      研究估計可以降低毛囊區域的藥物濃度約 <strong>20–40%</strong>。
+    </p>
+
+    <h3>機制二：細胞代謝降低</h3>
+    <p>
+      毛囊細胞冷卻後代謝速率下降、分裂變慢。即使有藥物進入，
+      毛囊基質細胞對化療毒性的敏感度也會降低。
+    </p>
+
+    <!-- ===== 圖 1：機制示意 ===== -->
+    <figure>
+      <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="頭皮冷卻機制示意圖">
+        <defs>
+          <linearGradient id="warmSkin" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#f4d4c2"/>
+            <stop offset="1" stop-color="#e8b89c"/>
+          </linearGradient>
+          <linearGradient id="coolSkin" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#cfdce3"/>
+            <stop offset="1" stop-color="#9eb6c2"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Left: without cooling -->
+        <g transform="translate(20,20)">
+          <text x="140" y="-2" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="14" fill="#3b3a36" font-weight="500">未冷卻 ・ Without cooling</text>
+          <!-- Skin -->
+          <rect x="20" y="20" width="240" height="50" fill="url(#warmSkin)" stroke="#a8703f" stroke-width="0.5" opacity="0.9"/>
+          <!-- Vessels (wide) -->
+          <path d="M 30 45 Q 80 38, 130 45 T 250 45" fill="none" stroke="#a8703f" stroke-width="3.5" opacity="0.9"/>
+          <path d="M 30 60 Q 90 52, 150 60 T 250 60" fill="none" stroke="#a8703f" stroke-width="2.5" opacity="0.7"/>
+          <!-- Drug particles flowing -->
+          <g fill="#a8703f">
+            <circle cx="50"  cy="45" r="3"/>
+            <circle cx="100" cy="44" r="3"/>
+            <circle cx="155" cy="46" r="3"/>
+            <circle cx="210" cy="45" r="3"/>
+            <circle cx="80"  cy="60" r="2.5"/>
+            <circle cx="170" cy="60" r="2.5"/>
+          </g>
+          <!-- Hair follicles -->
+          <g transform="translate(0,70)">
+            <ellipse cx="60"  cy="14" rx="11" ry="14" fill="#5b7a64" opacity="0.6"/>
+            <ellipse cx="120" cy="14" rx="11" ry="14" fill="#5b7a64" opacity="0.5"/>
+            <ellipse cx="180" cy="14" rx="11" ry="14" fill="#5b7a64" opacity="0.4"/>
+            <ellipse cx="240" cy="14" rx="11" ry="14" fill="#5b7a64" opacity="0.3"/>
+            <!-- hair shafts (some falling) -->
+            <line x1="60"  y1="0" x2="60"  y2="-30" stroke="#3b3a36" stroke-width="1.5"/>
+            <line x1="120" y1="0" x2="115" y2="-25" stroke="#3b3a36" stroke-width="1.5" opacity="0.7"/>
+            <line x1="183" y1="0" x2="195" y2="-18" stroke="#3b3a36" stroke-width="1.5" opacity="0.4"/>
+            <text x="240" y="60" font-family="Manrope, sans-serif" font-size="11" fill="#a8703f" font-style="italic">毛囊受損</text>
+          </g>
+          <text x="140" y="225" text-anchor="middle" font-family="Manrope, Noto Sans TC, sans-serif" font-size="12" fill="#5b7a64">藥物高量到達 ・ 毛囊細胞活躍易受損</text>
+        </g>
+
+        <!-- Divider -->
+        <line x1="320" y1="40" x2="320" y2="280" stroke="#d8cfbd" stroke-width="1" stroke-dasharray="3,4"/>
+
+        <!-- Right: with cooling -->
+        <g transform="translate(340,20)">
+          <text x="140" y="-2" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="14" fill="#143b34" font-weight="500">冷卻中 ・ With cooling (~18 °C)</text>
+          <!-- Cap -->
+          <path d="M 15 10 Q 140 -10, 265 10 L 268 25 L 12 25 Z" fill="#4f7a8c" opacity="0.85"/>
+          <text x="140" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#f5f1ea" letter-spacing="2">COOLING CAP</text>
+          <!-- snowflake-ish dots -->
+          <g fill="#f5f1ea" opacity="0.7">
+            <circle cx="60"  cy="14" r="1.2"/>
+            <circle cx="100" cy="14" r="1.2"/>
+            <circle cx="140" cy="14" r="1.2"/>
+            <circle cx="180" cy="14" r="1.2"/>
+            <circle cx="220" cy="14" r="1.2"/>
+          </g>
+          <!-- Skin (cool tone) -->
+          <rect x="20" y="30" width="240" height="50" fill="url(#coolSkin)" stroke="#4f7a8c" stroke-width="0.5"/>
+          <!-- Vessels (constricted thin) -->
+          <path d="M 30 50 Q 80 47, 130 50 T 250 50" fill="none" stroke="#4f7a8c" stroke-width="1.4" opacity="0.85"/>
+          <path d="M 30 65 Q 90 62, 150 65 T 250 65" fill="none" stroke="#4f7a8c" stroke-width="1.0" opacity="0.6"/>
+          <!-- Few drug particles (mostly absent) -->
+          <g fill="#a8703f" opacity="0.55">
+            <circle cx="50"  cy="50" r="2"/>
+            <circle cx="200" cy="50" r="2"/>
+          </g>
+          <!-- Hair follicles (preserved) -->
+          <g transform="translate(0,80)">
+            <ellipse cx="60"  cy="14" rx="11" ry="14" fill="#143b34" opacity="0.85"/>
+            <ellipse cx="120" cy="14" rx="11" ry="14" fill="#143b34" opacity="0.85"/>
+            <ellipse cx="180" cy="14" rx="11" ry="14" fill="#143b34" opacity="0.85"/>
+            <ellipse cx="240" cy="14" rx="11" ry="14" fill="#143b34" opacity="0.85"/>
+            <!-- Hair shafts standing -->
+            <line x1="60"  y1="0" x2="60"  y2="-32" stroke="#1a1a18" stroke-width="1.8"/>
+            <line x1="120" y1="0" x2="120" y2="-32" stroke="#1a1a18" stroke-width="1.8"/>
+            <line x1="180" y1="0" x2="180" y2="-32" stroke="#1a1a18" stroke-width="1.8"/>
+            <line x1="240" y1="0" x2="240" y2="-32" stroke="#1a1a18" stroke-width="1.8"/>
+            <text x="240" y="60" font-family="Manrope, sans-serif" font-size="11" fill="#143b34" font-style="italic">毛囊保留</text>
+          </g>
+          <text x="140" y="235" text-anchor="middle" font-family="Manrope, Noto Sans TC, sans-serif" font-size="12" fill="#143b34">血管收縮 ・ 代謝降低 ・ 毛囊較不受損</text>
+        </g>
+
+        <!-- Bottom annotations -->
+        <g transform="translate(0,295)">
+          <text x="160" y="0" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" letter-spacing="1.5">DRUG DELIVERY ↑</text>
+          <text x="480" y="0" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" letter-spacing="1.5">DRUG DELIVERY ↓ 20–40%</text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 1 ・ 頭皮冷卻保護毛囊的雙重機制：血管收縮 + 代謝降低</span>
+        Figure 1 — Dual mechanism of scalp cooling: vasoconstriction + reduced cellular metabolism
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============================== 3. 真的有效嗎 ============================== -->
+  <section>
+    <div class="section-num">§ 03</div>
+    <h2>
+      真的有效嗎？
+      <span class="en">Does it actually work?</span>
+    </h2>
+
+    <p>
+      回答這題前先說一句：頭皮冷卻不是<strong>「保有全部頭髮」</strong>的承諾。
+      臨床上「成功」的定義是 <strong>掉髮少於 50%</strong>，
+      也就是不需要戴假髮或頭巾仍能維持公開外貌。
+    </p>
+
+    <p>
+      最關鍵的兩個隨機臨床試驗都在 2017 年的 <em class="term">JAMA</em> 同期發表：
+    </p>
+
+    <ul>
+      <li><strong>SCALP trial</strong>（Nangia 等，2017）：182 位早期乳癌病人接受 taxane 或 anthracycline 為主的化療，使用 Paxman 系統者的成功率為 <strong>50.5%</strong>，未使用組為 0%。</li>
+      <li><strong>DigniCap trial</strong>（Rugo 等，2017）：122 位早期乳癌病人接受 taxane，成功率達 <strong>66.3%</strong>。</li>
+    </ul>
+
+    <p>
+      但「有沒有效」高度取決於用什麼化療藥物。下表整理目前實證的成功率：
+    </p>
+
+    <!-- ===== 圖 2：Effectiveness comparison ===== -->
+    <figure style="padding:20px 18px 18px">
+      <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="不同化療方案下頭皮冷卻成功率比較">
+        <!-- Title -->
+        <text x="20" y="22" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">頭皮冷卻成功率（保留 ≥50% 頭髮）</text>
+        <text x="20" y="38" font-family="Manrope, sans-serif" font-size="10.5" fill="#948a78" letter-spacing="1">Hair preservation rate by chemotherapy regimen</text>
+
+        <!-- X-axis line -->
+        <line x1="220" y1="60" x2="620" y2="60" stroke="#d8cfbd" stroke-width="0.6"/>
+        <line x1="220" y1="240" x2="620" y2="240" stroke="#d8cfbd" stroke-width="0.6"/>
+
+        <!-- Grid lines (0/25/50/75/100%) -->
+        <g stroke="#d8cfbd" stroke-width="0.4" stroke-dasharray="2,3">
+          <line x1="220" y1="60" x2="220" y2="240"/>
+          <line x1="320" y1="60" x2="320" y2="240"/>
+          <line x1="420" y1="60" x2="420" y2="240"/>
+          <line x1="520" y1="60" x2="520" y2="240"/>
+          <line x1="620" y1="60" x2="620" y2="240"/>
+        </g>
+        <!-- X-axis labels -->
+        <g font-family="Manrope, sans-serif" font-size="10" fill="#948a78" text-anchor="middle">
+          <text x="220" y="256">0%</text>
+          <text x="320" y="256">25%</text>
+          <text x="420" y="256">50%</text>
+          <text x="520" y="256">75%</text>
+          <text x="620" y="256">100%</text>
+        </g>
+
+        <!-- Bars -->
+        <g font-family="Noto Sans TC, Manrope, sans-serif" font-size="12" fill="#3b3a36">
+          <!-- Bar 1: Taxane (docetaxel/paclitaxel) -->
+          <text x="210" y="84" text-anchor="end">Taxane 單方</text>
+          <rect x="220" y="72" width="265" height="22" fill="#143b34" rx="2"/>
+          <text x="492" y="88" font-family="Manrope, sans-serif" font-size="11" fill="#143b34" font-weight="600">~66%</text>
+
+          <!-- Bar 2: Anthracycline only (rare) -->
+          <text x="210" y="114" text-anchor="end">Anthracycline 單方</text>
+          <rect x="220" y="102" width="180" height="22" fill="#5b7a64" rx="2"/>
+          <text x="408" y="118" font-family="Manrope, sans-serif" font-size="11" fill="#5b7a64" font-weight="600">~45%</text>
+
+          <!-- Bar 3: AC -->
+          <text x="210" y="144" text-anchor="end">AC（小紅莓+環磷醯胺）</text>
+          <rect x="220" y="132" width="120" height="22" fill="#a8703f" rx="2"/>
+          <text x="348" y="148" font-family="Manrope, sans-serif" font-size="11" fill="#a8703f" font-weight="600">~30%</text>
+
+          <!-- Bar 4: AC-T sequential -->
+          <text x="210" y="174" text-anchor="end">AC-T 接續方案</text>
+          <rect x="220" y="162" width="200" height="22" fill="#5b7a64" rx="2" opacity="0.8"/>
+          <text x="428" y="178" font-family="Manrope, sans-serif" font-size="11" fill="#5b7a64" font-weight="600">~50%</text>
+
+          <!-- Bar 5: TC -->
+          <text x="210" y="204" text-anchor="end">TC（紫杉醇+環磷醯胺）</text>
+          <rect x="220" y="192" width="240" height="22" fill="#143b34" rx="2" opacity="0.85"/>
+          <text x="468" y="208" font-family="Manrope, sans-serif" font-size="11" fill="#143b34" font-weight="600">~60%</text>
+        </g>
+
+        <!-- Note -->
+        <text x="320" y="278" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" font-style="italic">
+          數據整合自 SCALP / DigniCap / Paxman 註冊登錄等研究；不同醫院、不同病人會有差異
+        </text>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 2 ・ 不同化療方案的頭皮冷卻成功率（保留至少一半頭髮）</span>
+        Figure 2 — Hair preservation rates vary substantially by chemotherapy regimen
+      </figcaption>
+    </figure>
+
+    <p>
+      簡單記憶法：<strong>單方 taxane 效果最好，含 anthracycline 的方案效果打折，AC 方案最辛苦</strong>。
+      這也解釋為什麼歐美的頭皮冷卻使用率，在以 taxane 為主的早期乳癌族群最高。
+    </p>
+  </section>
+
+  <!-- ============================== 4. 治療流程 ============================== -->
+  <section>
+    <div class="section-num">§ 04</div>
+    <h2>
+      實際是怎麼戴的？
+      <span class="en">The treatment timeline</span>
+    </h2>
+
+    <p>
+      這是病人最常忽略的部分：<strong>戴頭皮冷卻帽會讓您的化療日大幅延長</strong>。
+      化療本身可能 30 分鐘就打完，但加上前後冷卻時間，整個療程往往要 4–7 小時。
+      心理準備一定要做足。
+    </p>
+
+    <!-- ===== 圖 3：Timeline ===== -->
+    <figure style="padding:24px 18px 18px">
+      <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="頭皮冷卻治療時程示意">
+        <text x="20" y="22" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">頭皮冷卻治療時程</text>
+        <text x="20" y="38" font-family="Manrope, sans-serif" font-size="10.5" fill="#948a78" letter-spacing="1">Cooling timeline relative to chemotherapy infusion</text>
+
+        <!-- Main timeline rect with phases -->
+        <g transform="translate(20,70)">
+          <!-- Pre-cooling -->
+          <rect x="0" y="20" width="100" height="40" fill="#cfdce3" stroke="#4f7a8c" stroke-width="0.6"/>
+          <text x="50" y="46" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#143b34" font-weight="600">預冷卻</text>
+          <text x="50" y="78" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#4f7a8c">30 min</text>
+
+          <!-- Infusion -->
+          <rect x="100" y="20" width="180" height="40" fill="#a8703f" opacity="0.85"/>
+          <text x="190" y="46" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#f5f1ea" font-weight="600">化療輸注</text>
+          <text x="190" y="78" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f">視藥物 30 min – 3 hr</text>
+
+          <!-- Post-cooling -->
+          <rect x="280" y="20" width="240" height="40" fill="#cfdce3" stroke="#4f7a8c" stroke-width="0.6"/>
+          <text x="400" y="46" text-anchor="middle" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#143b34" font-weight="600">後續冷卻</text>
+          <text x="400" y="78" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#4f7a8c">60 – 120 min</text>
+
+          <!-- Cool dots overlay (snowflakes) -->
+          <g fill="#4f7a8c" opacity="0.5">
+            <circle cx="20"  cy="35" r="1.5"/><circle cx="60"  cy="48" r="1.5"/>
+            <circle cx="40"  cy="50" r="1.5"/><circle cx="80"  cy="34" r="1.5"/>
+            <circle cx="320" cy="36" r="1.5"/><circle cx="370" cy="48" r="1.5"/>
+            <circle cx="420" cy="34" r="1.5"/><circle cx="470" cy="50" r="1.5"/>
+            <circle cx="500" cy="42" r="1.5"/>
+          </g>
+
+          <!-- Cap on overlay -->
+          <text x="0" y="10" font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36" letter-spacing="2">CAP ON →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→ CAP OFF</text>
+        </g>
+
+        <!-- Total duration banner -->
+        <g transform="translate(20,170)">
+          <rect x="0" y="0" width="520" height="32" fill="#f5f1ea" stroke="#d8cfbd"/>
+          <text x="260" y="20" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500" font-style="italic">
+            總計戴帽時間 ≈ 4 – 7 小時
+          </text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 3 ・ 標準頭皮冷卻流程；後段冷卻時間視化療藥物半衰期而定</span>
+        Figure 3 — Standard cooling protocol; post-infusion duration depends on drug half-life
+      </figcaption>
+    </figure>
+
+    <p>
+      <strong>後段冷卻多久</strong>是最容易被偷工減料的一段，也是失敗最常見的原因。
+      Anthracycline 半衰期較長，至少要持續 90–120 分鐘；taxane 通常 60–90 分鐘。
+      不要因為頭痛或寒冷就提早結束 — 這幾分鐘可能就是您頭髮存活與否的關鍵。
+    </p>
+
+    <h3>實務上會發生這些事</h3>
+    <ul>
+      <li>戴上去頭皮會非常冷，前 15 分鐘最不舒服，多數人後來會適應</li>
+      <li>會有頭痛、頭皮發麻、暫時性頸部僵硬 — 通常戴下後緩解</li>
+      <li>建議帶羊毛圍巾、暖暖包顧好身體，因為冷感會擴散到頸肩</li>
+      <li>有些單位會搭配口服止痛藥（例如普拿疼 acetaminophen）</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 5. 適合與不適合 ============================== -->
+  <section>
+    <div class="section-num">§ 05</div>
+    <h2>
+      誰適合？誰不該做？
+      <span class="en">Indications &amp; contraindications</span>
+    </h2>
+
+    <table class="data-table">
+      <thead>
+        <tr><th style="width:50%">適合考慮</th><th>絕對 / 相對禁忌</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>實體腫瘤接受化療<br><small>乳癌、卵巢癌、肺癌、大腸癌等</small></td>
+          <td><strong>血液腫瘤</strong>（白血病、淋巴瘤）<br><small>理論上頭皮可能成為癌細胞 sanctuary site，雖然實證有限</small></td>
+        </tr>
+        <tr>
+          <td>使用以 taxane 為主的方案<br><small>效果最佳族群</small></td>
+          <td><strong>冷凝集素病、冷球蛋白血症</strong><br><small>cold agglutinin disease, cryoglobulinemia</small></td>
+        </tr>
+        <tr>
+          <td>體力可承受 4–7 小時治療日</td>
+          <td><strong>頭皮放射治療後</strong>的掉髮<br><small>頭皮冷卻無法逆轉放射線造成的毛囊損傷</small></td>
+        </tr>
+        <tr>
+          <td>對掉髮的心理衝擊大</td>
+          <td>嚴重偏頭痛、不能忍受寒冷</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning">
+      血液腫瘤癌患者使用頭皮冷卻是<strong>個別化決策</strong>。
+      慢性白血病、多發性骨髓瘤等若已是控制下的疾病、或是接受非根治性治療，
+      在多家國際中心已有謹慎使用的個案經驗。請與您的血液腫瘤科醫師充分討論。
+    </div>
+  </section>
+
+  <!-- ============================== 6. 副作用與安全性 ============================== -->
+  <section>
+    <div class="section-num">§ 06</div>
+    <h2>
+      副作用跟最常見的擔憂
+      <span class="en">Side effects &amp; common concerns</span>
+    </h2>
+
+    <h3>常見且通常可忍受</h3>
+    <ul>
+      <li>頭痛（約 30%，多數輕微）</li>
+      <li>頭皮不適、發麻、緊繃感</li>
+      <li>戴除後 24 小時內的暫時性頭暈</li>
+      <li>偶見：寒顫、噁心、皮膚紅疹</li>
+    </ul>
+
+    <h3>「會不會增加頭皮癌轉移風險？」</h3>
+    <p>
+      這是病人最常問的問題。截至目前最大規模的安全性研究 — Rugo 等人 2017 年於 <em class="term">JAMA</em> 發表的多中心追蹤、
+      以及 2020 年瑞典 1,400 多人 5 年追蹤研究 — 都<strong>沒有發現頭皮轉移率增加</strong>。
+      理論上低溫降低藥物進入頭皮的同時，也可能讓癌細胞更容易藏身於頭皮，
+      但這個假設在臨床觀察上沒有被證實。
+    </p>
+
+    <p>
+      美國 FDA 已在 2015 年（DigniCap）與 2017 年（Paxman）核可頭皮冷卻系統用於實體腫瘤化療。
+      歐洲、日本、英國 NHS 都已將其納入常規腫瘤照護選項。
+    </p>
+  </section>
+
+  <!-- ============================== 7. 在台灣 ============================== -->
+  <section>
+    <div class="section-num">§ 07</div>
+    <h2>
+      在台灣怎麼取得？
+      <span class="en">Availability in Taiwan</span>
+    </h2>
+
+    <p>
+      台灣多家醫學中心（包含三軍總醫院、台大、北榮、林口長庚、和信、中國醫大附醫等）
+      已陸續引進 Paxman 或 DigniCap 自動化頭皮冷卻系統。
+      早期主要應用在乳癌族群，部分院區也接受其他實體腫瘤病人申請。
+    </p>
+
+    <p>
+      <strong>費用</strong>目前以自費為主 — 視院別不同，每次治療約新台幣
+      <strong>5,000–8,000 元</strong>，整個化療療程下來通常落在
+      <strong>3–6 萬元</strong>之間。健保尚未給付。
+    </p>
+
+    <p>
+      建議在化療開始<strong>前 2–4 週</strong>就先和您的腫瘤科主治醫師、個案管理師詢問：
+    </p>
+    <ul>
+      <li>院內是否有頭皮冷卻設備？</li>
+      <li>您現在的化療方案，預期成功率多少？</li>
+      <li>需要在哪裡預約、是否有等候名單？</li>
+      <li>能否到化療室實際看一下機器？</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 結語 ============================== -->
+  <section>
+    <div class="section-num">§ 08</div>
+    <h2>
+      最後想說的
+      <span class="en">A few honest notes</span>
+    </h2>
+    <p>
+      頭皮冷卻不是奇蹟 — 對某些人有效、對某些人效果有限、對某些人不適合。
+      但它是一個<strong>有實證、有規範、且越來越多醫院能提供</strong>的選項，
+      值得被放進化療前討論的清單裡，而不是病人自己上網查到才提出。
+    </p>
+    <p>
+      如果您正在準備接受化療、對掉髮有顧慮，請<strong>主動跟您的醫師提出來</strong>。
+      就算最後決定不使用，討論本身也讓治療團隊更了解您在意什麼 —
+      這往往會影響後續整體照護的細緻程度。
+    </p>
+
+    <div class="bottom-cta">
+      <h3>有問題想詢問？</h3>
+      <p>
+        本文僅為衛教資訊，不能取代主治醫師的個別建議。<br>
+        如需進一步討論您的狀況，歡迎透過<a href="../index.html#contact">聯繫頁</a>來信。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 參考文獻 ============================== -->
+  <section class="refs">
+    <h2 style="border:none">參考文獻 / References</h2>
+    <ol>
+      <li>Nangia J, Wang T, Osborne C, et al. Effect of a scalp cooling device on alopecia in women undergoing chemotherapy for breast cancer: The SCALP randomized clinical trial. <em>JAMA</em>. 2017;317(6):596-605.</li>
+      <li>Rugo HS, Klein P, Melin SA, et al. Association between use of a scalp cooling device and alopecia after chemotherapy for breast cancer. <em>JAMA</em>. 2017;317(6):606-614.</li>
+      <li>Smetanay K, Junio P, Feißt M, et al. COOLHAIR: a prospective randomized trial to investigate the efficacy and tolerability of scalp cooling in patients undergoing (neo)adjuvant chemotherapy for early breast cancer. <em>Breast Cancer Res Treat</em>. 2019;173(1):135-143.</li>
+      <li>Lemieux J, Provencher L, Perron L, et al. No effect of scalp cooling on survival among women with breast cancer. <em>Breast Cancer Res Treat</em>. 2015;149(1):263-268.</li>
+      <li>Rugo HS, Voigt J. Scalp hypothermia for preventing alopecia during chemotherapy: a systematic review and meta-analysis of randomized controlled trials. <em>Clin Breast Cancer</em>. 2018;18(1):19-28.</li>
+      <li>Komen MMC, Smorenburg CH, van den Hurk CJG, Nortier JWR. Factors influencing the effectiveness of scalp cooling in the prevention of chemotherapy-induced alopecia. <em>The Oncologist</em>. 2013;18(7):885-891.</li>
+    </ol>
+  </section>
+
+</article>
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁</a>
+</footer>
+
+</body>
+</html>

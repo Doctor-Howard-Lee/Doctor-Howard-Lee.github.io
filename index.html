@@ -188,12 +188,19 @@ body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
   position:relative;aspect-ratio:4/5;
   background:var(--paper-warm);overflow:hidden;
   border:1px solid var(--line);
+  box-shadow:0 24px 48px -28px rgba(20,59,52,.35), 0 8px 18px -10px rgba(0,0,0,.08);
 }
 .portrait::before{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:
-    radial-gradient(circle at 30% 30%, rgba(20,59,52,.18), transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(168,112,63,.15), transparent 55%);
+    radial-gradient(circle at 30% 30%, rgba(20,59,52,.10), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(168,112,63,.08), transparent 60%);
+}
+.portrait img.portrait-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 28%;
+  z-index:1;
+  filter:saturate(.96) contrast(1.02);
 }
 .portrait .placeholder{
   position:absolute;inset:0;
@@ -206,10 +213,11 @@ body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
   font-size:42px;color:var(--green);font-weight:500;letter-spacing:.05em;
 }
 .portrait-tag{
-  position:absolute;left:24px;bottom:24px;
+  position:absolute;left:24px;bottom:24px;z-index:3;
   background:var(--paper);padding:10px 14px;
   font-family:var(--serif-en);font-style:italic;font-size:13px;
   color:var(--green-deep);border:1px solid var(--line);
+  box-shadow:0 6px 16px -6px rgba(20,59,52,.25);
 }
 
 .deco-no{
@@ -220,6 +228,35 @@ body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
   pointer-events:none;user-select:none;
 }
 .hero .deco-no{top:80px;right:-20px}
+
+/* CV download button */
+.cv-actions{
+  margin-top:36px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.cv-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 22px;
+  background:var(--green-deep);color:var(--paper);
+  font-family:var(--sans-cjk);font-size:14px;font-weight:500;
+  letter-spacing:.04em;
+  border:1px solid var(--green-deep);
+  transition:all .25s ease;
+}
+body.en .cv-btn{font-family:var(--sans)}
+.cv-btn:hover{
+  background:var(--bronze);border-color:var(--bronze);
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px -8px rgba(168,112,63,.45);
+}
+.cv-btn .arrow{
+  display:inline-block;font-family:var(--serif-en);font-size:16px;
+  transition:transform .25s ease;
+}
+.cv-btn:hover .arrow{transform:translateY(2px)}
+.cv-meta{
+  font-family:var(--serif-en);font-style:italic;font-size:13px;
+  color:var(--stone);
+}
 
 @media (max-width:880px){
   .hero{padding:130px var(--gutter) 70px}
@@ -614,13 +651,18 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
           ICI ・ RWE ・ Meta-analysis
         </div>
       </div>
+
+      <div class="cv-actions reveal">
+        <a class="cv-btn" href="docs/cv.pdf" download="Cho-Hao-Lee-CV.pdf">
+          <span class="zh">下載完整 CV</span><span class="en">Download CV</span>
+          <span class="arrow">↓</span>
+        </a>
+        <span class="cv-meta">PDF ・ 4 pp.</span>
+      </div>
     </div>
 
     <div class="portrait reveal">
-      <div class="placeholder">
-        <strong>李卓豪</strong>
-        <span>[ Replace with your photo ]</span>
-      </div>
+      <img class="portrait-photo" src="images/portrait.jpg" alt="李卓豪 醫師 Cho-Hao Howard Lee, MD" loading="eager" decoding="async" />
       <div class="portrait-tag">Taipei ・ Est. 2026</div>
     </div>
   </div>
@@ -1234,6 +1276,10 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
         <li>
           <span class="label">Email</span>
           <span class="val"><a href="mailto:drleechohao@gmail.com">drleechohao@gmail.com</a></span>
+        </li>
+        <li>
+          <span class="label">CV</span>
+          <span class="val"><a href="docs/cv.pdf" download="Cho-Hao-Lee-CV.pdf">Cho-Hao-Lee-CV.pdf →</a></span>
         </li>
         <li>
           <span class="label"><span class="zh">辦公室</span><span class="en">Office</span></span>
