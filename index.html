@@ -453,6 +453,26 @@ body.en .tab{font-family:var(--sans)}
 .article .more::after{content:"→";transition:transform .25s}
 .article:hover .more::after{transform:translateX(4px)}
 
+/* Coming-soon placeholder cards */
+.article.coming{
+  cursor:default;opacity:.55;
+  background:repeating-linear-gradient(
+    -45deg, transparent 0 14px, rgba(168,112,63,.04) 14px 16px);
+}
+.article.coming:hover{background:repeating-linear-gradient(
+  -45deg, transparent 0 14px, rgba(168,112,63,.04) 14px 16px)}
+.article.coming:hover h3{color:var(--green-deep)}
+.article.coming .more{color:var(--stone);font-style:italic}
+.article.coming .more::after{content:""}
+.article.coming .badge{
+  display:inline-block;margin-left:8px;
+  padding:2px 8px;background:var(--paper-warm);
+  border:1px solid var(--line);border-radius:30px;
+  font-family:var(--sans);font-size:10px;letter-spacing:.12em;
+  color:var(--bronze);font-weight:600;text-transform:uppercase;
+  vertical-align:1px;
+}
+
 .tab-panel{display:none}
 .tab-panel.active{display:block;animation:fadeUp .4s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -928,10 +948,25 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
     <!-- Tab 2: 病人衛教 -->
     <div class="tab-panel" id="tab-edu">
       <div class="articles-grid reveal">
-        <a class="article" href="#">
+
+        <a class="article" href="posts/2026-05-cooling-cap-cia.html">
           <div class="meta">
-            <span class="cat"><span class="zh">給病人</span><span class="en">For Patients</span></span>
-            <span class="date">Apr 2026</span>
+            <span class="cat"><span class="zh">化療照護</span><span class="en">Chemo Care</span></span>
+            <span class="date">May 2026</span>
+          </div>
+          <h3>
+            <span class="zh">當化療遇上頭髮：頭皮冷卻帽能幫上忙嗎？</span>
+            <span class="en">When Chemo Meets Hair ・ Can Cooling Caps Help?</span>
+          </h3>
+          <p class="zh-block">頭皮冷卻帽（cooling cap）的機轉、不同化療方案的成功率、實際使用流程、誰適合誰不適合 — 一位血液腫瘤科醫師整理的進階衛教文章。</p>
+          <p class="en-block">Mechanism, success rates by regimen, treatment workflow, and who is or isn't a candidate — an evidence-informed primer on scalp cooling for chemotherapy-induced alopecia.</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
+        <a class="article coming" href="#" onclick="event.preventDefault()" aria-disabled="true">
+          <div class="meta">
+            <span class="cat"><span class="zh">給病人</span><span class="en">For Patients</span><span class="badge">Soon</span></span>
+            <span class="date">Coming</span>
           </div>
           <h3>
             <span class="zh">剛被診斷出血液癌症，第一週可以做哪些準備？</span>
@@ -939,13 +974,13 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
           </h3>
           <p class="zh-block">從就醫流程、家屬陪同、第一次門診該帶什麼資料，到情緒與營養的調適，給病人完整的入門建議……</p>
           <p class="en-block">From navigating clinic visits and what to bring to your first appointment, to nutrition and emotional adjustment — a complete starter guide...</p>
-          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+          <span class="more"><span class="zh">即將推出</span><span class="en">Coming soon</span></span>
         </a>
 
-        <a class="article" href="#">
+        <a class="article coming" href="#" onclick="event.preventDefault()" aria-disabled="true">
           <div class="meta">
-            <span class="cat"><span class="zh">給家屬</span><span class="en">For Family</span></span>
-            <span class="date">Mar 2026</span>
+            <span class="cat"><span class="zh">給家屬</span><span class="en">For Family</span><span class="badge">Soon</span></span>
+            <span class="date">Coming</span>
           </div>
           <h3>
             <span class="zh">化療期間居家照護：發燒、感染、出血該怎麼處理？</span>
@@ -953,13 +988,13 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
           </h3>
           <p class="zh-block">白血球低下時的感染預防、何時必須回急診、以及照顧者最常忽略的小細節，門診常被問到的整理……</p>
           <p class="en-block">Infection prevention during neutropenia, when to return to the ER, and the small caregiver details that are most often overlooked...</p>
-          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+          <span class="more"><span class="zh">即將推出</span><span class="en">Coming soon</span></span>
         </a>
 
-        <a class="article" href="#">
+        <a class="article coming" href="#" onclick="event.preventDefault()" aria-disabled="true">
           <div class="meta">
-            <span class="cat"><span class="zh">免疫治療衛教</span><span class="en">Immunotherapy</span></span>
-            <span class="date">Feb 2026</span>
+            <span class="cat"><span class="zh">免疫治療衛教</span><span class="en">Immunotherapy</span><span class="badge">Soon</span></span>
+            <span class="date">Coming</span>
           </div>
           <h3>
             <span class="zh">免疫治療的「免疫不良反應」是什麼？</span>
@@ -967,8 +1002,9 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
           </h3>
           <p class="zh-block">用病人聽得懂的方式說明 irAE：哪些症狀要立刻回診、哪些可以觀察、為什麼類固醇會被用上……</p>
           <p class="en-block">Explaining irAEs in plain language: which symptoms warrant urgent return, which can be observed, and why corticosteroids are sometimes needed...</p>
-          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+          <span class="more"><span class="zh">即將推出</span><span class="en">Coming soon</span></span>
         </a>
+
       </div>
     </div>
 
