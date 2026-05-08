@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>研究筆記｜真實世界裡，abemaciclib 真的比 palbociclib 好嗎？— Lee CH et al., The Breast 2025</title>
+<meta name="description" content="2025 年發表於 The Breast 的真實世界比較性研究 — 在 HR+/HER2− 轉移性乳癌第一線使用 abemaciclib 與 palbociclib 的療效與安全性比較。研究筆記：研究問題、設計選擇、結果、方法學反思。" />
+<meta name="keywords" content="abemaciclib, palbociclib, CDK4/6 inhibitor, HR+/HER2-, mBC, real-world evidence, target trial emulation, propensity score matching, TriNetX, 李卓豪" />
+<meta name="author" content="Cho-Hao Howard Lee, MD" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://doctor-howard-lee.github.io/posts/2026-05-rn-abemaciclib-vs-palbociclib.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
+<meta property="og:url" content="https://doctor-howard-lee.github.io/posts/2026-05-rn-abemaciclib-vs-palbociclib.html" />
+<meta property="og:title" content="研究筆記：真實世界裡，abemaciclib 真的比 palbociclib 好嗎？" />
+<meta property="og:description" content="2025 年 The Breast 真實世界比較性研究的研究筆記 — 從研究問題、設計選擇、結果到方法學反思。" />
+<meta property="og:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-abemaciclib-vs-palbociclib-cover.svg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="article:author" content="Cho-Hao Howard Lee" />
+<meta property="article:published_time" content="2026-05-08" />
+<meta property="article:section" content="Research Notes" />
+<meta property="article:tag" content="real-world evidence" />
+<meta property="article:tag" content="CDK4/6 inhibitor" />
+<meta property="article:tag" content="breast cancer" />
+<meta property="article:tag" content="propensity score matching" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="研究筆記：abemaciclib vs palbociclib 真實世界比較" />
+<meta name="twitter:description" content="2025 The Breast 真實世界比較性研究的研究筆記。" />
+<meta name="twitter:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-abemaciclib-vs-palbociclib-cover.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Real-world comparative effectiveness of first-line abemaciclib versus palbociclib in HR+/HER2− metastatic breast cancer",
+  "description": "Research note on a propensity-matched retrospective analysis comparing first-line CDK4/6 inhibitors in HR+/HER2− metastatic breast cancer.",
+  "url": "https://doctor-howard-lee.github.io/posts/2026-05-rn-abemaciclib-vs-palbociclib.html",
+  "datePublished": "2026-05-08",
+  "inLanguage": "zh-Hant",
+  "author": {
+    "@type": "Physician",
+    "name": "Cho-Hao Howard Lee",
+    "url": "https://doctor-howard-lee.github.io/"
+  },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Real-world comparative effectiveness of first-line abemaciclib versus palbociclib in HR+/HER2− metastatic breast cancer: a propensity-matched retrospective analysis",
+    "publisher": "The Breast",
+    "datePublished": "2025"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:        #1a1a18;
+  --ink-soft:   #3b3a36;
+  --paper:      #f5f1ea;
+  --paper-warm: #ede6d8;
+  --line:       #d8cfbd;
+  --green:      #143b34;
+  --green-deep: #0c2a25;
+  --moss:       #5b7a64;
+  --bronze:     #a8703f;
+  --bronze-soft:#c79a6e;
+  --stone:      #948a78;
+  /* Research-note accent: deeper teal-blue */
+  --accent:     #2c5b6e;
+  --accent-soft:#7ea2b1;
+
+  --serif-en: "Fraunces", "Noto Serif TC", Georgia, serif;
+  --serif-cjk:"Noto Serif TC", "Fraunces", serif;
+  --sans:     "Manrope", "Noto Sans TC", -apple-system, sans-serif;
+  --sans-cjk: "Noto Sans TC", "Manrope", sans-serif;
+  --mono:     "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  --container: 720px;
+  --gutter: clamp(20px, 4vw, 40px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--sans-cjk);background:var(--paper);color:var(--ink);
+  line-height:1.75;font-weight:400;
+  background-image:
+    radial-gradient(circle at 15% 5%, rgba(44,91,110,.06), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(168,112,63,.04), transparent 50%);
+}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+
+nav.top{
+  position:sticky;top:0;z-index:50;
+  padding:18px var(--gutter);
+  background:rgba(245,241,234,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav.top .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{
+  font-family:var(--serif-en);font-size:18px;font-weight:500;
+  color:var(--green-deep);letter-spacing:.01em;
+  display:flex;align-items:baseline;gap:8px;
+}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+.brand .ko{font-family:var(--serif-cjk);font-weight:600}
+.back-link{
+  font-family:var(--sans);font-size:13px;color:var(--ink-soft);
+  letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;transition:color .25s;
+}
+.back-link:hover{color:var(--accent)}
+.back-link .arrow{font-family:var(--serif-en);font-style:italic}
+
+article{max-width:var(--container);margin:0 auto;padding:60px var(--gutter) 80px}
+
+.article-meta{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:var(--sans-cjk);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:32px;
+}
+.article-meta .tag{
+  padding:4px 10px;background:var(--accent);color:var(--paper);
+  border:1px solid var(--accent);border-radius:30px;
+  letter-spacing:.1em;
+}
+.article-meta .tag.outline{background:transparent;color:var(--accent);}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--stone)}
+
+h1.title{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(32px,4.6vw,44px);line-height:1.22;
+  letter-spacing:-.005em;color:var(--green-deep);margin-bottom:24px;
+}
+h1.title .em{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-weight:400;
+}
+
+.cite{
+  margin:24px 0 8px;
+  padding:14px 18px;
+  background:var(--paper-warm);border-left:3px solid var(--accent);
+  font-family:var(--serif-en);font-size:13.5px;font-style:italic;
+  line-height:1.65;color:var(--ink-soft);
+  word-break:break-word;
+}
+.cite strong{color:var(--green-deep);font-style:normal;font-weight:600}
+.cite a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+.author{
+  margin:30px 0 50px;padding:18px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:14px;
+}
+.author-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif-cjk);font-weight:500;font-size:18px;
+}
+.author-text{font-size:14px;color:var(--ink-soft)}
+.author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+/* TL;DR callout */
+.tldr{
+  margin:0 0 50px;padding:24px 26px;
+  background:var(--green-deep);color:var(--paper);
+  border-left:4px solid var(--accent-soft);
+}
+.tldr .lbl{
+  font-family:var(--sans);font-size:11px;letter-spacing:.32em;
+  font-weight:600;color:var(--accent-soft);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.tldr p{
+  font-family:var(--serif-cjk);font-size:18px;line-height:1.75;
+  color:var(--paper);margin-bottom:0;
+}
+.tldr p strong{color:#fff}
+
+section{margin-bottom:48px}
+.section-num{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:14px;letter-spacing:.02em;margin-bottom:8px;
+}
+h2{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:28px;line-height:1.3;letter-spacing:-.005em;
+  color:var(--green-deep);margin-bottom:18px;
+}
+h2 .en{
+  display:block;font-family:var(--serif-en);font-style:italic;
+  font-weight:400;font-size:16px;color:var(--stone);
+  margin-top:4px;letter-spacing:.01em;
+}
+h3{
+  font-family:var(--serif-cjk);font-weight:600;
+  font-size:18px;color:var(--green);
+  margin:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+h3::before{content:"";width:14px;height:1px;background:var(--accent);flex-shrink:0;}
+p{font-size:16.5px;line-height:1.85;color:var(--ink);margin-bottom:18px}
+p strong{color:var(--green-deep);font-weight:600}
+em.term{font-family:var(--serif-en);font-style:italic;color:var(--accent);font-weight:400}
+ul, ol{margin:0 0 22px 22px;font-size:16.5px;line-height:1.85}
+li{margin-bottom:8px}
+
+.aside{
+  margin:24px 0;padding:18px 22px;
+  background:var(--paper-warm);
+  border-left:3px solid var(--accent);
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+}
+.aside strong{color:var(--green-deep);display:block;margin-bottom:4px;letter-spacing:.04em}
+
+/* Method box (key methodology steps) */
+.method-box{
+  margin:24px 0;padding:22px 26px;
+  background:rgba(44,91,110,.05);
+  border:1px solid rgba(44,91,110,.18);
+}
+.method-box h4{
+  font-family:var(--sans);font-size:11px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  margin-bottom:14px;
+}
+.method-box dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;font-size:14px;line-height:1.6}
+.method-box dt{font-weight:600;color:var(--green-deep)}
+.method-box dd{color:var(--ink-soft)}
+.method-box code{font-family:var(--mono);font-size:13px;color:var(--accent);background:rgba(44,91,110,.07);padding:1px 5px;border-radius:2px}
+
+@media (max-width:560px){
+  .method-box dl{grid-template-columns:1fr;gap:2px 0}
+  .method-box dt{margin-top:8px}
+}
+
+/* Findings highlight */
+.headline-stat{
+  margin:30px 0;padding:28px 26px;
+  background:var(--green-deep);color:var(--paper);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:20px;
+}
+.headline-stat .num{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:48px;line-height:1;color:var(--accent-soft);font-weight:400;
+}
+.headline-stat .text{flex:1;min-width:240px;font-size:15px;line-height:1.6}
+.headline-stat .text strong{color:var(--paper);display:block;margin-bottom:4px;font-size:16px;font-weight:500;letter-spacing:.02em}
+
+figure{
+  margin:36px 0;background:var(--paper);
+  border:1px solid var(--line);padding:28px 22px 22px;
+}
+figure svg{margin:0 auto 12px;display:block}
+figcaption{
+  text-align:center;font-size:13px;color:var(--stone);
+  font-family:var(--serif-en);font-style:italic;
+  letter-spacing:.02em;line-height:1.6;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+figcaption .zh{font-family:var(--serif-cjk);font-style:normal;color:var(--ink-soft);display:block;margin-bottom:4px;font-size:13.5px}
+
+.data-table{
+  width:100%;border-collapse:collapse;
+  font-size:14px;margin:20px 0 28px;
+}
+.data-table th, .data-table td{
+  padding:12px 14px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top;
+}
+.data-table th{
+  font-family:var(--sans-cjk);font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  border-bottom:2px solid var(--accent);
+}
+.data-table tr:hover{background:rgba(44,91,110,.03)}
+.data-table td:first-child{font-weight:500;color:var(--green-deep)}
+.data-table small{color:var(--stone);font-size:12px}
+
+/* Reflection card (methodological notes) */
+.reflect{
+  margin:24px 0;padding:22px 26px;
+  border:1px dashed var(--accent);
+  background:rgba(44,91,110,.03);
+  font-size:15.5px;line-height:1.75;color:var(--ink);
+}
+.reflect::before{
+  content:"❋  Reflection";
+  display:block;font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:13px;letter-spacing:.06em;
+  margin-bottom:8px;
+}
+
+.refs{margin-top:60px;padding-top:36px;border-top:1px solid var(--line)}
+.refs h2{font-size:18px;margin-bottom:18px}
+.refs ol{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-left:20px}
+.refs li{margin-bottom:10px}
+.refs em{font-style:italic;color:var(--ink)}
+
+.bottom-cta{
+  margin-top:50px;padding:32px 28px;
+  background:var(--green-deep);color:var(--paper);text-align:center;
+}
+.bottom-cta h3{
+  color:var(--paper);font-family:var(--serif-cjk);font-size:22px;
+  margin-bottom:10px;display:block;
+}
+.bottom-cta h3::before{display:none}
+.bottom-cta p{color:rgba(245,241,234,.85);font-size:15px;margin-bottom:0;line-height:1.7}
+.bottom-cta a{color:var(--accent-soft);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+footer{
+  background:var(--paper-warm);padding:30px var(--gutter);
+  font-size:13px;color:var(--stone);text-align:center;
+  border-top:1px solid var(--line);
+}
+footer a{color:var(--green-deep)}
+
+@media (max-width:680px){
+  article{padding:36px var(--gutter) 60px}
+  h1.title{font-size:28px}
+  .tldr p{font-size:16px}
+  h2{font-size:22px}
+  p, ul, ol{font-size:16px}
+  figure{padding:18px 14px 14px}
+  .headline-stat .num{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a class="brand" href="../index.html">
+      Cho-Hao Lee<span class="dot"></span><span class="ko">李</span>
+    </a>
+    <a class="back-link" href="../index.html"><span class="arrow">←</span> 回首頁</a>
+  </div>
+</nav>
+
+<article>
+
+  <!-- ============================== Hero ============================== -->
+  <header>
+    <div class="article-meta">
+      <span class="tag">研究筆記</span>
+      <span class="tag outline">Research Note ・ № 01</span>
+      <span class="dot"></span>
+      <span>2026・05</span>
+      <span class="dot"></span>
+      <span>The Breast 2025</span>
+    </div>
+
+    <h1 class="title">
+      真實世界裡，<em class="em">abemaciclib</em> 真的比
+      <em class="em">palbociclib</em> 好嗎？
+    </h1>
+
+    <div class="cite">
+      <strong>Lee CH</strong><sup>†</sup>, Chen PH<sup>†</sup>, Jhou HJ, Chang WC, Chen HY, Kao LT, Hsieh TJ, Dai MS<sup>*</sup>.
+      Real-world comparative effectiveness of first-line abemaciclib versus palbociclib in HR+/HER2− metastatic breast cancer:
+      a propensity-matched retrospective analysis. <em>The Breast</em>. 2025;84:104597.
+      <br><sup>†</sup> Equal contribution &nbsp;・&nbsp; <sup>*</sup> Corresponding author
+      <br><a href="https://doi.org/10.1016/j.breast.2025.104597" target="_blank">DOI: 10.1016/j.breast.2025.104597 →</a>
+    </div>
+
+    <div class="author">
+      <div class="author-avatar">李</div>
+      <div class="author-text">
+        <strong>李卓豪 醫師</strong>
+        三軍總醫院 ・ 血液腫瘤科 ・ Co-First Author（與 Po-Huang Chen 並列）
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== TL;DR (Plain Language) ============================== -->
+  <div class="tldr">
+    <div class="lbl">TL;DR ・ 一段話結論</div>
+    <p>
+      在 HR+/HER2− 轉移性乳癌的第一線治療中，<strong>abemaciclib 跟 palbociclib 兩種藥都被廣泛使用，但臨床上從沒有頭對頭的隨機試驗直接告訴我們「哪一個更好」</strong>。
+      我們在 TriNetX 跨國真實世界資料庫上做了一個 1:1 propensity-score matched cohort（每組 2,768 人），
+      結果顯示<strong>第一線使用 abemaciclib 的病人，整體存活時間中位數比 palbociclib 多 1 年（6.0 vs 5.0 年；HR 0.80, 95% CI 0.72–0.90, p&lt;0.001）</strong>，
+      且這個結果在多種敏感性分析、subgroup 分析、以及 negative control 都保持穩定。
+      這份證據，可以在「沒有 RCT 直接比較」的現實裡，幫助醫師與病人做出更知情的選擇。
+    </p>
+  </div>
+
+  <!-- ============================== 1. 為什麼做這個研究 ============================== -->
+  <section>
+    <div class="section-num">§ 01 ・ Motivation</div>
+    <h2>
+      為什麼要做這個研究？
+      <span class="en">Why this question, and why now</span>
+    </h2>
+
+    <p>
+      <strong>CDK4/6 抑制劑</strong>是 HR+/HER2− 轉移性乳癌（mBC）第一線治療的標準骨幹。
+      過去十年間有三個藥獲得 FDA 核准：palbociclib（2015）、ribociclib（2017）、abemaciclib（2017）。
+      所有三個藥對比單獨荷爾蒙治療都顯示出顯著的 PFS 受益（HR 約 0.5–0.55）。
+    </p>
+
+    <p>
+      但臨床上一個很實際的問題從來沒被 RCT 直接回答過：<strong>當醫師要選第一線 CDK4/6i 時，這三個藥之間，哪一個對病人最有利？</strong>
+      Palbociclib 因為最早上市，市佔率最高；abemaciclib 機轉上對 CDK4 的抑制更強、且在血腦屏障穿透性較佳；ribociclib 在輔助治療上有最廣的適應症（NATALEE）。
+      但<em class="term">頭對頭隨機試驗在可預見的未來內幾乎不會做出來</em> — 病人量太大、藥廠沒有商業誘因、機構間設計困難。
+    </p>
+
+    <p>
+      所以這個臨床問題只能由<strong>真實世界證據（real-world evidence, RWE）</strong>來回答。
+      這正是 TriNetX 全球網絡這類大型 EHR 資料庫的最佳使用情境之一 —
+      足夠大的樣本、足夠多的混雜變項可控制、足夠長的追蹤時間。
+    </p>
+
+    <div class="aside">
+      <strong>為何先比 abemaciclib vs palbociclib，而不三個一起比？</strong>
+      因為在我們研究設計時點，TriNetX 上 ribociclib 在 mBC 的真實使用人數仍偏少（多用於試驗或自費），
+      不足以支持穩健的 PSM；而 abemaciclib 與 palbociclib 兩者使用量都已達到能匹配 1:1、達到統計檢力的水準。
+      Ribociclib 的真實世界比較我們留待下一篇研究處理。
+    </div>
+  </section>
+
+  <!-- ============================== 2. 設計選擇 ============================== -->
+  <section>
+    <div class="section-num">§ 02 ・ Study Design</div>
+    <h2>
+      研究設計：用 target trial emulation 來減少觀察性研究的偏誤
+      <span class="en">Target trial emulation in EHR-based RWE</span>
+    </h2>
+
+    <p>
+      觀察性研究最大的危險是<strong>各種偏誤同時混入</strong> — 選擇偏誤、不可測量的混淆、immortal time bias、protopathic bias 等等。
+      <em class="term">Target trial emulation</em>（Hernán &amp; Robins 提出的框架）強迫你把觀察性資料想像成在「模擬」一個你會做的隨機試驗，
+      明確列出該試驗的 inclusion criteria, treatment strategy, follow-up start, outcomes — 然後把每一個元素映射到資料庫上。
+      這個練習可以系統地暴露出研究設計中的偏誤點，並逼你做正確的設計選擇。
+    </p>
+
+    <div class="method-box">
+      <h4>本研究模擬的「目標試驗」</h4>
+      <dl>
+        <dt>Population</dt>
+        <dd>HR+/HER2− 轉移性乳癌成年病人，從 metastatic diagnosis 後 6 個月內接受第一線全身性治療</dd>
+        <dt>Intervention</dt>
+        <dd><code>abemaciclib + 內分泌治療</code>（AI / fulvestrant / tamoxifen）</dd>
+        <dt>Comparator</dt>
+        <dd><code>palbociclib + 內分泌治療</code></dd>
+        <dt>Time zero</dt>
+        <dd>第一次接受 CDK4/6i 處方的 index date（active comparator new-user design）</dd>
+        <dt>Eligibility</dt>
+        <dd>排除 metastatic 場景下曾用過化療、標靶或 CDK4/6i 的病人；要求至少 2 次處方紀錄確認用藥延續性</dd>
+        <dt>Primary outcome</dt>
+        <dd><strong>整體存活率（Overall Survival, OS）</strong>，從 index date 到任何原因死亡為止</dd>
+        <dt>Secondary outcomes</dt>
+        <dd>住院、ICU 入院、嚴重感染、血液毒性、心臟毒性、消化道毒性等（具體見 §04）</dd>
+        <dt>Follow-up</dt>
+        <dd>As-started（intention-to-treat 等價）— 即使後續換藥仍持續追蹤</dd>
+      </dl>
+    </div>
+
+    <h3>關鍵設計決策</h3>
+    <ul>
+      <li><strong>Active comparator new-user design</strong> — 兩組都是「新開始用藥的人」，避免 prevalent user bias 與 reverse causation</li>
+      <li><strong>1:1 nearest-neighbor PSM</strong> — covariates 包含年齡、性別、種族、ECOG、BMI、共病（CCI 個別組件）、過去用藥史、內分泌治療搭配選擇、各個轉移部位（腦、骨、肺、肝、腹膜）</li>
+      <li><strong>Caliper 0.2 SD</strong> on the propensity-score logit, without replacement</li>
+      <li><strong>3-month landmark sensitivity analysis</strong> 處理 immortal time bias</li>
+      <li><strong>E-value</strong> 量化「要多大的未測量混淆才能推翻當前結論」</li>
+      <li><strong>Negative control outcomes</strong>（kidney stones, gallstones, burns）— 用「跟用藥無因果關聯的事件」反向驗證 PSM 是否有殘餘混淆</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 3. 資料與流程 ============================== -->
+  <section>
+    <div class="section-num">§ 03 ・ Data &amp; Workflow</div>
+    <h2>
+      資料來源與分析流程
+      <span class="en">Data source and analytical pipeline</span>
+    </h2>
+
+    <p>
+      本研究使用 <strong>TriNetX Research Network</strong> — 一個整合 80+ 醫療系統、覆蓋 1.2 億位病人的 federated EHR 資料庫，
+      平台原生支援 cohort building、PSM 與 outcome analysis。
+    </p>
+
+    <!-- ===== 圖 1：Study flow / PSM ===== -->
+    <figure>
+      <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study flow diagram with PSM">
+        <text x="320" y="22" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">研究流程示意 ・ Cohort flow with propensity-score matching</text>
+
+        <!-- Top: source -->
+        <g transform="translate(40,50)">
+          <rect x="0" y="0" width="560" height="44" fill="#ede6d8" stroke="#d8cfbd"/>
+          <text x="280" y="18" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#3b3a36" font-weight="600">TriNetX Analytics Network ・ HR+/HER2− mBC, 2014–2025</text>
+          <text x="280" y="34" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#948a78" font-style="italic">15,830 eligible patients after exclusions</text>
+        </g>
+
+        <!-- Two streams: abemaciclib | palbociclib -->
+        <g transform="translate(40,120)">
+          <!-- Abemaciclib -->
+          <rect x="0" y="0" width="260" height="62" fill="#cfdce3" stroke="#2c5b6e" stroke-width="0.6"/>
+          <text x="130" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">Abemaciclib + ET</text>
+          <text x="130" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">first-line, new-user</text>
+          <text x="130" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#2c5b6e" font-style="italic">2,808 unmatched</text>
+
+          <!-- Palbociclib -->
+          <rect x="300" y="0" width="260" height="62" fill="#ede6d8" stroke="#a8703f" stroke-width="0.6"/>
+          <text x="430" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">Palbociclib + ET</text>
+          <text x="430" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">first-line, new-user</text>
+          <text x="430" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f" font-style="italic">13,022 unmatched</text>
+        </g>
+
+        <!-- arrows down -->
+        <g stroke="#5b7a64" stroke-width="0.8" fill="none">
+          <path d="M 170 184 L 170 210" marker-end="url(#a)"/>
+          <path d="M 470 184 L 470 210" marker-end="url(#a)"/>
+        </g>
+        <defs>
+          <marker id="a" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 z" fill="#5b7a64"/>
+          </marker>
+        </defs>
+
+        <!-- PSM box -->
+        <g transform="translate(40,210)">
+          <rect x="0" y="0" width="560" height="48" fill="rgba(44,91,110,.10)" stroke="#2c5b6e" stroke-width="0.8"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#2c5b6e" font-weight="600">1:1 Nearest-Neighbor Propensity-Score Matching ・ caliper 0.2 SD</text>
+          <text x="280" y="36" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36" font-style="italic">age ・ sex ・ race ・ ECOG ・ BMI ・ comorbidities ・ ET partner ・ metastatic sites</text>
+        </g>
+
+        <!-- Final matched -->
+        <g transform="translate(40,278)">
+          <rect x="0" y="0" width="560" height="32" fill="#143b34"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#f5f1ea" font-weight="600">
+            Final matched cohort: 2,768 vs 2,768 (N = 5,536) ・ baseline well-balanced
+          </text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 1 ・ 研究流程 — 從原始 cohort 到 1:1 PSM 配對後的最終分析樣本</span>
+        Figure 1 — Study flow from source cohort through 1:1 propensity-score matching
+      </figcaption>
+    </figure>
+
+    <p>
+      配對後，兩組基線特徵良好平衡（mean age ≈ 61.6 歲、95% 女性、種族組成相近、共病盛行率類似）。
+      論文裡 eTable 提供完整 SMD，所有指標都低於 0.10 的常見門檻，平衡本身沒問題。
+      但 SMD 平衡只能保證<em class="term">可觀察的</em>特徵被匹配 — 對未測量混淆的擔心，留到 §06 處理。
+    </p>
+  </section>
+
+  <!-- ============================== 4. 主要結果 ============================== -->
+  <section>
+    <div class="section-num">§ 04 ・ Findings</div>
+    <h2>
+      主要發現
+      <span class="en">Key findings</span>
+    </h2>
+
+    <div class="headline-stat">
+      <div class="num">HR 0.80</div>
+      <div class="text">
+        <strong>Abemaciclib 顯著延長整體存活時間</strong>
+        Median OS 6.0 vs 5.0 年（HR 0.80, 95% CI 0.72–0.90, p&lt;0.001），死亡風險相對降低約 20%。
+        E-value 1.81。三種敏感性分析方向一致。
+      </div>
+    </div>
+
+    <h3>關於主要結果（Overall Survival）</h3>
+    <p>
+      經過<strong>中位追蹤 33.7 個月（abemaciclib）/ 44.2 個月（palbociclib）</strong>，
+      abemaciclib 組的中位 OS 為 6.0 年（95% CI 5.6–6.5），palbociclib 組為 5.0 年（95% CI 4.6–5.2）。
+      Cox proportional hazards model 的 HR 為 <strong>0.80（95% CI 0.72–0.90, p&lt;0.001）</strong>，
+      代表死亡風險相對降低約 20%。
+    </p>
+
+    <p>
+      <strong>RMST 分析</strong>（restricted mean survival time, τ = 4624 天）作為 model-free 補充：
+      abemaciclib 組的平均存活時間為 79.17 個月（95% CI 75.99–82.36），
+      palbociclib 組為 73.21 個月，<strong>絕對差距 5.96 個月（p&lt;0.001）</strong>。
+      這個指標的好處是不依賴 proportional hazards assumption，且臨床上更容易解讀為「平均多活 6 個月」。
+    </p>
+
+    <p>
+      <strong>E-value 為 1.81</strong> — 表示要有一個跟用藥選擇與死亡風險都至少 1.81 倍相關的未測量混淆，才足以推翻這個結論。
+      這個門檻在臨床合理性上不算極高，所以仍需要 §06 的方法學反思一起閱讀。
+    </p>
+
+    <h3>敏感性分析（全部方向一致）</h3>
+    <ul>
+      <li><strong>Unmatched cohort</strong>（不做 PSM 直接比較）— HR 0.79（95% CI 0.72–0.86）</li>
+      <li><strong>On-treatment / per-protocol</strong>（要求至少 6 次連續處方）— HR 0.79（95% CI 0.63–0.98）</li>
+      <li><strong>3-month landmark</strong>（排除 index date 後 3 個月內死亡，處理 immortal time bias）— HR 0.78（95% CI 0.69–0.87）</li>
+      <li><strong>Calendar time-restricted</strong>（限定 2019 年後診斷，控制後續療法演進）— HR 0.89（95% CI 0.80–0.99）</li>
+    </ul>
+
+    <p>
+      四個敏感性分析全部維持有意義的存活優勢，方向一致 — 雖然 calendar-restricted 的效應稍弱（可能因為 2019 年後 palbociclib 後續救援治療進步、把差距縮小），
+      但 95% CI 仍未跨過 1，結論穩健。
+    </p>
+
+    <h3>次要結果與不良反應</h3>
+
+    <p>
+      下表整理主要次要 endpoint（完整 32 個 outcome 在論文 Table 2 與 eTable 8）：
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>類別 / 結果</th>
+          <th>Abemaciclib</th>
+          <th>Palbociclib</th>
+          <th>HR (95% CI)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="4" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">Clinical events</td></tr>
+        <tr><td>住院（任何原因）</td><td>—</td><td>—</td><td>0.93 (0.81–1.06)</td></tr>
+        <tr><td>嚴重感染</td><td>15.7%</td><td>25.1%</td><td><strong>0.85 (0.75–0.96)</strong></td></tr>
+        <tr><td colspan="4" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">血液毒性</td></tr>
+        <tr><td>嗜中性球低下</td><td>15.6%</td><td>32.2%</td><td><strong>0.52 (0.47–0.59)</strong></td></tr>
+        <tr><td>白血球低下</td><td>5.6%</td><td>10.7%</td><td><strong>0.63 (0.52–0.76)</strong></td></tr>
+        <tr><td>貧血</td><td>—</td><td>—</td><td>1.08 (0.98–1.18)</td></tr>
+        <tr><td>血小板低下</td><td>—</td><td>—</td><td>0.97 (0.84–1.12)</td></tr>
+        <tr><td>血液毒性 (composite)</td><td>39.2%</td><td>54.2%</td><td><strong>0.79 (0.73–0.86)</strong></td></tr>
+        <tr><td colspan="4" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">消化道毒性</td></tr>
+        <tr><td>腹瀉</td><td>24.6%</td><td>19.7%</td><td><strong>1.83 (1.63–2.05)</strong></td></tr>
+        <tr><td>噁心 / 嘔吐</td><td>29.1%</td><td>38.2%</td><td>0.95 (0.86–1.04)</td></tr>
+        <tr><td>便秘</td><td>19.6%</td><td>32.3%</td><td><strong>0.75 (0.67–0.84)</strong></td></tr>
+        <tr><td>口腔炎</td><td>2.9%</td><td>8.2%</td><td><strong>0.49 (0.38–0.63)</strong></td></tr>
+        <tr><td colspan="4" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">心臟毒性</td></tr>
+        <tr><td>QT 延長</td><td>—</td><td>—</td><td><strong>0.35 (0.19–0.66)</strong></td></tr>
+        <tr><td>心衰竭</td><td>—</td><td>—</td><td>0.91 (0.77–1.08)</td></tr>
+        <tr><td>心臟毒性 (composite)</td><td>—</td><td>—</td><td>0.91 (0.82–1.00)</td></tr>
+        <tr><td colspan="4" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">其他</td></tr>
+        <tr><td>疲倦</td><td>22.0%</td><td>30.9%</td><td><strong>0.86 (0.77–0.96)</strong></td></tr>
+        <tr><td>肝毒性</td><td>—</td><td>—</td><td>1.00 (0.83–1.20)</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      除了預期中的<strong>腹瀉風險顯著較高（HR 1.83）</strong>之外，
+      abemaciclib 在絕大多數其他不良事件上都不比 palbociclib 差，甚至有顯著優勢（嗜中性球低下、嚴重感染、QT 延長、口腔炎、疲倦等）。
+      這個 safety profile 對於選擇藥物的<em class="term">總體 risk-benefit 判斷</em>具有臨床意義 — 不是「更好的療效，但要付出更高副作用代價」這種簡化的取捨。
+    </p>
+
+    <h3>Negative control analyses（驗證未測量混淆）</h3>
+    <p>
+      為了反向驗證 PSM 是否成功控制混淆，我們選了三個<strong>跟 CDK4/6i 用藥沒有合理因果關聯</strong>的事件作為 negative controls：
+    </p>
+    <ul>
+      <li>腎結石（kidney stones）：HR 0.85（95% CI 0.67–1.08）</li>
+      <li>膽結石（gallbladder stones）：HR 1.02（95% CI 0.82–1.27）</li>
+      <li>燒燙傷（burns）：HR 0.57（95% CI 0.26–1.24）</li>
+    </ul>
+    <p>
+      這三個事件的 HR 都<strong>不顯著</strong>且 95% CI 包含 1.0，符合 negative control 的預期 —
+      代表如果有大規模的隱藏選擇偏差導致 abemaciclib 組「整體比較健康」，那這些不相關事件的發生率也應該偏低，但實際沒看到這樣的訊號。
+      這個檢驗加強了「OS 差距是真實的」這個推論。
+    </p>
+
+    <h3>Subgroup analyses 重點</h3>
+    <p>
+      在所有亞組中，abemaciclib 都沒有比 palbociclib 差。某些亞組的優勢特別明顯：
+    </p>
+    <ul>
+      <li>年齡 &lt; 65 歲：HR 0.44（0.37–0.52）</li>
+      <li>無腦轉移：HR 0.53（0.47–0.59）</li>
+      <li>使用 tamoxifen 為內分泌搭配（雖然樣本較少）：HR 0.36（0.27–0.49）</li>
+      <li>≥ 2 個轉移部位：HR 0.83（0.70–0.99）</li>
+      <li>有臟器（visceral）轉移：HR 0.81（0.69–0.96）</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 5. 臨床意義 ============================== -->
+  <section>
+    <div class="section-num">§ 05 ・ Clinical Implications</div>
+    <h2>
+      臨床上要怎麼看這個結果
+      <span class="en">How to interpret these results clinically</span>
+    </h2>
+
+    <p>
+      這個研究<strong>提供了一個方向性的證據：在 PSM 控制了我們能觀察到的所有重要混淆後，
+      第一線使用 abemaciclib 的真實世界病人，整體存活時間中位數比 palbociclib 多約 1 年，且這個結論在多種敏感性分析、subgroup、negative control 都站得住</strong>。
+    </p>
+
+    <p>
+      但這不是「abemaciclib 一律優於 palbociclib」的結論。在診間，這個證據要怎麼用？
+    </p>
+    <ul>
+      <li><strong>對於年輕、體能狀況好、預期需要長期療程的病人</strong>：subgroup 顯示 &lt;65 歲族群效應特別大（HR 0.44），abemaciclib 是合理的優先選擇</li>
+      <li><strong>對於骨髓抑制風險較高的病人</strong>（既有 cytopenia、共病多）：abemaciclib 的 neutropenia 與嚴重感染負擔都顯著較低，這是被低估的優勢</li>
+      <li><strong>對於可能難以耐受腹瀉的病人</strong>（既有 IBS、本身大腸激躁、依從性偏低）：palbociclib 仍是非常合理的選項；本研究中 abemaciclib 的腹瀉雖較高（24.6% vs 19.7%）但<em class="term">沒有反映在住院率上升</em>，代表多數可在門診管理</li>
+      <li><strong>肝毒性兩個藥沒差別</strong>（HR 1.00, 95% CI 0.83–1.20）— 這跟臨床的常見印象不一定一致，值得診間說明</li>
+    </ul>
+
+    <p>
+      臨床決策從來不是 maximum-efficacy 一個目標。Real-world evidence 的價值，在於把療效數據放回真實病人的脈絡裡 —
+      考慮副作用、生活品質、依從性，做出真正個人化的決定。
+    </p>
+  </section>
+
+  <!-- ============================== 6. 方法學反思 ============================== -->
+  <section>
+    <div class="section-num">§ 06 ・ Methodological Reflections</div>
+    <h2>
+      方法學上的反思
+      <span class="en">Where this study could be challenged</span>
+    </h2>
+
+    <p>
+      RWE 研究最容易被攻擊的地方是<em class="term">未測量混淆</em>（unmeasured confounding）。我列幾個我自己會擔心、但無法完全解決的點：
+    </p>
+
+    <div class="reflect">
+      <strong>① Channeling bias 是否完全被 PSM 處理？</strong><br>
+      在臨床上，更積極、體能更好的病人比較容易被選擇用 abemaciclib（因為要承受腹瀉風險、回診頻率較高）。
+      雖然我們匹配了 ECOG（部分病人有）、CCI、實驗室數值，但<strong>「醫師印象中的 fitness」這個變項</strong>本質上不在 EHR 裡。
+      E-value 1.81 的意思是「要這麼大的未測量混淆才能推翻」 — 對於 channeling 來說，<em>這個門檻不算極高</em>。
+      不過 negative control（腎結石、膽結石、燒燙傷）都沒有顯著差異，這某種程度上反向驗證了沒有大規模的健康-相關選擇偏差。
+    </div>
+
+    <div class="reflect">
+      <strong>② 跨機構 EHR 異質性</strong><br>
+      TriNetX 整合 80+ 醫療系統，編碼方式、實驗室上限參考值、用藥處方習慣都不同。
+      雖然我們在 PSM 階段把 healthcare organization 也納入 stratifying，但同一個機構內病人選藥的差異仍可能形成 site-level confounding。
+      未來若能做<em class="term">multi-level model</em> 或 hospital-fixed-effects 會更穩健。
+    </div>
+
+    <div class="reflect">
+      <strong>③ 死亡資料的完整性</strong><br>
+      EHR 對死亡的記錄並不完整 — 病人在外院過世、安寧居家死亡都可能被遺漏。
+      若這個遺漏在兩組之間有<strong>非隨機差異</strong>（例如使用 abemaciclib 的病人較常在大型醫學中心追蹤、死亡較容易被記錄），就會引入 bias。
+      未來若能 link 到 NDI 或 SSDI 是更乾淨的設計。
+    </div>
+
+    <div class="reflect">
+      <strong>④ Surrogate vs hard endpoint 的選擇</strong><br>
+      我們用 all-cause mortality 作為主要結果，因為它是 hard endpoint、不易被 misclassification 影響。
+      但 mBC 病人的死亡多元（疾病進展、治療毒性、其他共病）— 對於藥物比較研究，<em>cancer-specific mortality 或 PFS 才是更直接的療效指標</em>，
+      這在 EHR 上很難精確擷取。這是 RWE 對 oncology 比較研究的根本限制之一。
+    </div>
+
+    <p>
+      簡單講：這個結果<strong>可以作為臨床決策的補充證據，但不能取代 RCT</strong>。
+      它告訴我們的是「在真實世界中我們觀察到的相關性」 — 至於是不是因果，未來會有更多 EHR、更好的方法、甚至 pragmatic trial 來逼近。
+    </p>
+  </section>
+
+  <!-- ============================== 7. 後續方向 ============================== -->
+  <section>
+    <div class="section-num">§ 07 ・ Next Steps</div>
+    <h2>
+      後續想做的事
+      <span class="en">Where this line of work goes next</span>
+    </h2>
+
+    <ul>
+      <li><strong>把 ribociclib 納入三臂比較</strong>：等 ribociclib 在 mBC 第一線的真實世界使用量足夠（NATALEE 在輔助治療通過後預計加速），跑 abemaciclib vs palbociclib vs ribociclib 三臂 PSM</li>
+      <li><strong>亞洲族群亞組分析</strong>：TriNetX 的東亞 cohort 已經有一定規模，下一步比較 East Asian vs Caucasian 對兩個藥的反應差異 — 這對台灣臨床有直接意義</li>
+      <li><strong>Time-to-treatment-discontinuation 為主要 endpoint</strong>：補強現有 OS 之外的真實世界療程持續性指標，反映「劑量強度＋耐受性」的綜合呈現</li>
+      <li><strong>跟 Flatiron 結果的差異探討</strong>：Rugo 等 2025 用 Flatiron 拿到 HR 0.95（NS），跟我們的 0.80 不一致 — 釐清是 cohort 差異、方法差異、還是混淆控制差異，是下一步重要的方法學工作</li>
+      <li><strong>Pragmatic trial 提案</strong>：若多個 RWE 結果方向一致，下一步是設計 simple, large pragmatic trial（broad eligibility, minimal monitoring）才能真正得到因果證據</li>
+    </ul>
+
+    <div class="bottom-cta">
+      <h3>對這個方法或結果有興趣討論？</h3>
+      <p>
+        歡迎透過<a href="../index.html#contact">聯繫頁</a>來信，或從 PubMed 看完整論文後直接 email 討論方法細節。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 參考文獻 ============================== -->
+  <section class="refs">
+    <h2 style="border:none">主要參考文獻 / Key References</h2>
+    <ol>
+      <li><strong>Lee CH</strong>, Chen PH, Jhou HJ, et al. Real-world comparative effectiveness of first-line abemaciclib versus palbociclib in HR+/HER2− metastatic breast cancer: a propensity-matched retrospective analysis. <em>The Breast</em>. 2025. <strong>(本研究)</strong></li>
+      <li>Hernán MA, Robins JM. Using big data to emulate a target trial when a randomized trial is not available. <em>Am J Epidemiol</em>. 2016;183(8):758-764.</li>
+      <li>Goetz MP, Toi M, Campone M, et al. MONARCH 3: abemaciclib as initial therapy for advanced breast cancer. <em>J Clin Oncol</em>. 2017;35(32):3638-3646.</li>
+      <li>Finn RS, Martin M, Rugo HS, et al. Palbociclib and letrozole in advanced breast cancer (PALOMA-2). <em>N Engl J Med</em>. 2016;375(20):1925-1936.</li>
+      <li>VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. <em>Ann Intern Med</em>. 2017;167(4):268-274.</li>
+      <li>Topaloglu U, Palchuk MB. Using a federated network of real-world data to optimize clinical trials operations. <em>JCO Clin Cancer Inform</em>. 2018;2:1-10.</li>
+    </ol>
+  </section>
+
+</article>
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
