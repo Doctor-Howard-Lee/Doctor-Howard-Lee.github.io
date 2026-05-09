@@ -138,12 +138,13 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 /* =========================================================
    雙語切換  Bilingual System
    ========================================================= */
-/* 預設顯示中文，隱藏英文 */
-.en, .en-block{display:none}
-.zh{display:inline}
-.zh-block{display:block}
+/* 預設顯示中文，隱藏英文
+   用 body 後代選擇器，避免規則套到 body 自己（body class="en" 時會讓整頁 display:none） */
+body .en, body .en-block{display:none}
+body .zh{display:inline}
+body .zh-block{display:block}
 /* 切換到英文 */
-body.en .zh,body.en .zh-block{display:none}
+body.en .zh, body.en .zh-block{display:none}
 body.en .en{display:inline}
 body.en .en-block{display:block}
 /* 英文模式時調整字型偏好 */
