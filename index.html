@@ -13,6 +13,9 @@
 <!-- Canonical -->
 <link rel="canonical" href="https://doctor-howard-lee.github.io/" />
 
+<!-- Fallback: if JS fails, keep all reveal content visible -->
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;animation:none !important;}</style></noscript>
+
 <!-- Open Graph (Facebook, LINE, Slack, etc.) -->
 <meta property="og:type" content="profile" />
 <meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
@@ -675,9 +678,23 @@ footer .brand{color:var(--paper)}
 footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,234,.5)}
 
 /* Reveal */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+/* Reveal animation — pure CSS, JS-independent fallback.
+   Content always becomes visible after 0.1–0.9s regardless of IntersectionObserver state. */
+.reveal{
+  opacity:0;transform:translateY(20px);
+  animation: revealUp 0.8s ease 0.1s forwards;
+}
 .reveal.in{opacity:1;transform:translateY(0)}
-.hero .reveal{transition-duration:1s}
+.hero .reveal{animation-duration:1s}
+@keyframes revealUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+/* Safety net: if user prefers reduced motion or animation fails, force visible */
+@media (prefers-reduced-motion: reduce){
+  .reveal{animation:none !important;opacity:1 !important;transform:none !important;}
+}
+/* Fallback for no-JS browsers */
 </style>
 </head>
 <body class="zh">
@@ -1207,7 +1224,9 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
       </div>
 
       <div class="member reveal">
-        <div class="avatar">陳</div>
+        <div class="avatar">
+          <img src="images/team/po-huang-chen.jpg" alt="陳柏瑝 醫師 Po-Huang Chen, MD" loading="lazy" />
+        </div>
         <div class="role">Hem/Onc Fellow</div>
         <h4>
           <span class="zh">陳柏瑝 醫師</span>
@@ -1526,6 +1545,13 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 document.querySelectorAll('.hero .reveal').forEach(el => {
   setTimeout(() => el.classList.add('in'), 100);
 });
+
+/* Safety net: ensure every .reveal becomes visible after 3 seconds,
+   regardless of IntersectionObserver state. Prevents any single bug
+   from leaving content invisible. */
+setTimeout(() => {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}, 3000);
 </script>
 
 </body>
