@@ -577,9 +577,14 @@ body.en .tab{font-family:var(--sans)}
   margin-bottom:18px;position:relative;overflow:hidden;
   transition:all .3s;
 }
+.member .avatar img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  z-index:1;
+}
 .member .avatar::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(135deg,transparent 50%, rgba(168,112,63,.08) 100%);
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(135deg,transparent 55%, rgba(168,112,63,.10) 100%);
 }
 .member:hover .avatar{border-color:var(--bronze);transform:translateY(-4px)}
 .member .role{
@@ -1205,7 +1210,7 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
         <div class="avatar">陳</div>
         <div class="role">Hem/Onc Fellow</div>
         <h4>
-          <span class="zh">陳柏皇 醫師</span>
+          <span class="zh">陳柏瑝 醫師</span>
           <span class="en">Po-Huang Chen, MD</span>
         </h4>
         <div class="focus">
