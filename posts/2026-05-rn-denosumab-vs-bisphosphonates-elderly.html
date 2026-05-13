@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>研究筆記｜≥75 歲癌症骨轉移病人,Denosumab 真的比 Bisphosphonates 好嗎?— Liu CW, Hsu SN, Chen PH, Lee CH et al., Life 2026</title>
+<meta name="description" content="2026 年發表於 Life 的真實世界比較性研究 — 在 75 歲以上實體腫瘤骨轉移病人中,使用 target trial emulation 框架比較 Denosumab 與 Bisphosphonates 的療效與安全性。研究筆記:研究問題、設計選擇、結果、方法學反思。" />
+<meta name="keywords" content="denosumab, bisphosphonates, zoledronic acid, bone metastases, skeletal-related events, target trial emulation, propensity score matching, TriNetX, elderly, 李卓豪" />
+<meta name="author" content="Cho-Hao Howard Lee, MD" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://doctor-howard-lee.github.io/posts/2026-05-rn-denosumab-vs-bisphosphonates-elderly.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
+<meta property="og:url" content="https://doctor-howard-lee.github.io/posts/2026-05-rn-denosumab-vs-bisphosphonates-elderly.html" />
+<meta property="og:title" content="研究筆記:≥75 歲癌症骨轉移病人,Denosumab 真的比 Bisphosphonates 好嗎?" />
+<meta property="og:description" content="2026 年 Life 真實世界 target trial emulation 研究 — 從研究問題、設計選擇、結果到方法學反思。" />
+<meta property="og:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-denosumab-vs-bisphosphonates-elderly-cover.svg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="article:author" content="Cho-Hao Howard Lee" />
+<meta property="article:published_time" content="2026-05-13" />
+<meta property="article:section" content="Research Notes" />
+<meta property="article:tag" content="real-world evidence" />
+<meta property="article:tag" content="target trial emulation" />
+<meta property="article:tag" content="bone metastases" />
+<meta property="article:tag" content="denosumab" />
+<meta property="article:tag" content="elderly oncology" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="研究筆記:Denosumab vs Bisphosphonates 在高齡癌症骨轉移病人" />
+<meta name="twitter:description" content="2026 Life 真實世界 target trial emulation 研究的研究筆記。" />
+<meta name="twitter:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-denosumab-vs-bisphosphonates-elderly-cover.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Comparative Effectiveness and Safety of Denosumab Versus Bisphosphonates in Elderly Patients with Cancer Bone Metastases: A Target Trial Emulation Study",
+  "description": "Research note on a target-trial-emulation, propensity-matched retrospective analysis comparing Denosumab and bisphosphonates in patients aged ≥75 years with solid-tumour bone metastases.",
+  "url": "https://doctor-howard-lee.github.io/posts/2026-05-rn-denosumab-vs-bisphosphonates-elderly.html",
+  "datePublished": "2026-05-13",
+  "inLanguage": "zh-Hant",
+  "author": {
+    "@type": "Physician",
+    "name": "Cho-Hao Howard Lee",
+    "url": "https://doctor-howard-lee.github.io/"
+  },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Comparative Effectiveness and Safety of Denosumab Versus Bisphosphonates in Elderly Patients with Cancer Bone Metastases: A Target Trial Emulation Study",
+    "publisher": "Life (MDPI)",
+    "datePublished": "2026"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:        #1a1a18;
+  --ink-soft:   #3b3a36;
+  --paper:      #f5f1ea;
+  --paper-warm: #ede6d8;
+  --line:       #d8cfbd;
+  --green:      #143b34;
+  --green-deep: #0c2a25;
+  --moss:       #5b7a64;
+  --bronze:     #a8703f;
+  --bronze-soft:#c79a6e;
+  --stone:      #948a78;
+  /* Research-note accent: deeper teal-blue */
+  --accent:     #2c5b6e;
+  --accent-soft:#7ea2b1;
+
+  --serif-en: "Fraunces", "Noto Serif TC", Georgia, serif;
+  --serif-cjk:"Noto Serif TC", "Fraunces", serif;
+  --sans:     "Manrope", "Noto Sans TC", -apple-system, sans-serif;
+  --sans-cjk: "Noto Sans TC", "Manrope", sans-serif;
+  --mono:     "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  --container: 720px;
+  --gutter: clamp(20px, 4vw, 40px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--sans-cjk);background:var(--paper);color:var(--ink);
+  line-height:1.75;font-weight:400;
+  background-image:
+    radial-gradient(circle at 15% 5%, rgba(44,91,110,.06), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(168,112,63,.04), transparent 50%);
+}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+
+nav.top{
+  position:sticky;top:0;z-index:50;
+  padding:18px var(--gutter);
+  background:rgba(245,241,234,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav.top .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{
+  font-family:var(--serif-en);font-size:18px;font-weight:500;
+  color:var(--green-deep);letter-spacing:.01em;
+  display:flex;align-items:baseline;gap:8px;
+}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+.brand .ko{font-family:var(--serif-cjk);font-weight:600}
+.back-link{
+  font-family:var(--sans);font-size:13px;color:var(--ink-soft);
+  letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;transition:color .25s;
+}
+.back-link:hover{color:var(--accent)}
+.back-link .arrow{font-family:var(--serif-en);font-style:italic}
+
+article{max-width:var(--container);margin:0 auto;padding:60px var(--gutter) 80px}
+
+.article-meta{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:var(--sans-cjk);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:32px;
+}
+.article-meta .tag{
+  padding:4px 10px;background:var(--accent);color:var(--paper);
+  border:1px solid var(--accent);border-radius:30px;
+  letter-spacing:.1em;
+}
+.article-meta .tag.outline{background:transparent;color:var(--accent);}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--stone)}
+
+h1.title{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(32px,4.6vw,44px);line-height:1.22;
+  letter-spacing:-.005em;color:var(--green-deep);margin-bottom:24px;
+}
+h1.title .em{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-weight:400;
+}
+
+.cite{
+  margin:24px 0 8px;
+  padding:14px 18px;
+  background:var(--paper-warm);border-left:3px solid var(--accent);
+  font-family:var(--serif-en);font-size:13.5px;font-style:italic;
+  line-height:1.65;color:var(--ink-soft);
+  word-break:break-word;
+}
+.cite strong{color:var(--green-deep);font-style:normal;font-weight:600}
+.cite a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+.author{
+  margin:30px 0 50px;padding:18px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:14px;
+}
+.author-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif-cjk);font-weight:500;font-size:18px;
+}
+.author-text{font-size:14px;color:var(--ink-soft)}
+.author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+/* TL;DR callout */
+.tldr{
+  margin:0 0 50px;padding:24px 26px;
+  background:var(--green-deep);color:var(--paper);
+  border-left:4px solid var(--accent-soft);
+}
+.tldr .lbl{
+  font-family:var(--sans);font-size:11px;letter-spacing:.32em;
+  font-weight:600;color:var(--accent-soft);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.tldr p{
+  font-family:var(--serif-cjk);font-size:18px;line-height:1.75;
+  color:var(--paper);margin-bottom:0;
+}
+.tldr p strong{color:#fff}
+
+section{margin-bottom:48px}
+.section-num{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:14px;letter-spacing:.02em;margin-bottom:8px;
+}
+h2{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:28px;line-height:1.3;letter-spacing:-.005em;
+  color:var(--green-deep);margin-bottom:18px;
+}
+h2 .en{
+  display:block;font-family:var(--serif-en);font-style:italic;
+  font-weight:400;font-size:16px;color:var(--stone);
+  margin-top:4px;letter-spacing:.01em;
+}
+h3{
+  font-family:var(--serif-cjk);font-weight:600;
+  font-size:18px;color:var(--green);
+  margin:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+h3::before{content:"";width:14px;height:1px;background:var(--accent);flex-shrink:0;}
+p{font-size:16.5px;line-height:1.85;color:var(--ink);margin-bottom:18px}
+p strong{color:var(--green-deep);font-weight:600}
+em.term{font-family:var(--serif-en);font-style:italic;color:var(--accent);font-weight:400}
+ul, ol{margin:0 0 22px 22px;font-size:16.5px;line-height:1.85}
+li{margin-bottom:8px}
+
+.aside{
+  margin:24px 0;padding:18px 22px;
+  background:var(--paper-warm);
+  border-left:3px solid var(--accent);
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+}
+.aside strong{color:var(--green-deep);display:block;margin-bottom:4px;letter-spacing:.04em}
+
+/* Method box (key methodology steps) */
+.method-box{
+  margin:24px 0;padding:22px 26px;
+  background:rgba(44,91,110,.05);
+  border:1px solid rgba(44,91,110,.18);
+}
+.method-box h4{
+  font-family:var(--sans);font-size:11px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  margin-bottom:14px;
+}
+.method-box dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;font-size:14px;line-height:1.6}
+.method-box dt{font-weight:600;color:var(--green-deep)}
+.method-box dd{color:var(--ink-soft)}
+.method-box code{font-family:var(--mono);font-size:13px;color:var(--accent);background:rgba(44,91,110,.07);padding:1px 5px;border-radius:2px}
+
+@media (max-width:560px){
+  .method-box dl{grid-template-columns:1fr;gap:2px 0}
+  .method-box dt{margin-top:8px}
+}
+
+/* Findings highlight */
+.headline-stat{
+  margin:30px 0;padding:28px 26px;
+  background:var(--green-deep);color:var(--paper);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:20px;
+}
+.headline-stat .num{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:48px;line-height:1;color:var(--accent-soft);font-weight:400;
+}
+.headline-stat .text{flex:1;min-width:240px;font-size:15px;line-height:1.6}
+.headline-stat .text strong{color:var(--paper);display:block;margin-bottom:4px;font-size:16px;font-weight:500;letter-spacing:.02em}
+
+figure{
+  margin:36px 0;background:var(--paper);
+  border:1px solid var(--line);padding:28px 22px 22px;
+}
+figure svg{margin:0 auto 12px;display:block}
+figcaption{
+  text-align:center;font-size:13px;color:var(--stone);
+  font-family:var(--serif-en);font-style:italic;
+  letter-spacing:.02em;line-height:1.6;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+figcaption .zh{font-family:var(--serif-cjk);font-style:normal;color:var(--ink-soft);display:block;margin-bottom:4px;font-size:13.5px}
+
+.data-table{
+  width:100%;border-collapse:collapse;
+  font-size:14px;margin:20px 0 28px;
+}
+.data-table th, .data-table td{
+  padding:12px 14px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top;
+}
+.data-table th{
+  font-family:var(--sans-cjk);font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  border-bottom:2px solid var(--accent);
+}
+.data-table tr:hover{background:rgba(44,91,110,.03)}
+.data-table td:first-child{font-weight:500;color:var(--green-deep)}
+.data-table small{color:var(--stone);font-size:12px}
+
+/* Reflection card (methodological notes) */
+.reflect{
+  margin:24px 0;padding:22px 26px;
+  border:1px dashed var(--accent);
+  background:rgba(44,91,110,.03);
+  font-size:15.5px;line-height:1.75;color:var(--ink);
+}
+.reflect::before{
+  content:"❋  Reflection";
+  display:block;font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:13px;letter-spacing:.06em;
+  margin-bottom:8px;
+}
+
+.refs{margin-top:60px;padding-top:36px;border-top:1px solid var(--line)}
+.refs h2{font-size:18px;margin-bottom:18px}
+.refs ol{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-left:20px}
+.refs li{margin-bottom:10px}
+.refs em{font-style:italic;color:var(--ink)}
+
+.bottom-cta{
+  margin-top:50px;padding:32px 28px;
+  background:var(--green-deep);color:var(--paper);text-align:center;
+}
+.bottom-cta h3{
+  color:var(--paper);font-family:var(--serif-cjk);font-size:22px;
+  margin-bottom:10px;display:block;
+}
+.bottom-cta h3::before{display:none}
+.bottom-cta p{color:rgba(245,241,234,.85);font-size:15px;margin-bottom:0;line-height:1.7}
+.bottom-cta a{color:var(--accent-soft);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+footer{
+  background:var(--paper-warm);padding:30px var(--gutter);
+  font-size:13px;color:var(--stone);text-align:center;
+  border-top:1px solid var(--line);
+}
+footer a{color:var(--green-deep)}
+
+@media (max-width:680px){
+  article{padding:36px var(--gutter) 60px}
+  h1.title{font-size:28px}
+  .tldr p{font-size:16px}
+  h2{font-size:22px}
+  p, ul, ol{font-size:16px}
+  figure{padding:18px 14px 14px}
+  .headline-stat .num{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a class="brand" href="../index.html">
+      Cho-Hao Lee<span class="dot"></span><span class="ko">李</span>
+    </a>
+    <a class="back-link" href="../index.html"><span class="arrow">←</span> 回首頁</a>
+  </div>
+</nav>
+
+<article>
+
+  <!-- ============================== Hero ============================== -->
+  <header>
+    <div class="article-meta">
+      <span class="tag">研究筆記</span>
+      <span class="tag outline">Research Note ・ № 02</span>
+      <span class="dot"></span>
+      <span>2026・05</span>
+      <span class="dot"></span>
+      <span>Life 2026</span>
+    </div>
+
+    <h1 class="title">
+      ≥75 歲癌症骨轉移病人,<em class="em">Denosumab</em> 真的比
+      <em class="em">Bisphosphonates</em> 好嗎?
+    </h1>
+
+    <div class="cite">
+      Liu CW<sup>†</sup>, Hsu SN<sup>†</sup>, Chang SH, Chang WC, Hsu CL, Chen HY, <strong>Chen PH</strong><sup>*</sup>, <strong>Lee CH</strong><sup>*</sup>.
+      Comparative Effectiveness and Safety of Denosumab Versus Bisphosphonates in Elderly Patients with Cancer Bone Metastases: A Target Trial Emulation Study.
+      <em>Life</em>. 2026;16(2):346.
+      <br><sup>†</sup> Co-first authors &nbsp;・&nbsp; <sup>*</sup> Co-corresponding authors
+      <br><a href="https://doi.org/10.3390/life16020346" target="_blank">DOI: 10.3390/life16020346 →</a>
+    </div>
+
+    <div class="author">
+      <div class="author-avatar">李</div>
+      <div class="author-text">
+        <strong>李卓豪 醫師</strong>
+        三軍總醫院 ・ 血液腫瘤科 ・ Co-Corresponding Author(與 Po-Huang Chen 並列)
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== TL;DR (Plain Language) ============================== -->
+  <div class="tldr">
+    <div class="lbl">TL;DR ・ 一段話結論</div>
+    <p>
+      過去三大 pivotal RCT(Stopeck、Fizazi、Henry)雖然奠定了 Denosumab 在預防 SRE 上優於 zoledronic acid,
+      但這些試驗的平均年齡只有 57–71 歲,而臨床現場真正棘手的是 <strong>≥75 歲 + 多重共病 + 腎功能在邊緣</strong> 的高齡族群。
+      我們用 TriNetX Global Collaborative Network 的 1.93 億人資料、配上 <strong>target trial emulation + 1:1 PSM</strong>(配對後每組 10,662 人)發現:
+      <strong>≥75 歲族群中,雙磷酸鹽相對 Denosumab 的 SRE 風險高 15%、病理性骨折高 28%、整體死亡風險高 41%</strong>;
+      AKI 兩組無差,但 Denosumab 的低血鈣風險是雙磷酸鹽的 2 倍多(5.7% vs 2.4%)。
+      這份證據把 RCT 結論延伸到了真正最需要 BMA 決策的族群。
+    </p>
+  </div>
+
+  <!-- ============================== 1. 為什麼做這個研究 ============================== -->
+  <section>
+    <div class="section-num">§ 01 ・ Motivation</div>
+    <h2>
+      為什麼要做這個研究?
+      <span class="en">Why this question, and why now</span>
+    </h2>
+
+    <p>
+      癌症骨轉移在臨床上不少見 —— 約 70% 的乳癌、攝護腺癌晚期病人會有骨轉移,
+      肺癌、腎臟癌也有 30–40%。一旦骨轉移發生,接下來真正影響病人生活品質與存活的關鍵,是能不能避免
+      <em class="term">skeletal-related events (SRE)</em>:病理性骨折、脊髓壓迫、骨頭放射治療、骨科手術、嚴重失能。
+    </p>
+
+    <p>
+      目前預防 SRE 的兩大武器是 <strong>bisphosphonates</strong>(代表藥 zoledronic acid)與 <strong>Denosumab</strong>(RANKL 單株抗體)。
+      機轉上,雙磷酸鹽是被破骨細胞內吞之後,在 mevalonate pathway 上抑制 farnesyl pyrophosphate synthase、誘發破骨細胞凋亡;
+      Denosumab 則直接中和 RANKL,從破骨細胞前驅階段就把它「關掉」 —— 動作更上游、更全面。
+    </p>
+
+    <p>
+      Stopeck (breast)、Fizazi (CRPC)、Henry (其他實體腫瘤) 三大 pivotal RCT 的合併分析,
+      已經明確顯示 Denosumab 在延緩 first SRE 上優於 zoledronic acid(HR 約 0.83)。
+      但問題在於 <strong>那三個試驗的平均年齡只有 57–71 歲,而且嚴重腎功能不全的病人多被排除</strong>。
+      臨床上真正在打的硬仗,是 80 歲、eGFR 35、共病一大堆的阿嬤阿公 —— 這群人到底適用 RCT 的結論嗎?
+    </p>
+
+    <p>
+      雙磷酸鹽要依腎功能 dose adjustment、嚴重腎不全是禁忌;Denosumab 不必看 eGFR 但低血鈣風險較高。
+      在高齡多重共病、預期餘命有限、治療毒性權衡複雜的脈絡裡,
+      <em class="term">comparative effectiveness in the very old</em> 一直是個證據缺口。
+      這就是這個研究想填補的地方。
+    </p>
+
+    <div class="aside">
+      <strong>為什麼選擇 target trial emulation 而不是傳統 cohort?</strong>
+      Hernán &amp; Robins 在 2016 年提倡的 target trial emulation,
+      要求你先把「如果這真的是一個 RCT,protocol 會長什麼樣?」明確寫出來 —— eligibility, treatment strategy, assignment, time zero, outcomes, causal contrast ——
+      然後再用觀察性資料逐項對應。這個流程強迫你正面處理 immortal time bias、prevalent user bias、protopathic bias,
+      讓觀察性研究的紀律更接近 RCT。
+    </div>
+  </section>
+
+  <!-- ============================== 2. 設計選擇 ============================== -->
+  <section>
+    <div class="section-num">§ 02 ・ Study Design</div>
+    <h2>
+      研究設計:把觀察性資料當作虛擬 RCT 來分析
+      <span class="en">A target-trial-emulation framework on TriNetX</span>
+    </h2>
+
+    <p>
+      我們在 TriNetX Global Collaborative Network 上,先寫出「目標試驗」的 protocol,再把每一個元素映射到 EHR 資料庫。
+      下表是核心設計摘要:
+    </p>
+
+    <div class="method-box">
+      <h4>本研究模擬的「目標試驗」</h4>
+      <dl>
+        <dt>Population</dt>
+        <dd>≥75 歲、實體腫瘤(ICD-10-CM C00–C80, C7A, C7B)合併骨轉移(C79.51, C79.52)的病人</dd>
+        <dt>Intervention</dt>
+        <dd><code>Denosumab</code>(RxNorm 993449 / HCPCS J0897,oncology dosing)</dd>
+        <dt>Comparator</dt>
+        <dd><code>Bisphosphonates</code>:zoledronic acid、pamidronate、clodronic acid</dd>
+        <dt>Time zero</dt>
+        <dd>骨轉移診斷後的<strong>第一張 BMA 處方</strong>(active comparator new-user design)</dd>
+        <dt>Eligibility</dt>
+        <dd>index date 前須有 ≥12 個月的健康紀錄;排除多發性骨髓瘤、過去用過比較組藥物、過去一年內已發生 SRE、eGFR &lt;15 或 ESRD、既有 ONJ</dd>
+        <dt>Primary outcome</dt>
+        <dd><strong>Time to first SRE</strong>(病理性骨折、脊髓壓迫、骨頭放射治療、椎體手術、functional impairment 的 composite)</dd>
+        <dt>Secondary outcomes</dt>
+        <dd>個別 SRE 組件、all-cause mortality、AKI、低血鈣、ESRD</dd>
+        <dt>Follow-up</dt>
+        <dd>Index date 後 <strong>第 30 天到第 365 天</strong>(landmark 設計,確保因果時序、排除治療前就在路上的事件)</dd>
+      </dl>
+    </div>
+
+    <h3>關鍵設計決策</h3>
+    <ul>
+      <li><strong>Active comparator new-user design</strong> —— 兩組都是新開始用 BMA 的人,避免 prevalent user bias 與 reverse causation</li>
+      <li><strong>1:1 nearest-neighbour PSM</strong>,caliper 0.1 SD on logit;covariates 包括年齡、性別、種族、原發癌別、共病(DM, HF, CKD)、共用藥(steroids, calcium, antineoplastics, endocrine therapy)、實驗室數值(BMI, eGFR, creatinine, ALP)</li>
+      <li><strong>30–365 天 landmark</strong> —— 處理「藥物還沒發揮作用就死於原本就在路上的事件」這類 immortal time bias / protopathic bias</li>
+      <li><strong>E-value</strong> 量化「要多大的未測量混淆才能推翻結論」(VanderWeele &amp; Ding 2017)</li>
+      <li><strong>Negative control outcomes</strong>(膽結石、腎結石、燒燙傷)—— 用「跟 BMA 沒有合理因果關聯的事件」反向驗證 PSM 是否殘餘混淆</li>
+      <li><strong>多重 sensitivity analyses</strong>:US-only、≥65 歲擴大組、per-protocol(BMA ≥6 醫療紀錄)</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 3. 資料與流程 ============================== -->
+  <section>
+    <div class="section-num">§ 03 ・ Data &amp; Workflow</div>
+    <h2>
+      資料來源與分析流程
+      <span class="en">Data source and analytical pipeline</span>
+    </h2>
+
+    <p>
+      TriNetX Global Collaborative Network 涵蓋全球 <strong>193,169,920 位</strong>去識別化病人。
+      我們從中先抓出 ≥75 歲的 31,241,376 人,再層層套用 BMA 使用、骨轉移、排除條件,最後得到 27,375 名 eligible 病人。
+      經過 1:1 PSM 之後,每組 10,662 人進入主要分析。
+    </p>
+
+    <!-- ===== 圖 1:Study flow / PSM ===== -->
+    <figure>
+      <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study flow diagram with PSM">
+        <text x="320" y="22" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">研究流程示意 ・ Cohort flow with target-trial-emulation PSM</text>
+
+        <!-- Top: source -->
+        <g transform="translate(40,50)">
+          <rect x="0" y="0" width="560" height="44" fill="#ede6d8" stroke="#d8cfbd"/>
+          <text x="280" y="18" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#3b3a36" font-weight="600">TriNetX Global Collaborative Network ・ ≥75 yr, solid-tumour bone metastases</text>
+          <text x="280" y="34" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#948a78" font-style="italic">47,149 → 27,375 eligible after exclusions (myeloma, prior SRE, eGFR &lt;15, ONJ, comparator-experienced)</text>
+        </g>
+
+        <!-- Two streams -->
+        <g transform="translate(40,120)">
+          <!-- Bisphosphonates -->
+          <rect x="0" y="0" width="260" height="62" fill="#ede6d8" stroke="#a8703f" stroke-width="0.6"/>
+          <text x="130" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">Bisphosphonates (new-user)</text>
+          <text x="130" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">zoledronic / pamidronate / clodronic</text>
+          <text x="130" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f" font-style="italic">12,412 unmatched</text>
+
+          <!-- Denosumab -->
+          <rect x="300" y="0" width="260" height="62" fill="#cfdce3" stroke="#2c5b6e" stroke-width="0.6"/>
+          <text x="430" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">Denosumab (new-user)</text>
+          <text x="430" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">oncology dosing, RxNorm 993449</text>
+          <text x="430" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#2c5b6e" font-style="italic">14,963 unmatched</text>
+        </g>
+
+        <!-- arrows down -->
+        <g stroke="#5b7a64" stroke-width="0.8" fill="none">
+          <path d="M 170 184 L 170 215" marker-end="url(#a2)"/>
+          <path d="M 470 184 L 470 215" marker-end="url(#a2)"/>
+        </g>
+        <defs>
+          <marker id="a2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 z" fill="#5b7a64"/>
+          </marker>
+        </defs>
+
+        <!-- PSM box -->
+        <g transform="translate(40,215)">
+          <rect x="0" y="0" width="560" height="52" fill="rgba(44,91,110,.10)" stroke="#2c5b6e" stroke-width="0.8"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#2c5b6e" font-weight="600">1:1 Nearest-Neighbour Propensity-Score Matching ・ caliper 0.1 SD on logit</text>
+          <text x="280" y="38" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36" font-style="italic">demographics ・ cancer type ・ DM / HF / CKD ・ steroids / calcium / endocrine therapy ・ BMI / eGFR / ALP</text>
+        </g>
+
+        <!-- Final matched -->
+        <g transform="translate(40,290)">
+          <rect x="0" y="0" width="560" height="32" fill="#143b34"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#f5f1ea" font-weight="600">
+            Final matched cohort: 10,662 vs 10,662 (N = 21,324) ・ mean age 75.6, all SMD &lt; 0.10
+          </text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 1 ・ 研究流程 —— 從 TriNetX 全球網絡到 1:1 PSM 配對後的最終分析樣本</span>
+        Figure 1 — Cohort flow with target-trial-emulation propensity-score matching
+      </figcaption>
+    </figure>
+
+    <p>
+      配對前差異很明顯 —— Denosumab 組較老(76.7 vs 74.9 歲)、攝護腺癌比率較高(41.1% vs 30.1%)、
+      合併內分泌治療較多(46.6% vs 33.4%)。這正是 channeling bias 的典型樣態。
+      配對後所有主要變項 SMD 均 &lt; 0.1,平均年齡 75.6 歲、男性比例約 57%、最常見癌別為攝護腺(33.4%)、乳癌(22.8–23.1%)、肺癌(19.4–19.6%);
+      基線 eGFR 71.8–74.0 mL/min/1.73 m²、CKD 盛行率 11.5–11.8%,兩組腎功能相關變項在配對後同樣達到平衡。
+    </p>
+  </section>
+
+  <!-- ============================== 4. 主要結果 ============================== -->
+  <section>
+    <div class="section-num">§ 04 ・ Findings</div>
+    <h2>
+      主要發現
+      <span class="en">Key findings</span>
+    </h2>
+
+    <div class="headline-stat">
+      <div class="num">HR 1.15</div>
+      <div class="text">
+        <strong>Bisphosphonates vs Denosumab,SRE 風險增加 15%</strong>
+        以 Denosumab 為 reference,雙磷酸鹽組 SRE 為 1.15 倍(95% CI 1.06–1.25, p = 0.001)。
+        主要差異由 <strong>病理性骨折(HR 1.28, 1.10–1.49)</strong> 撐起;
+        其他 SRE 組件兩組差異不顯著。E-value 1.57(SRE 主要結果)。
+    </div>
+    </div>
+
+    <div class="headline-stat">
+      <div class="num">HR 1.41</div>
+      <div class="text">
+        <strong>雙磷酸鹽組 all-cause mortality 顯著較高</strong>
+        24.7% vs 21.2%(HR 1.41, 95% CI 1.33–1.49, p &lt; 0.001)。E-value 2.17,對未測量混淆的 robustness 中-高度。
+        這是 pivotal RCT 沒打出來、但在真實世界 ≥75 歲族群浮現的訊號。
+      </div>
+    </div>
+
+    <h3>主要結果與各 SRE 組件</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>結果(Denosumab 為 reference)</th>
+          <th>Bisphos.</th>
+          <th>Deno.</th>
+          <th>HR (95% CI)</th>
+          <th>p</th>
+          <th>E-value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="6" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">主要結果</td></tr>
+        <tr><td>Skeletal-Related Events(SRE)</td><td>10.7%</td><td>10.5%</td><td><strong>1.15 (1.06–1.25)</strong></td><td>0.001</td><td>1.57</td></tr>
+        <tr><td colspan="6" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">SRE 個別組件</td></tr>
+        <tr><td>Pathological fracture</td><td>3.2%</td><td>2.9%</td><td><strong>1.28 (1.10–1.49)</strong></td><td>&lt;0.001</td><td>1.88</td></tr>
+        <tr><td>Spinal cord compression</td><td>0.5%</td><td>0.5%</td><td>1.29 (0.88–1.89)</td><td>0.192</td><td>1.91</td></tr>
+        <tr><td>Radiation therapy to bone</td><td>6.0%</td><td>6.1%</td><td>1.10 (0.99–1.23)</td><td>0.082</td><td>1.42</td></tr>
+        <tr><td>Vertebral surgery</td><td>0.2%</td><td>0.3%</td><td>1.04 (0.60–1.81)</td><td>0.882</td><td>1.21</td></tr>
+        <tr><td>Functional impairment</td><td>0.9%</td><td>0.8%</td><td>1.27 (0.94–1.71)</td><td>0.118</td><td>1.85</td></tr>
+        <tr><td colspan="6" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">次要與安全性</td></tr>
+        <tr><td>All-cause mortality</td><td>24.7%</td><td>21.2%</td><td><strong>1.41 (1.33–1.49)</strong></td><td>&lt;0.001</td><td>2.17</td></tr>
+        <tr><td>Acute kidney injury</td><td>8.3%</td><td>9.7%</td><td>1.01 (0.92–1.11)</td><td>0.816</td><td>1.11</td></tr>
+        <tr><td>Hypocalcaemia</td><td>2.4%</td><td>5.7%</td><td><strong>0.49 (0.43–0.57)</strong></td><td>&lt;0.001</td><td>3.50</td></tr>
+        <tr><td>ESRD</td><td>0.2%</td><td>0.4%</td><td>0.63 (0.37–1.06)</td><td>0.079</td><td>2.55</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      <strong>SRE 差異主要由病理性骨折撐出來。</strong> 在高齡病人,病理性骨折幾乎等於後續一連串的失能、住院、肺炎、失去自主行動 ——
+      它在臨床上不只是「一個 endpoint」,而是預後的轉折點(Saad 2007 早已給出 mortality association)。
+      Denosumab 在這個 endpoint 上的優勢,跟它「在 osteoclast 前驅期就把 RANKL 中和」的機轉一致 ——
+      不受限於骨基質沉積、能保護整體骨表面、能打斷 tumour-bone 之間的 vicious cycle。
+    </p>
+
+    <p>
+      <strong>Mortality HR 1.41 是 RCT 沒打出來的訊號。</strong> 我自己讀到這個數字時想很久。可能的解釋幾個:
+      (1) 減少病理性骨折 → 減少失能與後續併發症,間接改善存活;
+      (2) Denosumab 不傷腎,在高齡 baseline eGFR 已邊緣的病人特別有意義;
+      (3) 給藥便利性差異(monthly SQ vs IV infusion)轉化為 adherence 差異,在能不能準時打針這件事上,對高齡病人的 outcome 影響可能比想像中大;
+      (4) Denosumab 的 mechanism 在 tumour-bone microenvironment 上有更上游的中斷效果,理論上可能影響 tumour progression。
+      E-value 2.17 對 unmeasured confounding 算 moderate-to-strong robust,但這仍是 hypothesis-generating,不能直接外推成「Denosumab 救命」。
+    </p>
+
+    <p>
+      <strong>AKI 兩組無差,跟教科書不一致。</strong> 我傾向解釋成 channeling 後的結果 ——
+      臨床醫師早已會看 creatinine 做 dose adjustment,腎功能差的病人多被導向 Denosumab,
+      所以兩組「實際遇到的 AKI 風險」被臨床判斷拉平。
+      加上我們在 inclusion 階段已經排除 eGFR &lt;15 / ESRD,把最容易出 nephrotoxicity 的族群移除了。
+      這個發現的臨床意義是:在現代用藥習慣下,雙磷酸鹽的 AKI 風險可能被高估;但這是「醫師謹慎使用」之後的結果,不能反過來說「雙磷酸鹽其實不傷腎」。
+    </p>
+
+    <p>
+      <strong>低血鈣 5.7% vs 2.4%,符合機轉預期。</strong> Denosumab 把整個 osteoclast 族群快速關掉,
+      鈣從骨頭釋放到血液的 flux 被一刀切斷,自然低血鈣風險較高。E-value 3.50 顯示這個 association 非常 robust。
+      臨床操作上,我自己現在的習慣是 baseline check Ca、25(OH)D、PTH,給足 calcium 500–1000 mg + cholecalciferol 400–800 IU,
+      高風險(CKD、營養不良、steroid use)時用 calcitriol 0.25–0.5 µg 並嚴密 monitor。
+    </p>
+
+    <h3>敏感性分析:方向一致</h3>
+    <ul>
+      <li><strong>US-only(N = 8,396 / 組)</strong>:SRE HR 1.18(1.08–1.28)、Mortality HR 1.41(1.32–1.50),全部維持顯著</li>
+      <li><strong>≥65 歲擴大組(N = 17,252 / 組)</strong>:SRE HR 1.15(1.08–1.22)、Mortality HR 1.43(1.37–1.49)</li>
+      <li><strong>Per-protocol(BMA ≥6 醫療紀錄,N = 3,381 / 組)</strong>:SRE HR 1.23(1.08–1.42)</li>
+    </ul>
+
+    <h3>Subgroup analyses</h3>
+    <p>
+      Denosumab 的優勢在多數亞組一致,但在某些族群特別強:
+    </p>
+    <ul>
+      <li><strong>≥85 歲</strong>:HR 1.21(1.04–1.41)—— 最高齡反而效應最明顯</li>
+      <li><strong>White race</strong>:HR 1.27(1.16–1.40)</li>
+      <li><strong>攝護腺癌</strong>:HR 1.26(1.10–1.45)</li>
+      <li><strong>乳癌</strong>:HR 1.22(1.04–1.44)</li>
+    </ul>
+    <p>
+      亞洲族群與黑人族群沒有達到統計顯著,但子樣本較小,statistical power 不足以下結論。
+      這是後續想用台灣健保 + 癌登資料驗證的方向之一 —— 東亞族群是否有 ethnic-specific signal。
+    </p>
+
+    <h3>Negative control outcomes:沒有訊號 = 好訊號</h3>
+    <p>
+      膽結石(HR 1.00, 0.84–1.19)、腎結石(HR 0.93, 0.79–1.09)、燒燙傷(HR 0.62, 0.30–1.29) —— 三個都不顯著、CI 包含 1.0。
+      代表 PSM 後,我們沒有看到「Denosumab 組整體比較健康」這種大規模隱藏選擇偏差。這支持 SRE / mortality 差異是真實的訊號,而非殘餘混淆造成的 artifact。
+    </p>
+  </section>
+
+  <!-- ============================== 5. 臨床意義 ============================== -->
+  <section>
+    <div class="section-num">§ 05 ・ Clinical Implications</div>
+    <h2>
+      臨床上要怎麼用這個結果
+      <span class="en">How I changed my practice after this</span>
+    </h2>
+
+    <p>
+      這個研究讓我自己在門診的幾個習慣有了調整:
+    </p>
+
+    <ul>
+      <li>
+        <strong>≥75 歲實體腫瘤骨轉移病人,只要沒有低血鈣禁忌、能規律皮下注射,優先考慮 Denosumab。</strong>
+        主要改善的 endpoint 是 pathological fracture,而這在高齡族群幾乎等於改善後續生活功能與行動能力。
+      </li>
+      <li>
+        <strong>不要因為「教科書說雙磷酸鹽傷腎」就一律避開。</strong> 我們的資料顯示,在臨床有做 dose adjustment 的前提下,AKI 風險與 Denosumab 無顯著差異。
+        但 eGFR &lt; 30 仍應傾向 Denosumab,雙磷酸鹽禁忌或極謹慎使用。
+      </li>
+      <li>
+        <strong>Denosumab 開立的同時把鈣與維他命 D 補充寫進醫囑,不要事後補救。</strong>
+        Baseline → 治療第一個月 → 之後每 3 個月監測血鈣;高風險族群(CKD、營養不良、長期 steroid 使用)更要積極。
+        對高齡病人特別要衛教「手腳麻木、肌肉抽搐、口周圍麻」這些低血鈣前兆。
+      </li>
+      <li>
+        <strong>Mortality HR 1.41 是 hypothesis-generating,但不該被忽視。</strong>
+        提醒我們:在高齡病人,「能不能避免那一次病理性骨折」可能就是後續半年存活的關鍵節點。
+        BMA 不只是「預防 SRE」,更是高齡 oncology care 的 functional preservation 工具。
+      </li>
+      <li>
+        <strong>看牙醫前要主動告知;停藥要謹慎處理。</strong> ONJ 風險、停藥後 rebound fracture 風險,在高齡族群同樣需要在 shared decision 階段就講清楚。
+      </li>
+    </ul>
+
+    <p>
+      臨床決策從來不是 maximum-efficacy 一個目標。Real-world evidence 的價值,在於把療效數據放回真實病人的脈絡裡 ——
+      考慮副作用、生活品質、能不能配合回診、家屬照護資源 —— 做出真正個人化的決定。
+    </p>
+  </section>
+
+  <!-- ============================== 6. 方法學反思 ============================== -->
+  <section>
+    <div class="section-num">§ 06 ・ Methodological Reflections</div>
+    <h2>
+      方法學上的反思
+      <span class="en">Where this study could be challenged</span>
+    </h2>
+
+    <div class="reflect">
+      <strong>① Channeling bias 是否完全被 PSM 處理?</strong><br>
+      臨床上,功能狀態較好、預期餘命較長的病人,可能比較容易被選擇用 Denosumab(因為需要規律皮下注射、需要追蹤血鈣)。
+      雖然我們匹配了年齡、共病、實驗室數值,但「醫師印象中的 fitness、performance status」這個變項並不存在於 EHR 結構化欄位裡。
+      E-value 1.57(SRE)/ 2.17(mortality)的意思是「要這麼大的未測量混淆才能推翻」 —— 對於 channeling 來說,2.17 算是相對可靠,1.57 較需小心。
+      但 negative control(膽石、腎石、燒燙傷)三個都不顯著,反向支持沒有大規模選擇偏差。
+    </div>
+
+    <div class="reflect">
+      <strong>② 30–365 天 landmark 的 trade-off</strong><br>
+      我們特意把 follow-up 起點從 index date 推到第 30 天,目的是排除「藥物還沒發揮作用就死於原本就在路上的事件」,
+      以及處理 immortal time bias。但這個 design 也帶來 survivor selection ——
+      最危重、index date 後 30 天內就過世的病人不會被計入分析。
+      因為這個 selection 對稱套用於兩組,relative comparison 仍然成立,但 absolute risk 不能直接推到「最危重的高齡族群」。
+    </div>
+
+    <div class="reflect">
+      <strong>③ TriNetX 的資料粒度</strong><br>
+      Performance status、骨轉移範圍(單發 vs 多發 vs widespread)、staging 細節、實際 chemotherapy line —— 這些臨床決策的關鍵變項,
+      EHR 結構化欄位無法完整抓到。Glucocorticoid 雖然被納入 PSM 的 baseline 變項,但累積劑量與療程長度仍無法精確控制。
+      這是 federated EHR network 在 oncology 比較研究上的根本限制之一。
+    </div>
+
+    <div class="reflect">
+      <strong>④ Adherence 無法直接觀察</strong><br>
+      我們只能用「至少 6 次 BMA 醫療紀錄」作為 per-protocol 的 proxy,沒辦法像 RCT 那樣計算 dose intensity / time on treatment。
+      Denosumab 與 zoledronic acid 的給藥模式差異(monthly SQ vs IV infusion at center)在高齡病人本來就會造成 adherence 差距,
+      這個差距本身可能就是 mortality 差異的部分機轉 —— 它既是 mediator 又是 confounder,在觀察性資料裡幾乎無法分開。
+    </div>
+
+    <div class="reflect">
+      <strong>⑤ Coding 異質性</strong><br>
+      TriNetX 整合的不同 HCO 在 ICD-10 / CPT / HCPCS 的編碼準確度不一,
+      特別是 SRE 組件中的 functional impairment(Z74.01)與 spinal cord compression 在編碼上有重疊風險。
+      未來用台灣健保資料 + 癌登做驗證時,可以與這份資料對比 outcome ascertainment 的一致性。
+    </div>
+
+    <p>
+      簡單講:這個研究<strong>把 RCT 的結論延伸到了 ≥75 歲族群,並補上 mortality 訊號</strong>;
+      但它仍是 observational evidence,不能取代 RCT。它告訴我們的是「在真實世界 ≥75 歲族群中觀察到的因果方向」 ——
+      作為臨床決策的補充證據合理,但仍應與臨床判斷、病人意願、可及性整合使用。
+    </p>
+  </section>
+
+  <!-- ============================== 7. 後續方向 ============================== -->
+  <section>
+    <div class="section-num">§ 07 ・ Next Steps</div>
+    <h2>
+      後續想做的事
+      <span class="en">Where this line of work goes next</span>
+    </h2>
+
+    <ul>
+      <li><strong>台灣本土資料驗證</strong>:用健保 + 癌登資料庫複驗,特別檢視亞洲族群是否有 ethnic-specific signal,以及 ONJ 風險的本土資料</li>
+      <li><strong>Denosumab vs oral bisphosphonate 比較</strong>:目前研究聚焦於 IV bisphosphonate;但門診仍不少病人在使用 oral BMA,值得用同一方法學分析</li>
+      <li><strong>Time-to-treatment-discontinuation 為主 endpoint</strong>:補強 OS 之外的「療程持續性」指標,反映劑量強度 + 耐受性的綜合呈現</li>
+      <li><strong>Denosumab 停藥後 rebound fracture 研究</strong>:這是現有 evidence 最缺的部分,特別是高齡族群的 transition strategy</li>
+      <li><strong>Pragmatic trial 提案</strong>:若多個 RWE 結果方向一致,下一步是設計 simple, large pragmatic trial(broad eligibility, minimal monitoring)才能真正得到因果證據,確認高齡族群的 mortality benefit</li>
+    </ul>
+
+    <div class="bottom-cta">
+      <h3>對這個方法或結果有興趣討論?</h3>
+      <p>
+        歡迎透過<a href="../index.html#contact">聯繫頁</a>來信,
+        或從 <a href="https://doi.org/10.3390/life16020346" target="_blank">MDPI 開放取用全文</a> 讀完論文後直接 email 討論方法細節。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 參考文獻 ============================== -->
+  <section class="refs">
+    <h2 style="border:none">主要參考文獻 / Key References</h2>
+    <ol>
+      <li>Liu CW, Hsu SN, Chang SH, Chang WC, Hsu CL, Chen HY, <strong>Chen PH, Lee CH</strong>. Comparative Effectiveness and Safety of Denosumab Versus Bisphosphonates in Elderly Patients with Cancer Bone Metastases: A Target Trial Emulation Study. <em>Life</em>. 2026;16(2):346. <strong>(本研究)</strong></li>
+      <li>Hernán MA, Robins JM. Using big data to emulate a target trial when a randomized trial is not available. <em>Am J Epidemiol</em>. 2016;183(8):758-764.</li>
+      <li>Stopeck AT, Lipton A, Body JJ, et al. Denosumab compared with zoledronic acid for the treatment of bone metastases in patients with advanced breast cancer. <em>J Clin Oncol</em>. 2010;28(35):5132-5139.</li>
+      <li>Fizazi K, Carducci M, Smith M, et al. Denosumab versus zoledronic acid for treatment of bone metastases in men with castration-resistant prostate cancer. <em>Lancet</em>. 2011;377(9768):813-822.</li>
+      <li>Henry DH, Costa L, Goldwasser F, et al. Randomized, double-blind study of Denosumab versus zoledronic acid in the treatment of bone metastases in patients with advanced cancer (excluding breast and prostate cancer) or multiple myeloma. <em>J Clin Oncol</em>. 2011;29(9):1125-1132.</li>
+      <li>Lipton A, Fizazi K, Stopeck AT, et al. Superiority of Denosumab to zoledronic acid for prevention of skeletal-related events: A combined analysis of 3 pivotal randomised phase 3 trials. <em>Eur J Cancer</em>. 2012;48(16):3082-3092.</li>
+      <li>VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. <em>Ann Intern Med</em>. 2017;167(4):268-274.</li>
+      <li>Saad F, Lipton A, Cook R, et al. Pathologic fractures correlate with reduced survival in patients with malignant bone disease. <em>Cancer</em>. 2007;110(8):1860-1867.</li>
+    </ol>
+  </section>
+
+</article>
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
