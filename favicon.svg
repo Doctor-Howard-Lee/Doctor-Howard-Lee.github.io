@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Lee Lab">
+  <polygon points="16,3 28,10 28,22 16,29 4,22 4,10" fill="none" stroke="#0c2a25" stroke-width="2.2"/>
+  <path d="M8 12 L13 12 L13 15 L18 15 L18 18 L23 18 L23 21 L26 21" fill="none" stroke="#0c2a25" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8 12 L12 12 L12 16 L16 16 L16 20 L21 20 L21 23 L26 23" fill="none" stroke="#a8703f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

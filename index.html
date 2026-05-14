@@ -88,6 +88,7 @@
 }
 </script>
 
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -175,7 +176,11 @@ nav.top .row{
   color:var(--green-deep);
   display:flex;align-items:baseline;gap:10px;
 }
-.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--bronze);display:inline-block;transform:translateY(-3px)}
+.brand .dot{
+  width:18px;height:18px;display:inline-block;transform:translateY(2px);
+  background:url("favicon.svg") center/contain no-repeat;
+  border-radius:0;
+}
 .brand .ko{font-family:var(--serif-cjk);font-weight:600}
 .brand .role{font-size:13px;color:var(--stone);font-weight:400;letter-spacing:.06em;font-family:var(--sans)}
 
@@ -301,6 +306,15 @@ body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
   font-family:var(--serif-en);font-style:italic;font-size:13px;
   color:var(--green-deep);border:1px solid var(--line);
   box-shadow:0 6px 16px -6px rgba(20,59,52,.25);
+}
+
+/* Lab-logo variant of the hero portrait */
+.portrait--logo{background:var(--paper)}
+.portrait--logo::before{display:none}
+.portrait .portrait-logo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain;object-position:center;
+  padding:14% 16%;z-index:1;
 }
 
 .deco-no{
@@ -783,9 +797,9 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
       </div>
     </div>
 
-    <div class="portrait reveal">
-      <img class="portrait-photo" src="images/portrait.jpg" alt="李卓豪 醫師 Cho-Hao Howard Lee, MD" loading="eager" decoding="async" />
-      <div class="portrait-tag">Taipei ・ Est. 2026</div>
+    <div class="portrait portrait--logo reveal">
+      <img class="portrait-logo" src="images/lab-logo.svg" alt="Lee Lab — 李卓豪醫師研究團隊" loading="eager" decoding="async" />
+      <div class="portrait-tag">Lee Lab ・ Est. 2026</div>
     </div>
   </div>
 </header>
@@ -1226,7 +1240,9 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
 
     <div class="members-grid">
       <div class="member reveal">
-        <div class="avatar">李</div>
+        <div class="avatar">
+          <img src="images/portrait.jpg" alt="李卓豪 醫師 Cho-Hao Howard Lee, MD" loading="lazy" />
+        </div>
         <div class="role">Principal Investigator</div>
         <h4>
           <span class="zh">李卓豪 醫師</span>
@@ -1254,14 +1270,14 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
       </div>
 
       <div class="member reveal">
-        <div class="avatar">周</div>
+        <div class="avatar">
+          <img src="images/team/hong-jie-jhou.jpg" alt="Hong-Jie Jhou, MD" loading="lazy" />
+        </div>
         <div class="role">Co-Investigator</div>
         <h4>
-          <span class="zh">周宏傑 醫師</span>
           <span class="en">Hong-Jie Jhou, MD</span>
         </h4>
         <div class="focus">
-          <span class="zh">神經內科 ・ 資料科學</span>
           <span class="en">Neurology ・ Data Science</span>
         </div>
       </div>
@@ -1293,15 +1309,17 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
       </div>
 
       <div class="member reveal">
-        <div class="avatar">孫</div>
-        <div class="role">Research Collaborator</div>
+        <div class="avatar">
+          <img src="images/team/wei-cheng-chang.jpg" alt="章瑋真 醫師 Wei-Cheng Chang, MD, PhD" loading="lazy" />
+        </div>
+        <div class="role">Co-Investigator</div>
         <h4>
-          <span class="zh">Andrea Yue-En Sun</span>
-          <span class="en">Andrea Yue-En Sun</span>
+          <span class="zh">章瑋真 醫師</span>
+          <span class="en">Wei-Cheng Chang, MD, PhD</span>
         </h4>
         <div class="focus">
-          <span class="zh">臨床流行病學 ・ 真實世界資料</span>
-          <span class="en">Clinical Epi ・ Real-World Data</span>
+          <span class="zh">家庭醫學 ・ 眼科 ・ 臨床流行病學</span>
+          <span class="en">Family Medicine ・ Ophthalmology ・ Clinical Epi</span>
         </div>
       </div>
 
