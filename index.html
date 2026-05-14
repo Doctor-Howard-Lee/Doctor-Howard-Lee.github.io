@@ -308,13 +308,19 @@ body.en .hero h1{font-family:var(--serif-en);font-weight:400;line-height:1.05}
   box-shadow:0 6px 16px -6px rgba(20,59,52,.25);
 }
 
-/* Lab-logo variant of the hero portrait */
-.portrait--logo{background:var(--paper)}
-.portrait--logo::before{display:none}
-.portrait .portrait-logo{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:contain;object-position:center;
-  padding:14% 16%;z-index:1;
+/* Lab-seal wax stamp on the hero portrait (bottom-right corner) */
+.portrait-seal{
+  position:absolute;right:18px;bottom:18px;z-index:4;
+  width:74px;height:74px;border-radius:50%;
+  background:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);
+  box-shadow:0 6px 16px -6px rgba(20,59,52,.30), 0 2px 4px rgba(0,0,0,.06);
+  padding:10px;
+}
+.portrait-seal img{width:100%;height:100%;object-fit:contain;display:block}
+@media (max-width:480px){
+  .portrait-seal{width:60px;height:60px;right:14px;bottom:14px;padding:8px}
 }
 
 .deco-no{
@@ -797,9 +803,12 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
       </div>
     </div>
 
-    <div class="portrait portrait--logo reveal">
-      <img class="portrait-logo" src="images/lab-logo.svg" alt="Lee Lab — 李卓豪醫師研究團隊" loading="eager" decoding="async" />
+    <div class="portrait reveal">
+      <img class="portrait-photo" src="images/portrait.jpg" alt="李卓豪 醫師 Cho-Hao Howard Lee, MD" loading="eager" decoding="async" />
       <div class="portrait-tag">Lee Lab ・ Est. 2026</div>
+      <div class="portrait-seal" aria-hidden="true">
+        <img src="images/lab-logo.svg" alt="" />
+      </div>
     </div>
   </div>
 </header>
@@ -1141,6 +1150,20 @@ footer .legal{font-family:var(--serif-en);font-style:italic;color:rgba(245,241,2
     <!-- Tab 3: 研究筆記 -->
     <div class="tab-panel" id="tab-research">
       <div class="articles-grid reveal">
+        <a class="article" href="posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki.html">
+          <div class="meta">
+            <span class="cat"><span class="zh">研究筆記 № 03</span><span class="en">Research Note № 03</span></span>
+            <span class="date">May 2026</span>
+          </div>
+          <h3>
+            <span class="zh">第一線 Osimertinib 真的比第二代 EGFR-TKI 好嗎?</span>
+            <span class="en">First-line Osimertinib vs 2nd-Gen EGFR-TKIs in mEGFR-NSCLC ・ A Target Trial Emulation</span>
+          </h3>
+          <p class="zh-block">2026 年發表於 <em>JCO Oncology Practice</em> — 用 TriNetX 1.6 億人資料、1:1 PSM 每組 777 人,直接回答「第一線就用 osimertinib」vs「先打第二代、抗藥再換」哪個更好。OS 53.4 vs 33.2 月、HR 0.618,每千人省 $5.73M。</p>
+          <p class="en-block">A research note on our 2026 <em>JCO OP</em> target-trial-emulation study using 1,554 PSM-matched patients on TriNetX — first-line osimertinib vs second-generation TKIs in metastatic EGFR-mutant NSCLC, with sequential-therapy and economic analyses.</p>
+          <span class="more"><span class="zh">繼續閱讀</span><span class="en">Read more</span></span>
+        </a>
+
         <a class="article" href="posts/2026-05-rn-abemaciclib-vs-palbociclib.html">
           <div class="meta">
             <span class="cat"><span class="zh">研究筆記 № 01</span><span class="en">Research Note № 01</span></span>
