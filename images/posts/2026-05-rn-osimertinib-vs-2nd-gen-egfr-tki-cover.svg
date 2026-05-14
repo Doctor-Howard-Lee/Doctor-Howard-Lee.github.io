@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Lee Lab Research Note #03 — First-line osimertinib vs 2nd-gen EGFR-TKIs">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f1ea"/>
+      <stop offset="1" stop-color="#ede6d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="80"   cy="60"  r="160" fill="#2c5b6e" opacity="0.05"/>
+  <circle cx="1140" cy="600" r="180" fill="#a8703f" opacity="0.04"/>
+
+  <!-- top label -->
+  <g transform="translate(72,70)">
+    <text font-family="Manrope, sans-serif" font-size="12" letter-spacing="5" fill="#2c5b6e" font-weight="600">RESEARCH NOTE № 03 ・ JCO ONCOLOGY PRACTICE 2026</text>
+  </g>
+
+  <!-- title -->
+  <g transform="translate(72,120)">
+    <text font-family="Noto Serif TC, serif" font-size="44" fill="#0c2a25" font-weight="500">第一線 Osimertinib 真的比第二代</text>
+    <text y="58" font-family="Noto Serif TC, serif" font-size="44" fill="#0c2a25" font-weight="500">EGFR-TKI 好嗎?</text>
+    <text y="100" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22" fill="#2c5b6e" font-weight="400">A target-trial-emulation on TriNetX ・ 1,554 PSM-matched patients</text>
+  </g>
+
+  <!-- accent line -->
+  <line x1="72" y1="270" x2="200" y2="270" stroke="#a8703f" stroke-width="2"/>
+
+  <!-- KM curve mini -->
+  <g transform="translate(72,300)">
+    <text font-family="Manrope, sans-serif" font-size="11" letter-spacing="3" fill="#5b7a64" font-weight="600">OVERALL SURVIVAL ・ MEDIAN OS (MONTHS)</text>
+    <g transform="translate(0,28)">
+      <!-- frame -->
+      <line x1="0" y1="0" x2="0" y2="120" stroke="#3b3a36" stroke-width="0.8"/>
+      <line x1="0" y1="120" x2="320" y2="120" stroke="#3b3a36" stroke-width="0.8"/>
+      <!-- osim curve -->
+      <path d="M0 0 L 40 8 L 80 18 L 120 30 L 160 44 L 200 58 L 240 72 L 280 86 L 320 100" fill="none" stroke="#2c5b6e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <!-- 2nd gen curve -->
+      <path d="M0 0 L 30 12 L 60 30 L 95 52 L 130 72 L 170 90 L 210 104 L 250 112 L 290 116 L 320 118" fill="none" stroke="#a8703f" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <!-- labels -->
+      <g font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">
+        <rect x="350" y="-2" width="14" height="3" fill="#2c5b6e"/>
+        <text x="372" y="3" fill="#143b34" font-weight="600">Osimertinib</text>
+        <text x="372" y="20" fill="#3b3a36" font-size="10">median 53.4 mo</text>
+
+        <rect x="350" y="44" width="14" height="3" fill="#a8703f"/>
+        <text x="372" y="49" fill="#143b34" font-weight="600">2nd-gen TKI</text>
+        <text x="372" y="66" fill="#3b3a36" font-size="10">median 33.2 mo</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- stat highlights -->
+  <g transform="translate(620,300)">
+    <text font-family="Manrope, sans-serif" font-size="11" letter-spacing="3" fill="#5b7a64" font-weight="600">KEY FINDINGS</text>
+    <g transform="translate(0,40)">
+      <text font-family="Fraunces, serif" font-style="italic" font-size="46" fill="#0c2a25" font-weight="500">HR 0.618</text>
+      <text y="22" font-family="Manrope, sans-serif" font-size="12" fill="#3b3a36">OS hazard ratio ・ 95% CI 0.522–0.731</text>
+    </g>
+    <g transform="translate(0,114)">
+      <text font-family="Fraunces, serif" font-style="italic" font-size="32" fill="#0c2a25" font-weight="500">↓19% hospitalization ・ ↓42% ICU ・ ↓32% severe infection</text>
+    </g>
+    <g transform="translate(0,154)">
+      <text font-family="Fraunces, serif" font-style="italic" font-size="30" fill="#a8703f" font-weight="500">$5.73M saved per 1,000 patients</text>
+    </g>
+  </g>
+
+  <!-- bottom strip -->
+  <g transform="translate(72,560)">
+    <line x1="0" y1="0" x2="1056" y2="0" stroke="#d8cfbd" stroke-width="0.8"/>
+    <text y="22" font-family="Manrope, sans-serif" font-size="13" fill="#3b3a36">Chen PH, Jhou HJ, Chang WC, …, <tspan font-weight="600" fill="#0c2a25">Lee CH</tspan>. JCO Oncology Practice. 2026 ・ DOI 10.1200/OP-25-01390</text>
+    <text x="1056" y="22" text-anchor="end" font-family="Fraunces, serif" font-style="italic" font-size="14" fill="#2c5b6e">Lee Lab ・ 三軍總醫院</text>
+  </g>
+</svg>
