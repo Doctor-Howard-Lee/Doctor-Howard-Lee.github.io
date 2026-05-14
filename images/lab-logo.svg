@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Lee Lab — hexagon seal with two-arm Kaplan–Meier survival curves">
+  <title>Lee Lab</title>
+  <desc>Hexagonal lab seal with treatment vs. control Kaplan–Meier survival curves.</desc>
+  <polygon points="100,18 168,56 168,144 100,182 32,144 32,56" fill="none" stroke="#0c2a25" stroke-width="3.2"/>
+  <polygon points="100,30 156,62 156,138 100,170 44,138 44,62" fill="none" stroke="#0c2a25" stroke-width="0.8"/>
+  <path d="M50 68 L72 68 L72 80 L94 80 L94 94 L116 94 L116 106 L138 106 L138 116 L154 116"
+        fill="none" stroke="#0c2a25" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 68 L66 68 L66 88 L86 88 L86 106 L104 106 L104 122 L124 122 L124 134 L154 134"
+        fill="none" stroke="#a8703f" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

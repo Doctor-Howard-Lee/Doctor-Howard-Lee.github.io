@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" role="img" aria-label="Lee Lab — hexagon seal with wordmark">
+  <title>Lee Lab</title>
+  <g>
+    <polygon points="100,18 168,56 168,144 100,182 32,144 32,56" fill="none" stroke="#0c2a25" stroke-width="3.2"/>
+    <polygon points="100,30 156,62 156,138 100,170 44,138 44,62" fill="none" stroke="#0c2a25" stroke-width="0.8"/>
+    <path d="M50 68 L72 68 L72 80 L94 80 L94 94 L116 94 L116 106 L138 106 L138 116 L154 116" fill="none" stroke="#0c2a25" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 68 L66 68 L66 88 L86 88 L86 106 L104 106 L104 122 L124 122 L124 134 L154 134" fill="none" stroke="#a8703f" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <text x="210" y="100" font-family="Fraunces, 'Noto Serif TC', Georgia, serif" font-size="56" font-weight="500" fill="#0c2a25">Lee Lab</text>
+    <line x1="210" y1="118" x2="500" y2="118" stroke="#d8cfbd" stroke-width="1"/>
+    <text x="210" y="138" font-family="Manrope, 'Noto Sans TC', sans-serif" font-size="13" letter-spacing="3" fill="#948a78">HEME-ONC · REAL-WORLD EVIDENCE</text>
+    <text x="210" y="158" font-family="Manrope, 'Noto Sans TC', sans-serif" font-size="12" fill="#948a78">三軍總醫院血液腫瘤科 · 國防醫學院</text>
+  </g>
+</svg>
