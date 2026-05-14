@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>研究筆記｜第一線 Osimertinib vs 第二代 EGFR-TKI 在 EGFR-mutant NSCLC — Chen PH, Jhou HJ, Chang WC, …, Lee CH, JCO Oncology Practice 2026</title>
+<meta name="description" content="2026 年發表於 JCO Oncology Practice 的真實世界 target trial emulation 研究 — 在轉移性 EGFR-mutant NSCLC,直接比較第一線 osimertinib 與第二代 EGFR-TKI 的存活、毒性、健保利用、藥物經濟學。研究筆記:研究問題、設計選擇、結果、Sequential therapy 取捨、方法學反思。" />
+<meta name="keywords" content="osimertinib, afatinib, dacomitinib, EGFR TKI, NSCLC, lung cancer, target trial emulation, propensity score matching, TriNetX, FLAURA, sequential therapy, 李卓豪, real-world evidence" />
+<meta name="author" content="Cho-Hao Howard Lee, MD" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://doctor-howard-lee.github.io/posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
+<meta property="og:url" content="https://doctor-howard-lee.github.io/posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki.html" />
+<meta property="og:title" content="研究筆記:第一線 Osimertinib 真的比第二代 EGFR-TKI 好嗎?— 1,554 對 PSM 配對的真實世界證據" />
+<meta property="og:description" content="2026 年 JCO Oncology Practice 真實世界 target trial emulation 研究 — 第一線 osimertinib OS 53.4 vs 33.2 月、HR 0.618,sequential therapy 雖然 OS 持平但毒性顯著較高,每千人省下 $5.73M。" />
+<meta property="og:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki-cover.svg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="article:author" content="Cho-Hao Howard Lee" />
+<meta property="article:published_time" content="2026-05-14" />
+<meta property="article:section" content="Research Notes" />
+<meta property="article:tag" content="real-world evidence" />
+<meta property="article:tag" content="target trial emulation" />
+<meta property="article:tag" content="EGFR-mutant NSCLC" />
+<meta property="article:tag" content="osimertinib" />
+<meta property="article:tag" content="lung cancer" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="研究筆記:Osimertinib vs 第二代 EGFR-TKI 在轉移性 EGFR-mutant NSCLC" />
+<meta name="twitter:description" content="2026 JCO Oncology Practice 真實世界 target trial emulation 研究 — 存活、毒性、健保利用、Sequential therapy 取捨。" />
+<meta name="twitter:image" content="https://doctor-howard-lee.github.io/images/posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki-cover.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Survival, Toxicity, and Economic Outcomes of Osimertinib Versus Second-Generation EGFR-TKIs in Metastatic EGFR-Mutant Non-Small Cell Lung Cancer",
+  "description": "Research note on a target-trial-emulation, propensity-matched retrospective analysis comparing first-line osimertinib with second-generation EGFR-TKIs in metastatic EGFR-mutant NSCLC, with secondary analyses of sequential therapy and economic outcomes.",
+  "url": "https://doctor-howard-lee.github.io/posts/2026-05-rn-osimertinib-vs-2nd-gen-egfr-tki.html",
+  "datePublished": "2026-05-14",
+  "inLanguage": "zh-Hant",
+  "author": {
+    "@type": "Physician",
+    "name": "Cho-Hao Howard Lee",
+    "url": "https://doctor-howard-lee.github.io/"
+  },
+  "isBasedOn": {
+    "@type": "ScholarlyArticle",
+    "name": "Survival, Toxicity, and Economic Outcomes of Osimertinib Versus Second-Generation EGFR-TKIs in Metastatic EGFR-Mutant Non-Small Cell Lung Cancer",
+    "publisher": "JCO Oncology Practice (ASCO)",
+    "datePublished": "2026"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:        #1a1a18;
+  --ink-soft:   #3b3a36;
+  --paper:      #f5f1ea;
+  --paper-warm: #ede6d8;
+  --line:       #d8cfbd;
+  --green:      #143b34;
+  --green-deep: #0c2a25;
+  --moss:       #5b7a64;
+  --bronze:     #a8703f;
+  --bronze-soft:#c79a6e;
+  --stone:      #948a78;
+  /* Research-note accent: deeper teal-blue */
+  --accent:     #2c5b6e;
+  --accent-soft:#7ea2b1;
+
+  --serif-en: "Fraunces", "Noto Serif TC", Georgia, serif;
+  --serif-cjk:"Noto Serif TC", "Fraunces", serif;
+  --sans:     "Manrope", "Noto Sans TC", -apple-system, sans-serif;
+  --sans-cjk: "Noto Sans TC", "Manrope", sans-serif;
+  --mono:     "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  --container: 720px;
+  --gutter: clamp(20px, 4vw, 40px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:var(--sans-cjk);background:var(--paper);color:var(--ink);
+  line-height:1.75;font-weight:400;
+  background-image:
+    radial-gradient(circle at 15% 5%, rgba(44,91,110,.06), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(168,112,63,.04), transparent 50%);
+}
+a{color:inherit}
+img,svg{max-width:100%;display:block}
+
+nav.top{
+  position:sticky;top:0;z-index:50;
+  padding:18px var(--gutter);
+  background:rgba(245,241,234,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav.top .row{
+  max-width:var(--container);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{
+  font-family:var(--serif-en);font-size:18px;font-weight:500;
+  color:var(--green-deep);letter-spacing:.01em;
+  display:flex;align-items:baseline;gap:8px;
+}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+.brand .ko{font-family:var(--serif-cjk);font-weight:600}
+.back-link{
+  font-family:var(--sans);font-size:13px;color:var(--ink-soft);
+  letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;transition:color .25s;
+}
+.back-link:hover{color:var(--accent)}
+.back-link .arrow{font-family:var(--serif-en);font-style:italic}
+
+article{max-width:var(--container);margin:0 auto;padding:60px var(--gutter) 80px}
+
+.article-meta{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  font-family:var(--sans-cjk);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--stone);margin-bottom:32px;
+}
+.article-meta .tag{
+  padding:4px 10px;background:var(--accent);color:var(--paper);
+  border:1px solid var(--accent);border-radius:30px;
+  letter-spacing:.1em;
+}
+.article-meta .tag.outline{background:transparent;color:var(--accent);}
+.article-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--stone)}
+
+h1.title{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:clamp(32px,4.6vw,44px);line-height:1.22;
+  letter-spacing:-.005em;color:var(--green-deep);margin-bottom:24px;
+}
+h1.title .em{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-weight:400;
+}
+
+.cite{
+  margin:24px 0 8px;
+  padding:14px 18px;
+  background:var(--paper-warm);border-left:3px solid var(--accent);
+  font-family:var(--serif-en);font-size:13.5px;font-style:italic;
+  line-height:1.65;color:var(--ink-soft);
+  word-break:break-word;
+}
+.cite strong{color:var(--green-deep);font-style:normal;font-weight:600}
+.cite a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+.author{
+  margin:30px 0 50px;padding:18px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:14px;
+}
+.author-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--accent);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif-cjk);font-weight:500;font-size:18px;
+}
+.author-text{font-size:14px;color:var(--ink-soft)}
+.author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+/* TL;DR callout */
+.tldr{
+  margin:0 0 50px;padding:24px 26px;
+  background:var(--green-deep);color:var(--paper);
+  border-left:4px solid var(--accent-soft);
+}
+.tldr .lbl{
+  font-family:var(--sans);font-size:11px;letter-spacing:.32em;
+  font-weight:600;color:var(--accent-soft);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.tldr p{
+  font-family:var(--serif-cjk);font-size:18px;line-height:1.75;
+  color:var(--paper);margin-bottom:0;
+}
+.tldr p strong{color:#fff}
+
+section{margin-bottom:48px}
+.section-num{
+  font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:14px;letter-spacing:.02em;margin-bottom:8px;
+}
+h2{
+  font-family:var(--serif-cjk);font-weight:500;
+  font-size:28px;line-height:1.3;letter-spacing:-.005em;
+  color:var(--green-deep);margin-bottom:18px;
+}
+h2 .en{
+  display:block;font-family:var(--serif-en);font-style:italic;
+  font-weight:400;font-size:16px;color:var(--stone);
+  margin-top:4px;letter-spacing:.01em;
+}
+h3{
+  font-family:var(--serif-cjk);font-weight:600;
+  font-size:18px;color:var(--green);
+  margin:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+}
+h3::before{content:"";width:14px;height:1px;background:var(--accent);flex-shrink:0;}
+p{font-size:16.5px;line-height:1.85;color:var(--ink);margin-bottom:18px}
+p strong{color:var(--green-deep);font-weight:600}
+em.term{font-family:var(--serif-en);font-style:italic;color:var(--accent);font-weight:400}
+ul, ol{margin:0 0 22px 22px;font-size:16.5px;line-height:1.85}
+li{margin-bottom:8px}
+
+.aside{
+  margin:24px 0;padding:18px 22px;
+  background:var(--paper-warm);
+  border-left:3px solid var(--accent);
+  font-size:15px;color:var(--ink-soft);line-height:1.7;
+}
+.aside strong{color:var(--green-deep);display:block;margin-bottom:4px;letter-spacing:.04em}
+
+/* Method box (key methodology steps) */
+.method-box{
+  margin:24px 0;padding:22px 26px;
+  background:rgba(44,91,110,.05);
+  border:1px solid rgba(44,91,110,.18);
+}
+.method-box h4{
+  font-family:var(--sans);font-size:11px;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  margin-bottom:14px;
+}
+.method-box dl{display:grid;grid-template-columns:120px 1fr;gap:8px 18px;font-size:14px;line-height:1.6}
+.method-box dt{font-weight:600;color:var(--green-deep)}
+.method-box dd{color:var(--ink-soft)}
+.method-box code{font-family:var(--mono);font-size:13px;color:var(--accent);background:rgba(44,91,110,.07);padding:1px 5px;border-radius:2px}
+
+@media (max-width:560px){
+  .method-box dl{grid-template-columns:1fr;gap:2px 0}
+  .method-box dt{margin-top:8px}
+}
+
+/* Findings highlight */
+.headline-stat{
+  margin:30px 0;padding:28px 26px;
+  background:var(--green-deep);color:var(--paper);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:20px;
+}
+.headline-stat .num{
+  font-family:var(--serif-en);font-style:italic;
+  font-size:48px;line-height:1;color:var(--accent-soft);font-weight:400;
+}
+.headline-stat .text{flex:1;min-width:240px;font-size:15px;line-height:1.6}
+.headline-stat .text strong{color:var(--paper);display:block;margin-bottom:4px;font-size:16px;font-weight:500;letter-spacing:.02em}
+
+figure{
+  margin:36px 0;background:var(--paper);
+  border:1px solid var(--line);padding:28px 22px 22px;
+}
+figure svg{margin:0 auto 12px;display:block}
+figcaption{
+  text-align:center;font-size:13px;color:var(--stone);
+  font-family:var(--serif-en);font-style:italic;
+  letter-spacing:.02em;line-height:1.6;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+figcaption .zh{font-family:var(--serif-cjk);font-style:normal;color:var(--ink-soft);display:block;margin-bottom:4px;font-size:13.5px}
+
+.data-table{
+  width:100%;border-collapse:collapse;
+  font-size:14px;margin:20px 0 28px;
+}
+.data-table th, .data-table td{
+  padding:12px 14px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top;
+}
+.data-table th{
+  font-family:var(--sans-cjk);font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--accent);font-weight:600;
+  border-bottom:2px solid var(--accent);
+}
+.data-table tr:hover{background:rgba(44,91,110,.03)}
+.data-table td:first-child{font-weight:500;color:var(--green-deep)}
+.data-table small{color:var(--stone);font-size:12px}
+
+/* Reflection card (methodological notes) */
+.reflect{
+  margin:24px 0;padding:22px 26px;
+  border:1px dashed var(--accent);
+  background:rgba(44,91,110,.03);
+  font-size:15.5px;line-height:1.75;color:var(--ink);
+}
+.reflect::before{
+  content:"❋  Reflection";
+  display:block;font-family:var(--serif-en);font-style:italic;
+  color:var(--accent);font-size:13px;letter-spacing:.06em;
+  margin-bottom:8px;
+}
+
+.refs{margin-top:60px;padding-top:36px;border-top:1px solid var(--line)}
+.refs h2{font-size:18px;margin-bottom:18px}
+.refs ol{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-left:20px}
+.refs li{margin-bottom:10px}
+.refs em{font-style:italic;color:var(--ink)}
+
+.bottom-cta{
+  margin-top:50px;padding:32px 28px;
+  background:var(--green-deep);color:var(--paper);text-align:center;
+}
+.bottom-cta h3{
+  color:var(--paper);font-family:var(--serif-cjk);font-size:22px;
+  margin-bottom:10px;display:block;
+}
+.bottom-cta h3::before{display:none}
+.bottom-cta p{color:rgba(245,241,234,.85);font-size:15px;margin-bottom:0;line-height:1.7}
+.bottom-cta a{color:var(--accent-soft);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+footer{
+  background:var(--paper-warm);padding:30px var(--gutter);
+  font-size:13px;color:var(--stone);text-align:center;
+  border-top:1px solid var(--line);
+}
+footer a{color:var(--green-deep)}
+
+@media (max-width:680px){
+  article{padding:36px var(--gutter) 60px}
+  h1.title{font-size:28px}
+  .tldr p{font-size:16px}
+  h2{font-size:22px}
+  p, ul, ol{font-size:16px}
+  figure{padding:18px 14px 14px}
+  .headline-stat .num{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a class="brand" href="../index.html">
+      Cho-Hao Lee<span class="dot"></span><span class="ko">李</span>
+    </a>
+    <a class="back-link" href="../index.html"><span class="arrow">←</span> 回首頁</a>
+  </div>
+</nav>
+
+<article>
+
+  <!-- ============================== Hero ============================== -->
+  <header>
+    <div class="article-meta">
+      <span class="tag">研究筆記</span>
+      <span class="tag outline">Research Note ・ № 03</span>
+      <span class="dot"></span>
+      <span>2026・05</span>
+      <span class="dot"></span>
+      <span>JCO Oncology Practice 2026</span>
+    </div>
+
+    <h1 class="title">
+      第一線 <em class="em">Osimertinib</em> 真的比第二代
+      <em class="em">EGFR-TKI</em> 好嗎? — 從 1,554 對 PSM 配對病人看 OS、毒性、與經濟學
+    </h1>
+
+    <div class="cite">
+      <strong>Chen PH</strong>, Jhou HJ, Chang WC, Chen HY, Kao LT, Hsieh TYJ, Ye RH, Lai SW, Chen JH, Ho CL<sup>*</sup>, <strong>Lee CH</strong><sup>*</sup>.
+      Survival, Toxicity, and Economic Outcomes of Osimertinib Versus Second-Generation Epidermal Growth Factor Receptor-Tyrosine Kinase Inhibitors in Metastatic Epidermal Growth Factor Receptor–Mutant Non–Small Cell Lung Cancer.
+      <em>JCO Oncology Practice</em>. 2026 May 6 [Epub ahead of print].
+      <br><sup>*</sup> Co-corresponding authors
+      <br><a href="https://doi.org/10.1200/OP-25-01390" target="_blank">DOI: 10.1200/OP-25-01390 →</a>
+    </div>
+
+    <div class="author">
+      <div class="author-avatar">李</div>
+      <div class="author-text">
+        <strong>李卓豪 醫師</strong>
+        三軍總醫院 ・ 血液腫瘤科 ・ Co-Corresponding Author(與 Ho CL 並列)
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== TL;DR ============================== -->
+  <div class="tldr">
+    <div class="lbl">TL;DR ・ 一段話結論</div>
+    <p>
+      FLAURA 早已奠定 osimertinib 優於第一代 EGFR-TKI(gefitinib、erlotinib),
+      但在臨床決策上,真正棘手的對手其實是 <strong>第二代不可逆 TKI(afatinib、dacomitinib)</strong> —— 在亞洲、在健保限制下,
+      第二代仍是許多病人的第一線。而「第一線就直接給 osimertinib」 vs「先打第二代、抗藥再換 osimertinib」哪個更好,
+      過去沒有直接的真實世界證據。我們用 TriNetX 1.6 億人資料、target trial emulation + 1:1 PSM(每組 777 人)直接比較,結果:
+      <strong>第一線 osimertinib OS 中位數 53.4 個月、第二代 33.2 個月(HR 0.618、E-value 2.618)</strong>;
+      Sequential therapy(第二代 → osimertinib)雖然能追平 OS,卻在第二代階段付出明顯更高的住院率、ICU 與感染負擔。
+      第一線 osimertinib 同時帶來顯著更低的住院/ICU/感染費用,粗算每千人省下 $5.73M,部分抵銷了藥費差。
+      <strong>結論:能用第一線就用第一線。</strong>
+    </p>
+  </div>
+
+  <!-- ============================== 1. Motivation ============================== -->
+  <section>
+    <div class="section-num">§ 01 ・ Motivation</div>
+    <h2>
+      為什麼要做這個研究?
+      <span class="en">FLAURA settled the first-gen question. The hard fight is against second-gen.</span>
+    </h2>
+
+    <p>
+      EGFR-mutant 非小細胞肺癌(NSCLC)是 NSCLC 裡最有故事的分子亞型 —— 在亞洲族群,
+      高達 <strong>50% 的 NSCLC 帶有 EGFR 驅動突變</strong>,西方族群也佔約 15%。從 gefitinib 上市以來的 20 年裡,
+      EGFR-TKI 已經三度世代更替:第一代(gefitinib、erlotinib)、第二代不可逆(afatinib、dacomitinib)、第三代(osimertinib)。
+    </p>
+
+    <p>
+      <strong>FLAURA 試驗</strong>已經奠定 osimertinib 在 PFS 與 OS 上都優於第一代 TKI(gefitinib / erlotinib)。
+      但臨床決策的真正困難不在這裡。在亞洲、在健保給付限制下,第一線常被選擇的對手其實是
+      <strong>第二代不可逆 TKI(afatinib、dacomitinib)</strong> —— 它們對 EGFR 與整個 ErbB family 都有不可逆共價鍵結,
+      LUX-Lung、ARCHER-1050 在 ITT 群顯示優於 gefitinib,但代價是 dermatitis、diarrhea、paronychia 等廣譜毒性,
+      臨床上常常需要 dose reduction。
+    </p>
+
+    <p>
+      過去缺的關鍵證據,是 <strong>head-to-head:第一線 osimertinib vs 第一線第二代 TKI</strong>。
+      更現實的另一個問題是 sequential therapy —— 既然第二代抗藥之後常可以發生 T790M,理論上可以換 osimertinib,
+      那 <em class="term">「便宜的先打,壞了再換貴的」</em> 是否與「直接給第一線最好的」結局一樣?
+      這在資源有限的醫療系統(包括台灣健保)是一個高度政策相關的問題。
+    </p>
+
+    <p>
+      還有第三個層次:<strong>經濟學</strong>。osimertinib 的藥費明顯高於第二代,但若它能換來更少住院、更少 ICU、更少嚴重感染,
+      systemwide 看起來可能不見得貴。沒有人在真實世界裡好好回答過這個 trade-off。
+    </p>
+
+    <div class="aside">
+      <strong>三個臨床問題,一個 study design 同時回答</strong>
+      <ol style="margin-top:8px;margin-bottom:0">
+        <li>第一線 osimertinib 直接對上第一線第二代 TKI,OS 差多少?</li>
+        <li>Sequential(第二代 → osimertinib)能不能追平 OS?代價是什麼?</li>
+        <li>每多花的藥費,是不是被住院/併發症的減少抵銷掉了一部分?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================== 2. Study Design ============================== -->
+  <section>
+    <div class="section-num">§ 02 ・ Study Design</div>
+    <h2>
+      研究設計:三條 study arms,共用同一套 PSM
+      <span class="en">Target-trial-emulation on TriNetX, with three nested comparisons</span>
+    </h2>
+
+    <p>
+      整個研究實際上做了 <strong>三層 study question</strong>,但都建立在同一個 target trial emulation 框架之上 ——
+      protocol 清楚寫好、time zero 對齊、PSM 配變數一致、only different in the contrast definition。
+    </p>
+
+    <div class="method-box">
+      <h4>本研究模擬的「目標試驗」</h4>
+      <dl>
+        <dt>Population</dt>
+        <dd>≥18 歲、轉移期(stage IV)EGFR-mutant NSCLC(ICD-10:C34.x + EGFR-mutation diagnostic code),診斷 2014/01/01–2025/02/12,index date 前 ≥30 天存活(避開 immortal time bias)</dd>
+        <dt>Intervention</dt>
+        <dd><code>Osimertinib</code>,第一線</dd>
+        <dt>Comparator</dt>
+        <dd><code>Afatinib</code> 或 <code>Dacomitinib</code>,第一線</dd>
+        <dt>Time zero</dt>
+        <dd>第一張 EGFR-TKI 處方;follow-up start = 治療啟動日(active comparator new-user)</dd>
+        <dt>Eligibility</dt>
+        <dd>無既往全身性抗癌治療;排除多重癌、嚴重 COPD/J43–J44、呼吸衰竭 J96、active CNS 症狀(seizure, cerebral edema, R56/G93.5/R40)</dd>
+        <dt>Primary outcome</dt>
+        <dd><strong>Overall survival(OS)</strong>,從診斷到全因死亡</dd>
+        <dt>Secondary outcomes</dt>
+        <dd>1、3、5 年 mortality;住院、ICU 入住、嚴重感染;dermatitis、paronychia、diarrhea、nausea、fatigue、thrombocytopenia、abnormal ECG、bradycardia、liver toxicity;後續使用的 novel targeted agents 與 platinum-pemetrexed;cost-offset</dd>
+        <dt>Analytic estimands</dt>
+        <dd>(1) <em class="term">As-started</em>(≥2 處方在 3 個月內,intention-to-treat 類比)為主要分析;(2) <em class="term">On-treatment</em>(≥12 處方在 6 個月內,per-protocol 類比)為敏感性分析</dd>
+      </dl>
+    </div>
+
+    <h3>三層比較,共用一套 PSM 流水線</h3>
+    <ul>
+      <li><strong>主比較:第一線 osimertinib vs 第一線第二代 TKI</strong>(PSM 後每組 777 人)</li>
+      <li><strong>Sequential 比較:第一線 osimertinib vs 第二代 → osimertinib 序列治療</strong>(PSM 後每組 156 人,評估 sequential 是否能追平 OS)</li>
+      <li><strong>On-treatment 敏感性:</strong>要求 6 個月內 ≥12 筆 TKI 紀錄(PSM 後每組 364 人,避免曝險強度不足者稀釋效應)</li>
+    </ul>
+
+    <h3>方法學細節</h3>
+    <ul>
+      <li><strong>1:1 greedy nearest-neighbour PSM,無放回</strong>;covariates:年齡、性別、種族、BMI、共病(DM、HTN、IHD、HF、CKD、CNS metastases)、ECOG performance status(若可得)、prior medications</li>
+      <li><strong>SMD &lt; 0.1</strong> 作為配對平衡標準(所有變項 post-PSM 均達標)</li>
+      <li><strong>E-value</strong>(VanderWeele &amp; Ding 2017)量化未測量混淆對 HR 的最小威脅強度</li>
+      <li><strong>Negative control outcomes</strong>:腎結石、膽結石、骨關節炎 —— 與 EGFR-TKI 無合理因果關聯,用來反向驗證 PSM 是否殘餘混淆</li>
+      <li><strong>多重 sensitivity analyses:</strong>(a) on-treatment per-protocol、(b) US-only subset、(c) era-restricted(2019 後 osimertinib 第一線核可後的時段)</li>
+      <li><strong>Cost-offset analysis</strong>:住院、ICU、嚴重感染各自的 unit cost 引自發表文獻;ICER 加 ±30% sensitivity</li>
+    </ul>
+
+    <div class="aside">
+      <strong>為什麼要寫成「三層比較」?</strong>
+      因為這三個問題在臨床上是緊密相連的 ——「第一線就用最好的」如果只是 OS 較好,健保不會輕易給付;
+      但如果「sequential 也可以追平 OS,只是 toxicity 較重」,那資源論述就轉成「我們應該用第一線換 toxicity 的減免」。
+      把三層 nested comparison 用同一套 PSM 流水線跑完,能讓決策者直接讀到一個 coherent answer。
+    </div>
+  </section>
+
+  <!-- ============================== 3. Data & Workflow ============================== -->
+  <section>
+    <div class="section-num">§ 03 ・ Data &amp; Workflow</div>
+    <h2>
+      資料來源與分析流程
+      <span class="en">Data source and analytical pipeline</span>
+    </h2>
+
+    <p>
+      TriNetX Research Network 涵蓋全球約 <strong>160,181,281 位</strong>去識別化病人。
+      經過癌別、轉移狀態、prior anticancer therapy、嚴重共病、TKI 啟動時序等層層篩選後,得到 <strong>7,232 名 eligible 病人</strong>。
+      其中第一線 osimertinib 1,693 人、第一線第二代 TKI(afatinib/dacomitinib)803 人,
+      經過 1:1 PSM 之後 <strong>每組 777 人</strong>進入 as-started 主要分析。
+    </p>
+
+    <!-- ===== 圖 1:Study flow / PSM ===== -->
+    <figure>
+      <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Study flow diagram with PSM for osimertinib vs 2nd-gen TKI">
+        <text x="320" y="22" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">研究流程示意 ・ Cohort flow with target-trial-emulation PSM</text>
+
+        <!-- Top: source -->
+        <g transform="translate(40,46)">
+          <rect x="0" y="0" width="560" height="44" fill="#ede6d8" stroke="#d8cfbd"/>
+          <text x="280" y="18" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#3b3a36" font-weight="600">TriNetX Research Network ・ 全球 160,181,281 位病人(2014/01/01 – 2025/02/12)</text>
+          <text x="280" y="34" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#948a78" font-style="italic">經 age &lt;18、未確認轉移、雙重癌、prior anticancer、嚴重共病、未及時啟動 TKI 等排除 → 7,232 eligible</text>
+        </g>
+
+        <!-- Two streams -->
+        <g transform="translate(40,118)">
+          <!-- 2nd-gen TKI -->
+          <rect x="0" y="0" width="260" height="62" fill="#ede6d8" stroke="#a8703f" stroke-width="0.6"/>
+          <text x="130" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">2nd-Gen EGFR-TKI (first-line)</text>
+          <text x="130" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">afatinib / dacomitinib</text>
+          <text x="130" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#a8703f" font-style="italic">803 unmatched (as-started)</text>
+
+          <!-- Osimertinib -->
+          <rect x="300" y="0" width="260" height="62" fill="#cfdce3" stroke="#2c5b6e" stroke-width="0.6"/>
+          <text x="430" y="22" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#143b34" font-weight="600">Osimertinib (first-line)</text>
+          <text x="430" y="40" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36">3rd-generation, mutant-selective</text>
+          <text x="430" y="55" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#2c5b6e" font-style="italic">1,693 unmatched (as-started)</text>
+        </g>
+
+        <!-- arrows down -->
+        <g stroke="#5b7a64" stroke-width="0.8" fill="none">
+          <path d="M 170 182 L 170 213" marker-end="url(#a2)"/>
+          <path d="M 470 182 L 470 213" marker-end="url(#a2)"/>
+        </g>
+        <defs>
+          <marker id="a2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 z" fill="#5b7a64"/>
+          </marker>
+        </defs>
+
+        <!-- PSM box -->
+        <g transform="translate(40,213)">
+          <rect x="0" y="0" width="560" height="52" fill="rgba(44,91,110,.10)" stroke="#2c5b6e" stroke-width="0.8"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#2c5b6e" font-weight="600">1:1 Greedy Nearest-Neighbour PSM(無放回)</text>
+          <text x="280" y="38" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36" font-style="italic">age / sex / race / BMI / DM / HTN / IHD / HF / CKD / CNS metastases / ECOG PS ・ all SMD &lt; 0.10</text>
+        </g>
+
+        <!-- Final matched -->
+        <g transform="translate(40,288)">
+          <rect x="0" y="0" width="560" height="32" fill="#143b34"/>
+          <text x="280" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#f5f1ea" font-weight="600">
+            As-started cohort: 777 vs 777 ・ On-treatment(per-protocol): 364 vs 364 ・ Sequential analysis: 156 vs 156
+          </text>
+        </g>
+
+        <!-- Bottom annotation -->
+        <g transform="translate(40,332)">
+          <text x="280" y="14" text-anchor="middle" font-family="Manrope, sans-serif" font-size="10" fill="#948a78" font-style="italic">
+            Primary: as-started (≥2 records in 3 mo) ・ Sensitivity: on-treatment (≥12 records in 6 mo) ・ Sequential: 2nd-gen → osimertinib upon progression
+          </text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 1 ・ 研究流程 —— 從 TriNetX 全球網絡到 1:1 PSM 配對後的三層分析樣本</span>
+        Figure 1 — Cohort flow with target-trial-emulation PSM for first-line, on-treatment, and sequential cohorts
+      </figcaption>
+    </figure>
+
+    <p>
+      配對前差異主要落在 <strong>種族(White 37.9% vs 17.2%、Asian 27.1% vs 42.5%)、性別(Female 66.2% vs 57.4%)、ECOG PS(0.2 vs 0.4)、腦轉移盛行率(15.3% vs 7.5%)</strong> ——
+      第二代 TKI 的使用者整體更年輕、體能稍差、有更多 Asian 比例(反映亞洲健保使用習慣與藥物可及性)。
+      經過 1:1 PSM 後,<strong>每組 777 人</strong>,所有主要變項 SMD 均 &lt; 0.1:平均年齡 64 歲、女性 ~62%、Asian ~43%、腦轉移 ~6%、ECOG ~0.4。
+      診斷到啟動 TKI 的中位時間兩組相似(27 vs 31 天)。
+    </p>
+  </section>
+
+  <!-- ============================== 4. Findings ============================== -->
+  <section>
+    <div class="section-num">§ 04 ・ Findings</div>
+    <h2>
+      主要發現
+      <span class="en">Key findings — survival, toxicity, sequential, and economics</span>
+    </h2>
+
+    <div class="headline-stat">
+      <div class="num">HR 0.618</div>
+      <div class="text">
+        <strong>第一線 osimertinib vs 第二代 TKI:OS 中位數 53.4 vs 33.2 個月</strong>
+        以第二代為 reference,osimertinib 的 OS HR 為 0.618(95% CI 0.522–0.731, p &lt; 0.001)——
+        相當於 <strong>38.2% 的相對死亡風險下降</strong>。E-value 2.618(下限 CI 3.241)—— 對未測量混淆 robust。
+      </div>
+    </div>
+
+    <div class="headline-stat">
+      <div class="num">53.4 vs 33.2</div>
+      <div class="text">
+        <strong>絕對的 20 個月生存差距</strong>
+        在 EGFR-mutant NSCLC 的真實世界,osimertinib 把 OS 中位數從 33 個月推到 53 個月。
+        FLAURA 的 38.6 個月被超越,反映本研究排除最早 30 天死亡 + 2019 後 supportive care 的進步。
+      </div>
+    </div>
+
+    <!-- ===== 圖 2:KM curve ===== -->
+    <figure>
+      <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kaplan–Meier survival curves after PSM">
+        <text x="320" y="22" text-anchor="middle" font-family="Noto Serif TC, Fraunces, serif" font-size="13" fill="#143b34" font-weight="500">Overall Survival ・ 1:1 PSM 之後(每組 777 人)</text>
+
+        <!-- Axis -->
+        <g transform="translate(70,46)">
+          <line x1="0" y1="0" x2="0" y2="220" stroke="#3b3a36" stroke-width="0.8"/>
+          <line x1="0" y1="220" x2="500" y2="220" stroke="#3b3a36" stroke-width="0.8"/>
+          <!-- y-ticks -->
+          <g font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">
+            <line x1="-4" y1="0"   x2="0" y2="0"   stroke="#3b3a36"/><text x="-9" y="4"   text-anchor="end">1.00</text>
+            <line x1="-4" y1="55"  x2="0" y2="55"  stroke="#3b3a36"/><text x="-9" y="59"  text-anchor="end">0.75</text>
+            <line x1="-4" y1="110" x2="0" y2="110" stroke="#3b3a36"/><text x="-9" y="114" text-anchor="end">0.50</text>
+            <line x1="-4" y1="165" x2="0" y2="165" stroke="#3b3a36"/><text x="-9" y="169" text-anchor="end">0.25</text>
+            <line x1="-4" y1="220" x2="0" y2="220" stroke="#3b3a36"/><text x="-9" y="224" text-anchor="end">0.00</text>
+          </g>
+          <!-- x-ticks every 12 mo, scale 0-96 -->
+          <g font-family="Manrope, sans-serif" font-size="10" fill="#3b3a36">
+            <line x1="0"   y1="220" x2="0"   y2="224" stroke="#3b3a36"/><text x="0"   y="236" text-anchor="middle">0</text>
+            <line x1="62.5" y1="220" x2="62.5" y2="224" stroke="#3b3a36"/><text x="62.5" y="236" text-anchor="middle">12</text>
+            <line x1="125" y1="220" x2="125" y2="224" stroke="#3b3a36"/><text x="125" y="236" text-anchor="middle">24</text>
+            <line x1="187.5" y1="220" x2="187.5" y2="224" stroke="#3b3a36"/><text x="187.5" y="236" text-anchor="middle">36</text>
+            <line x1="250" y1="220" x2="250" y2="224" stroke="#3b3a36"/><text x="250" y="236" text-anchor="middle">48</text>
+            <line x1="312.5" y1="220" x2="312.5" y2="224" stroke="#3b3a36"/><text x="312.5" y="236" text-anchor="middle">60</text>
+            <line x1="375" y1="220" x2="375" y2="224" stroke="#3b3a36"/><text x="375" y="236" text-anchor="middle">72</text>
+            <line x1="437.5" y1="220" x2="437.5" y2="224" stroke="#3b3a36"/><text x="437.5" y="236" text-anchor="middle">84</text>
+            <line x1="500" y1="220" x2="500" y2="224" stroke="#3b3a36"/><text x="500" y="236" text-anchor="middle">96</text>
+          </g>
+          <!-- Axis labels -->
+          <text x="-40" y="115" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36" transform="rotate(-90 -40 115)" text-anchor="middle">Survival probability</text>
+          <text x="250" y="262" font-family="Manrope, sans-serif" font-size="11" fill="#3b3a36" text-anchor="middle">Time (months)</text>
+
+          <!-- Osimertinib step curve (median ~53.4) -->
+          <path d="M0 0 L 30 8 L 60 18 L 90 30 L 125 42 L 160 56 L 200 72 L 240 88 L 278 100 L 320 110 L 360 124 L 400 138 L 440 152 L 470 168 L 500 178"
+                fill="none" stroke="#2c5b6e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- 2nd-gen step curve (median ~33.2) -->
+          <path d="M0 0 L 30 14 L 60 30 L 95 50 L 130 70 L 173 90 L 215 110 L 252 126 L 290 142 L 325 156 L 365 168 L 405 180 L 440 188 L 470 196 L 500 200"
+                fill="none" stroke="#a8703f" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Median lines -->
+          <line x1="278" y1="100" x2="278" y2="220" stroke="#2c5b6e" stroke-width="0.6" stroke-dasharray="2 3"/>
+          <line x1="173" y1="110" x2="173" y2="220" stroke="#a8703f" stroke-width="0.6" stroke-dasharray="2 3"/>
+        </g>
+
+        <!-- Legend / annotations -->
+        <g transform="translate(420,60)" font-family="Manrope, sans-serif" font-size="11">
+          <rect x="0" y="0" width="14" height="3" fill="#2c5b6e"/>
+          <text x="20" y="4" fill="#143b34" font-weight="600">Osimertinib</text>
+          <text x="20" y="19" fill="#3b3a36" font-size="10">median OS 53.4 mo</text>
+
+          <rect x="0" y="36" width="14" height="3" fill="#a8703f"/>
+          <text x="20" y="40" fill="#143b34" font-weight="600">2nd-gen TKI</text>
+          <text x="20" y="55" fill="#3b3a36" font-size="10">median OS 33.2 mo</text>
+
+          <text x="0" y="86" fill="#2c5b6e" font-size="11" font-style="italic" font-weight="600">HR 0.618</text>
+          <text x="0" y="100" fill="#3b3a36" font-size="10">(95% CI 0.522–0.731)</text>
+          <text x="0" y="113" fill="#3b3a36" font-size="10">p &lt; 0.001</text>
+        </g>
+      </svg>
+      <figcaption>
+        <span class="zh">圖 2 ・ Kaplan-Meier 存活曲線 —— 第一線 osimertinib(深綠)的存活曲線明顯高於第二代 TKI(銅色),20 個月絕對 OS 差距</span>
+        Figure 2 — Kaplan–Meier overall survival after 1:1 propensity score matching
+      </figcaption>
+    </figure>
+
+    <h3>住院、ICU、嚴重感染:三個面向都顯著較少</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>結果(以第二代為 reference)</th>
+          <th>2nd-gen</th>
+          <th>Osim.</th>
+          <th>RR / HR (95% CI)</th>
+          <th>p</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="5" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">主要結果</td></tr>
+        <tr><td>Overall survival(median, months)</td><td>33.2</td><td>53.4</td><td><strong>HR 0.618 (0.522–0.731)</strong></td><td>&lt;0.001</td></tr>
+        <tr><td colspan="5" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">特定時間點死亡率</td></tr>
+        <tr><td>1-year mortality</td><td>18.8%</td><td>9.9%</td><td>RR 0.53 (0.43–0.63)</td><td>&lt;0.001</td></tr>
+        <tr><td>3-year mortality</td><td>37.8%</td><td>24.7%</td><td>RR 0.65 (0.57–0.76)</td><td>&lt;0.001</td></tr>
+        <tr><td>5-year mortality</td><td>42.5%</td><td>28.2%</td><td>RR 0.66 (0.57–0.78)</td><td>&lt;0.001</td></tr>
+        <tr><td colspan="5" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">健保利用</td></tr>
+        <tr><td>Hospitalization</td><td>57.3%</td><td>46.2%</td><td><strong>RR 0.81 (0.71–0.93)</strong></td><td>0.003</td></tr>
+        <tr><td>ICU admission</td><td>5.5%</td><td>3.2%</td><td><strong>RR 0.58 (0.47–0.76)</strong></td><td>0.006</td></tr>
+        <tr><td>Severe infection</td><td>37.2%</td><td>25.4%</td><td><strong>RR 0.68 (0.58–0.82)</strong></td><td>&lt;0.001</td></tr>
+        <tr><td colspan="5" style="background:rgba(44,91,110,.06);font-weight:600;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase">毒性(機轉差異反映)</td></tr>
+        <tr><td>Dermatitis</td><td>12.7%</td><td>9.3%</td><td>RR 0.73 (0.61–0.89)</td><td>—</td></tr>
+        <tr><td>Paronychia</td><td>3.9%</td><td>6.8%</td><td>RR 1.77 (1.43–2.19)</td><td>—</td></tr>
+        <tr><td>Thrombocytopenia</td><td>4.4%</td><td>11.5%</td><td>RR 2.22 (1.98–2.45)</td><td>—</td></tr>
+        <tr><td>Abnormal ECG</td><td>3.3%</td><td>7.3%</td><td>RR 2.19 (1.86–2.55)</td><td>—</td></tr>
+        <tr><td>Fatigue</td><td>6.6%</td><td>12.2%</td><td>RR 1.86 (1.34–2.58)</td><td>—</td></tr>
+        <tr><td>Overall AE rate</td><td>58.6%</td><td>57.4%</td><td>RR 0.98 (0.91–1.06)</td><td>0.622</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      <strong>毒性 profile 反映 mechanism。</strong> 第二代是廣譜 ErbB family 不可逆抑制,
+      所以 wild-type EGFR 在皮膚上被打到 → dermatitis 多 28%;
+      osimertinib 是 mutant-selective,皮膚毒性少很多,但反而出現較多 <strong>thrombocytopenia(機轉與 megakaryocyte 上的 EGFR signalling 相關)、abnormal ECG / QTc 延長、fatigue、paronychia</strong>。
+      <em class="term">Overall AE rate 兩組相當(57.4% vs 58.6%),關鍵是「哪一種毒性會升級成 hospitalization」</em> —— 而這正是 osimertinib 贏的地方:嚴重感染少 32%、ICU 少 42%、住院少 19%。
+    </p>
+
+    <h3>Subgroup:腦轉移族群效應最強</h3>
+
+    <ul>
+      <li><strong>Brain metastases YES</strong>:HR 0.563(95% CI 0.434–0.731)—— 比 no-brain-met 更強</li>
+      <li><strong>Brain metastases NO</strong>:HR 0.796(0.629–0.991)—— 仍顯著但效應較小</li>
+      <li><strong>Male</strong>:HR 0.502(0.382–0.661)</li>
+      <li><strong>Female</strong>:HR 0.694(0.555–0.867)</li>
+      <li><strong>White race</strong>:HR 0.459(0.325–0.648)</li>
+      <li><strong>Asian race</strong>:HR 0.587(0.443–0.778)</li>
+      <li><strong>≥80 歲</strong>:HR 0.657(0.451–0.957)—— 高齡仍顯著</li>
+      <li><strong>vs Afatinib</strong>:HR 0.710(0.597–0.844);<strong>vs Dacomitinib</strong>:HR 0.755(0.354–1.612, NS,n=49)</li>
+    </ul>
+
+    <p>
+      <strong>腦轉移族群得益最多</strong> 跟 osimertinib 的 blood-brain barrier penetration 大幅優於第二代的臨床前證據完全對得上。
+      加上 EGFR-mutant NSCLC 有相當高的 occult CNS disease 比例,這個 subgroup 結果支持
+      <em class="term">「即便沒有確診腦轉移,也可優先選 osimertinib」</em> 的臨床慣例。
+    </p>
+
+    <h3>Sequential therapy:OS 追平,但代價在 toxicity</h3>
+
+    <p>
+      Sequential cohort(2nd-gen → osimertinib upon progression,PSM 後每組 156 人)的 OS 跟 first-line osimertinib 幾乎一樣:
+      <strong>52.1 vs 53.4 個月,HR 0.929(0.658–1.311),p = 0.651</strong>。
+      但 sequential 的代價,是在第二代階段付出明顯更高的 toxicity 負擔:
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Toxicity / utilisation(during 2nd-gen phase)</th><th>Sequential</th><th>First-line osim.</th><th>差異</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dermatitis</td><td>12.8%</td><td>9.0%</td><td>+3.8 個百分點</td></tr>
+        <tr><td>Hospitalization</td><td>57.1%</td><td>46.2%</td><td>+10.9 個百分點</td></tr>
+        <tr><td>Severe infection</td><td>37.2%</td><td>25.6%</td><td>+11.6 個百分點</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      這個發現重新定義了 sequential vs first-line 的辯論:<strong>當 OS 一樣時,問題就轉成「要不要讓病人多承擔一次毒性的代價」</strong>。
+      對緩和性目的的轉移性疾病而言,這個答案在臨床上很清楚 —— 能用第一線就用第一線。
+    </p>
+
+    <h3>經濟學:省下來的健保利用,抵掉部分藥費</h3>
+
+    <p>
+      Cost-offset analysis 顯示:雖然 osimertinib 藥費較高,但因為住院少 19%、ICU 少 42%、感染少 32%,
+      <strong>每千名病人省下約 $5.73 million 的健保利用成本</strong>,部分抵銷藥物採購成本差。
+      這個分析還沒有納入間接成本(productivity loss、caregiver burden、long-term complications),
+      所以實際的 systemwide 經濟效益可能還被低估。對健保決策者來說,這個 framing 比單看「osimertinib 比較貴」更接近 societal-level 真相。
+    </p>
+
+    <h3>方法學 robustness:E-value、negative controls、敏感性分析</h3>
+
+    <ul>
+      <li><strong>E-value 2.618(主結果)、3.241(下限 CI)</strong> —— 任何未測量混淆要同時跟 treatment 與 mortality 關聯 RR ≥ 2.6 才能推翻結論,屬於 strong robust</li>
+      <li><strong>Negative control outcomes</strong>:腎結石(RR 0.86)、膽結石(RR 0.87)、骨關節炎(RR 0.77)—— 全部接近 1.0,反向支持 PSM 後殘餘混淆有限</li>
+      <li><strong>On-treatment per-protocol(364/組)</strong>:Median OS 66.7 vs 52.4 個月,HR 0.67(0.51–0.88)—— 維持顯著</li>
+      <li><strong>US-only subset(143/組)</strong>:HR 0.78(0.55–1.11),directional consistent 但因樣本小未達顯著</li>
+      <li><strong>Era-restricted(2019 以後,osim 第一線核可後)</strong>:HR 0.659(0.570–0.762)—— 顯示在當代治療氛圍下效應一致</li>
+    </ul>
+  </section>
+
+  <!-- ============================== 5. Clinical Implications ============================== -->
+  <section>
+    <div class="section-num">§ 05 ・ Clinical Implications</div>
+    <h2>
+      臨床上要怎麼用這個結果
+      <span class="en">How I changed my practice after this</span>
+    </h2>
+
+    <p>
+      這篇研究讓我在門診對 EGFR-mutant NSCLC 的決策有幾個更清楚的支點:
+    </p>
+
+    <ul>
+      <li>
+        <strong>新診斷的轉移性 EGFR-mutant NSCLC,只要 osimertinib 可及,直接給第一線。</strong>
+        OS 33.2 → 53.4 個月、20 個月的絕對差距,加上 31% 住院、42% ICU、32% 嚴重感染的減少,
+        這已經不是「同效不同毒」的權衡,而是 osimertinib 在效果、安全、整體醫療負擔都全面領先。
+      </li>
+      <li>
+        <strong>不要把「先打便宜的、抗藥再換貴的」當成 cost-saving 的合理 default。</strong>
+        Sequential 雖然能追平 OS,但病人要多承擔一次第二代 TKI 的毒性 ——
+        住院多 11 個百分點、嚴重感染多 12 個百分點。在 palliative-intent setting,這是不必要的痛苦。
+      </li>
+      <li>
+        <strong>有腦轉移或腦轉風險高(腺癌、女性、never-smoker、年輕)的病人,osimertinib 訊號最強(HR 0.563)。</strong>
+        CNS penetration 是 osimertinib 機轉上的天生優勢,occult CNS disease 在 EGFR-mutant NSCLC 是常態。
+        即便還沒影像確診腦轉,我傾向把這個 indication 寫進來說服 reviewer / payer。
+      </li>
+      <li>
+        <strong>Osimertinib 不是無毒。</strong> 要主動監測 <strong>QTc、血小板、ECG 變化、慢性疲勞</strong>。
+        Baseline ECG + monthly during first 3 months,thrombocytopenia 在我們的資料裡比 FLAURA 報的還高(11.5%),
+        對有 antiplatelet / anticoagulant 的病人特別要留意。Paronychia 雖然較輕,但對日常生活品質影響大,提早衛教局部處理可以避免感染升級。
+      </li>
+      <li>
+        <strong>把「省下的住院費用」放進健保論述。</strong>
+        每千人 $5.73M 的健保利用節省是有力 framing —— 對 payer/HTA 是 systemwide 角度,
+        對 oncologist 是「我幫病人省了一次 ICU、避免了 thrombocytopenia 升級成出血住院」這種具象的臨床語言。
+      </li>
+      <li>
+        <strong>Postprogression treatment 的觀察:platinum-pemetrexed 啟用較少(23.9% vs 32.1%)且較晚(69.2 vs 42.5 個月),</strong>
+        對病人 toxicity timeline 是好事。Novel targeted agents(amivantamab、sacituzumab tirumotecan、datopotamab deruxtecan、ivonescimab)
+        的使用率兩組相當(4.8% vs 4.5%),目前還不是 EGFR-mutant NSCLC 的主流。
+      </li>
+    </ul>
+
+    <p>
+      這份研究在亞洲族群(占 44%)的訊號是一致的,所以對台灣的 EGFR-mutant NSCLC 病人來說,可以直接 inform 臨床決策 ——
+      不需要等 ethnic-specific trial 再下結論。
+    </p>
+  </section>
+
+  <!-- ============================== 6. Methodological Reflections ============================== -->
+  <section>
+    <div class="section-num">§ 06 ・ Methodological Reflections</div>
+    <h2>
+      方法學上的反思
+      <span class="en">Where this study could be challenged</span>
+    </h2>
+
+    <div class="reflect">
+      <strong>① EGFR mutation subtype 在 TriNetX 是隱形變項</strong><br>
+      <em class="term">Exon 19 deletion vs L858R</em> 對 TKI sensitivity 不同,L858R 的 osimertinib 效應通常較弱,
+      而 LUX-Lung 6 顯示 afatinib 對 exon 19 deletion 反而比較好。我們的資料庫沒有 structured field 抓得到 mutation subtype,
+      所以無法做 stratified analysis。如果兩組 mutation subtype 分佈差很多,可能會放大或縮小真實的 treatment effect。
+      用台灣本土 EGFR 突變登錄資料補強,是後續優先方向。
+    </div>
+
+    <div class="reflect">
+      <strong>② Dose reduction & treatment duration 無法精確 captured</strong><br>
+      第二代 TKI 在臨床上很常因為 toxicity 做 dose reduction(afatinib 40 → 30 → 20 mg/day),
+      adherence 對 efficacy 影響大;但 TriNetX 的處方紀錄無法直接看到「實際吃進去的劑量」。
+      On-treatment(≥12 records / 6 mo)為 per-protocol proxy 部分減輕這個問題,但仍是粗略 surrogate。
+    </div>
+
+    <div class="reflect">
+      <strong>③ Immortal time bias 的處理夠不夠?</strong><br>
+      我們要求 ≥30 天存活、≥2 處方在 3 個月內 (as-started),follow-up start 與 treatment initiation 對齊。
+      Sequential cohort 的設計多了一層複雜度 ——「從第二代開始 follow up 跟從第二代換到 osimertinib 才開始 follow」會給出完全不同的 estimate。
+      論文中採取的是 from 2nd-gen initiation,跟 first-line osimertinib 從 osim initiation 對齊,
+      這個對齊方式對 sequential arm 是相對 conservative,真實的 sequential disadvantage 可能比我們呈現的更大。
+    </div>
+
+    <div class="reflect">
+      <strong>④ Economic analysis 的數字是估計,不是 measurement</strong><br>
+      我們用的是 published unit cost 而非實際 TriNetX 內的成本資料,所以 $5.73M / 1,000 patients 是 estimate,
+      而非 administratively-derived true cost。Cost 在不同醫療系統(私營 vs 公營、台灣健保 vs 美國 commercial)差距很大,
+      所以這個數字在跨國 framing 時要重新校準。但 hospitalization-day reduction、ICU-day reduction、severe-infection reduction 這些 utilization metrics 是可以直接 carry over 的。
+    </div>
+
+    <div class="reflect">
+      <strong>⑤ 與 FLAURA 的 cross-validation</strong><br>
+      FLAURA(osim vs gefitinib/erlotinib)median OS 38.6 個月,我們的 osim 53.4 個月。
+      這個差距能用三個面向解釋:(1) 我們的 inclusion 要求 ≥30 天存活 + ≥2 處方/3 個月,排除最危重病人;
+      (2) 2014–2025 的觀察期跨越了 supportive care、postprogression therapy 的進步;
+      (3) 我們的族群有 44% Asian(EGFR-mutant 對 TKI 反應較好)。
+      重點是 osimertinib vs 2nd-gen 的<strong>相對</strong>差距(HR 0.618)穩定可靠,而 absolute median OS 在 generalisation 時要小心。
+    </div>
+
+    <p>
+      簡單講:這個研究在<strong>真實世界 EGFR-mutant NSCLC 證據缺口上補了三個面向 —— head-to-head 對第二代、sequential 取捨、健保利用經濟學</strong>。
+      但它仍是 observational evidence,EGFR mutation subtype 是最重要的 unmeasured confounder。
+      作為 first-line 決策的補強證據合理,但 mutation-specific 的決策仍應以分子病理為核心。
+    </p>
+  </section>
+
+  <!-- ============================== 7. Next Steps ============================== -->
+  <section>
+    <div class="section-num">§ 07 ・ Next Steps</div>
+    <h2>
+      後續想做的事
+      <span class="en">Where this line of work goes next</span>
+    </h2>
+
+    <ul>
+      <li><strong>台灣本土資料 + EGFR 突變登錄驗證</strong>:用健保 + 癌登 + 各家醫院 NGS 資料聯動,做 mutation subtype-stratified comparative analysis,特別是 L858R subgroup 是否仍 favour osimertinib</li>
+      <li><strong>Cost-effectiveness 國產化分析</strong>:用台灣健保 unit cost 重新跑 cost-offset,提供本地 HTA / 健保署參考的證據</li>
+      <li><strong>Quality of life 的觀察</strong>:與 PRO-CTCAE / EORTC QLQ-C30 整合,看 osimertinib 在「症狀負擔」上的真實感受</li>
+      <li><strong>Combination osimertinib 的真實世界比較</strong>:FLAURA2(osim + chemo)、MARIPOSA(amivantamab + lazertinib)在 RCT 已經有 PFS 訊號,但 toxicity-vs-benefit trade-off 在 RWE 仍未驗證</li>
+      <li><strong>Resistance pattern 的後續比較</strong>:第一線 osimertinib 抗藥 → on-target(C797S)vs off-target(MET amp, HER2 amp)的分佈在真實世界是不是與 trial 描述一致</li>
+    </ul>
+
+    <div class="bottom-cta">
+      <h3>對這個方法或結果有興趣討論?</h3>
+      <p>
+        歡迎透過<a href="../index.html#contact">聯繫頁</a>來信,
+        或從 <a href="https://doi.org/10.1200/OP-25-01390" target="_blank">JCO Oncology Practice 期刊頁</a> 取得全文(ASCO 訂閱),
+        以及論文 PDF <a href="../docs/publications/2026-jco-op-osimertinib-vs-2nd-tki.pdf" target="_blank">本網站收藏版 →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 參考文獻 ============================== -->
+  <section class="refs">
+    <h2 style="border:none">主要參考文獻 / Key References</h2>
+    <ol>
+      <li><strong>Chen PH</strong>, Jhou HJ, Chang WC, Chen HY, Kao LT, Hsieh TYJ, Ye RH, Lai SW, Chen JH, Ho CL, <strong>Lee CH</strong>. Survival, Toxicity, and Economic Outcomes of Osimertinib Versus Second-Generation Epidermal Growth Factor Receptor-Tyrosine Kinase Inhibitors in Metastatic EGFR-Mutant Non–Small Cell Lung Cancer. <em>JCO Oncology Practice</em>. 2026 May 6 [Epub ahead of print]. <strong>(本研究)</strong></li>
+      <li>Soria JC, Ohe Y, Vansteenkiste J, et al. Osimertinib in Untreated EGFR-Mutated Advanced Non-Small-Cell Lung Cancer (FLAURA). <em>N Engl J Med</em>. 2018;378(2):113–125.</li>
+      <li>Ramalingam SS, Vansteenkiste J, Planchard D, et al. Overall Survival with Osimertinib in Untreated, EGFR-Mutated Advanced NSCLC. <em>N Engl J Med</em>. 2020;382(1):41–50.</li>
+      <li>Wu YL, Cheng Y, Zhou X, et al. Dacomitinib versus Gefitinib as First-Line Treatment for Patients with EGFR-Mutation-Positive Non-Small-Cell Lung Cancer (ARCHER 1050). <em>Lancet Oncol</em>. 2017;18(11):1454–1466.</li>
+      <li>Park K, Tan EH, O'Byrne K, et al. Afatinib versus Gefitinib as First-Line Treatment of Patients with EGFR-Mutation-Positive Non-Small-Cell Lung Cancer (LUX-Lung 7). <em>Lancet Oncol</em>. 2016;17(5):577–589.</li>
+      <li>Hernán MA, Robins JM. Using big data to emulate a target trial when a randomized trial is not available. <em>Am J Epidemiol</em>. 2016;183(8):758–764.</li>
+      <li>VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. <em>Ann Intern Med</em>. 2017;167(4):268–274.</li>
+      <li>Reungwetwattana T, Nakagawa K, Cho BC, et al. CNS Response to Osimertinib versus Standard EGFR Tyrosine Kinase Inhibitors in FLAURA. <em>J Clin Oncol</em>. 2018;36(33):3290–3297.</li>
+      <li>Planchard D, Jänne PA, Cheng Y, et al. Osimertinib with or without Chemotherapy in EGFR-Mutated Advanced NSCLC (FLAURA2). <em>N Engl J Med</em>. 2023;389(21):1935–1948.</li>
+      <li>Cho BC, Lu S, Felip E, et al. Amivantamab plus Lazertinib in Previously Untreated EGFR-Mutated Advanced NSCLC (MARIPOSA). <em>N Engl J Med</em>. 2024;391(16):1486–1498.</li>
+    </ol>
+  </section>
+
+</article>
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
