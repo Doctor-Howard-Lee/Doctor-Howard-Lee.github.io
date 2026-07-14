@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+
+<!-- ============== Google Analytics (GA4) ============== -->
+<!-- 把下方兩處 G-XXXXXXXXXX 換成你的 Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- ================ End Google Analytics ================ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research Note ｜ COVID-19 mRNA Vaccination & irAE Risk in Cancer Patients on ICI — Chen PH, Chang WC, ..., Lee CH, J Immunother Cancer 2026</title>
+<meta name="description" content="A target trial emulation study using 7,218 propensity-matched cancer patients on immune checkpoint inhibitors. COVID-19 mRNA vaccination within 100 days pre-ICI was associated with a 22% increase in overall immune-related adverse events (driven by ocular manifestations, HR 1.48) — but also a 14% mortality reduction and 57% fewer ICU admissions. Vaccination should continue with enhanced ophthalmological surveillance. 中英文研究筆記。" />
+<meta name="keywords" content="COVID-19 mRNA vaccine, immune checkpoint inhibitor, ICI, irAE, immune-related adverse event, uveitis, ocular irAE, target trial emulation, propensity score matching, TriNetX, real-world evidence, 李卓豪, 陳柏皇, Cho-Hao Lee, JITC, oncology" />
+<meta name="author" content="Cho-Hao Howard Lee, MD" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://doctor-howard-lee.github.io/posts/2026-07-rn-covid-mrna-vaccine-irae-ici.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
+<meta property="og:url" content="https://doctor-howard-lee.github.io/posts/2026-07-rn-covid-mrna-vaccine-irae-ici.html" />
+<meta property="og:title" content="COVID-19 mRNA Vaccine & Cancer Immunotherapy: +22% irAE, −14% Mortality, −57% ICU (JITC 2026)" />
+<meta property="og:description" content="Target trial emulation using 7,218 PSM-matched cancer patients: vaccination within 100 days pre-ICI increases immune-related adverse events (mainly ocular) but substantially improves survival and reduces ICU admission. 中英文雙語研究筆記。" />
+<meta property="og:image" content="https://doctor-howard-lee.github.io/images/posts/2026-07-rn-covid-mrna-vaccine-irae-ici-cover.svg" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="zh_TW" />
+<meta property="article:author" content="Cho-Hao Howard Lee" />
+<meta property="article:published_time" content="2026-07-14" />
+<meta property="article:section" content="Research Notes" />
+<meta property="article:tag" content="COVID-19 vaccine" />
+<meta property="article:tag" content="immune checkpoint inhibitor" />
+<meta property="article:tag" content="immune-related adverse events" />
+<meta property="article:tag" content="target trial emulation" />
+<meta property="article:tag" content="real-world evidence" />
+<meta property="article:tag" content="ocular irAE" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Research Note: COVID-19 mRNA Vaccine + ICI — +22% irAE but −14% Mortality" />
+<meta name="twitter:description" content="Target trial emulation, N=7,218 PSM-matched. JITC 2026. Bilingual research note." />
+<meta name="twitter:image" content="https://doctor-howard-lee.github.io/images/posts/2026-07-rn-covid-mrna-vaccine-irae-ici-cover.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "COVID-19 mRNA vaccination and immune-related adverse events in patients with cancer receiving immune checkpoint inhibitors: a target trial emulation study",
+  "description": "Research note on a target-trial-emulation, propensity-matched retrospective analysis assessing COVID-19 mRNA vaccination and immune-related adverse events among 7,218 cancer patients initiating immune checkpoint inhibitor therapy.",
+  "datePublished": "2026-07-14",
+  "author": [
+    {"@type":"Person","name":"Po-Huang Chen"},
+    {"@type":"Person","name":"Wei-Cheng Chang"},
+    {"@type":"Person","name":"Hong-Jie Jhou"},
+    {"@type":"Person","name":"Hsin-Yu Chen"},
+    {"@type":"Person","name":"Li-Ting Kao"},
+    {"@type":"Person","name":"Tina Yi-Jin Hsieh"},
+    {"@type":"Person","name":"Ming-Shen Dai"},
+    {"@type":"Person","name":"Cho-Hao Lee"}
+  ],
+  "publisher": {"@type":"Organization","name":"BMJ Group"},
+  "isPartOf": {"@type":"PublicationIssue","volumeNumber":"14","isPartOf":{"@type":"Periodical","name":"Journal for ImmunoTherapy of Cancer","issn":"2051-1426"}},
+  "sameAs": "https://doi.org/10.1136/jitc-2025-014726"
+}
+</script>
+
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+
+<style>
+  :root{
+    --paper:#f8f4ec; --paper-warm:#f1ead8;
+    --ink:#1d2424; --ink-soft:#3d4544; --stone:#6a6f6d;
+    --green-deep:#1a3d3a; --accent:#2c5b6e; --accent-soft:#7ea2b1;
+    --rule:#e0d7c5;
+    --sans-cjk:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif;
+    --serif-cjk:'Noto Serif TC','Songti TC','PMingLiU',serif;
+    --serif:'Cormorant Garamond','Georgia',serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans-cjk);background:var(--paper);color:var(--ink);line-height:1.75;font-size:17px;}
+  a{color:inherit} a:hover{color:var(--accent)}
+
+  header.site{max-width:760px;margin:0 auto;padding:32px 24px 0;display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--serif-cjk);font-size:15px;font-weight:500;color:var(--green-deep);letter-spacing:.01em;}
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+  .back-link{font-family:var(--sans);font-size:13px;color:var(--ink-soft);text-decoration:none;}
+  .back-link:hover{color:var(--accent)}
+
+  article{max-width:760px;margin:0 auto;padding:48px 24px 32px}
+
+  .article-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--stone);margin-bottom:32px;}
+  .article-meta .tag{padding:4px 10px;background:var(--accent);color:var(--paper);border:1px solid var(--accent);border-radius:30px;font-size:12px;letter-spacing:.02em;}
+  .article-meta .tag.outline{background:transparent;color:var(--accent);}
+  .article-meta .date{margin-left:auto;font-family:var(--sans)}
+
+  h1{font-family:var(--serif-cjk);font-weight:600;font-size:34px;line-height:1.35;letter-spacing:-.005em;color:var(--green-deep);margin-bottom:14px;}
+  h1 .en{display:block;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--accent);margin-bottom:12px;letter-spacing:0;}
+  h1 .sub{display:block;margin-top:14px;font-size:18px;font-weight:400;line-height:1.55;color:var(--accent);}
+
+  .cite{margin:0 0 36px;padding:18px 22px;font-style:italic;font-size:14.5px;background:var(--paper-warm);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;line-height:1.65;color:var(--ink-soft);}
+  .cite strong{color:var(--green-deep);font-style:normal;font-weight:600}
+  .cite a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+  .author{display:flex;align-items:center;gap:14px;margin:0 0 40px;padding-bottom:24px;border-bottom:1px solid var(--rule);}
+  .author-avatar{width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif-cjk);font-size:16px;font-weight:600;}
+  .author-text{font-size:14px;color:var(--ink-soft)}
+  .author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+  /* English abstract section */
+  .en-section{margin:0 0 56px;padding:32px 32px;border-radius:8px;background:#ffffff;border:1px solid var(--rule);box-shadow:0 1px 3px rgba(0,0,0,.04);font-family:var(--sans);line-height:1.7;}
+  .en-section .lang-label{font-family:var(--sans);font-size:11px;letter-spacing:.22em;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:block;}
+  .en-section h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--green-deep);margin:20px 0 10px;letter-spacing:0;}
+  .en-section h3:first-of-type{margin-top:0}
+  .en-section p{font-size:15px;color:var(--ink-soft);margin:0 0 14px;}
+  .en-section .kv{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0 8px;}
+  @media(max-width:560px){.en-section .kv{grid-template-columns:1fr}}
+  .en-section .stat{background:var(--paper-warm);padding:14px 16px;border-radius:6px;border-left:3px solid var(--accent);}
+  .en-section .stat .num{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--green-deep);display:block;line-height:1.2;}
+  .en-section .stat .lab{font-size:12px;color:var(--stone);letter-spacing:.05em;margin-top:4px;display:block;}
+
+  /* Chinese TL;DR */
+  .tldr{margin:0 0 48px;padding:28px 28px;border-radius:8px;background:var(--green-deep);color:var(--paper);border-left:4px solid var(--accent-soft);}
+  .tldr-label{font-family:var(--sans);font-size:11px;letter-spacing:.18em;font-weight:600;color:var(--accent-soft);text-transform:uppercase;margin-bottom:12px;}
+  .tldr p{font-size:15.5px;line-height:1.75;color:var(--paper);margin-bottom:0;}
+  .tldr p strong{color:#fff}
+
+  h2{font-family:var(--serif-cjk);font-weight:600;font-size:24px;color:var(--green-deep);margin:56px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--rule);}
+  h3{font-family:var(--serif-cjk);font-weight:600;font-size:18px;color:var(--accent);margin:32px 0 12px;}
+
+  p{margin:0 0 18px}
+  ul,ol{margin:0 0 22px;padding-left:24px}
+  li{margin-bottom:8px}
+  li strong{color:var(--green-deep)}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  @media(max-width:560px){.grid-2{grid-template-columns:1fr}}
+
+  .data-card{margin:0;padding:22px 24px;background:#fff;border:1px solid var(--rule);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.03);}
+  .data-card .label{font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin-bottom:8px;}
+  .data-card .value{font-family:var(--serif-cjk);font-size:28px;font-weight:600;color:var(--green-deep);line-height:1.2;margin-bottom:6px;}
+  .data-card .value.up{color:#b34d3b}
+  .data-card .value.down{color:#2c8a5b}
+  .data-card .ci{font-size:13.5px;color:var(--ink-soft);font-family:var(--sans)}
+
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14.5px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+  th{background:var(--paper-warm);color:var(--green-deep);font-weight:600;font-size:13.5px}
+  tr:last-child td{border-bottom:none}
+  td.num{font-family:var(--sans);text-align:right;font-variant-numeric:tabular-nums}
+  .up{color:#b34d3b;font-weight:600}
+  .down{color:#2c8a5b;font-weight:600}
+  .neu{color:var(--stone)}
+
+  blockquote{margin:24px 0;padding:14px 22px;border-left:3px solid var(--accent-soft);background:rgba(126,162,177,.08);font-size:15.5px;color:var(--ink-soft);}
+
+  .bottom-cta{margin:48px 0 8px;padding:28px 28px;border-radius:8px;background:var(--paper-warm);border-left:3px solid var(--accent);}
+  .bottom-cta h3{margin:0 0 8px;color:var(--green-deep)}
+  .bottom-cta p{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.7}
+
+  .refs{margin:56px 0 0;padding-top:24px;border-top:1px solid var(--rule)}
+  .refs h2{border:none;padding:0;margin-bottom:14px;font-size:20px}
+  .refs ol{font-size:13.5px;color:var(--ink-soft);padding-left:24px}
+  .refs li{margin-bottom:8px;line-height:1.6}
+  .refs li em{color:var(--green-deep)}
+
+  footer{max-width:760px;margin:0 auto;padding:24px;text-align:center;font-size:13px;color:var(--stone);border-top:1px solid var(--rule);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="../index.html">
+    <span class="dot"></span>
+    <span>李卓豪 醫師 ・ Cho-Hao Howard Lee, MD</span>
+  </a>
+  <a class="back-link" href="../index.html">← 回首頁 / Home</a>
+</header>
+
+<article>
+
+  <div class="article-meta">
+    <span class="tag">Research Note ・ 研究筆記</span>
+    <span class="tag outline">Immunotherapy</span>
+    <span class="tag outline">COVID-19 vaccine</span>
+    <span class="tag outline">Bilingual · 中英</span>
+    <span class="date">14 Jul 2026</span>
+  </div>
+
+  <h1>
+    <span class="en">COVID-19 mRNA Vaccination & Immune-Related Adverse Events in Cancer Patients on ICI</span>
+    COVID-19 mRNA 疫苗與癌症免疫治療副作用
+    <span class="sub">A target trial emulation of 7,218 propensity-matched patients — +22% overall irAE (mostly ocular) balanced against −14% all-cause mortality and −57% ICU admission. 為什麼「副作用增加」與「死亡率降低」可以並存,以及對臨床決策的意義。</span>
+  </h1>
+
+  <div class="cite">
+    <strong>Chen P-H</strong>*, <strong>Chang W-C</strong>*, Jhou HJ, Chen HY, Kao LT, Hsieh TYJ, Dai MS, <strong>Lee CH</strong>.
+    COVID-19 mRNA vaccination and immune-related adverse events in patients with cancer receiving immune checkpoint inhibitors: a target trial emulation study.
+    <em>Journal for ImmunoTherapy of Cancer</em>. 2026;14:e014726. DOI:
+    <a href="https://doi.org/10.1136/jitc-2025-014726" target="_blank">10.1136/jitc-2025-014726</a>.
+    (*co-first authors) — Corresponding author: Cho-Hao Lee, Tri-Service General Hospital / National Defense Medical Center, Taipei, Taiwan.
+  </div>
+
+  <div class="author">
+    <div class="author-avatar">李</div>
+    <div class="author-text">
+      <strong>李卓豪 醫師 ・ Cho-Hao Howard Lee, MD</strong>
+      Division of Hematology &amp; Oncology, Tri-Service General Hospital ・ Assistant Professor, National Defense Medical Center
+    </div>
+  </div>
+
+  <!-- ================= ENGLISH ABSTRACT + KEY FINDINGS ================= -->
+  <section class="en-section">
+    <span class="lang-label">English summary</span>
+
+    <h3>Background &amp; question</h3>
+    <p>
+      COVID-19 mRNA vaccines may enhance immune checkpoint inhibitor (ICI) efficacy via type-I interferon-driven immune priming — but the same mechanism raises a theoretical concern for excess immune-related adverse events (irAEs) when the two act together. Prior safety studies (all &lt;400 patients, no propensity matching) reported no signal, but were substantially underpowered. We asked: <strong>does pre-ICI mRNA vaccination increase irAE burden, and how does that trade off against survival?</strong>
+    </p>
+
+    <h3>Design</h3>
+    <p>
+      Retrospective target trial emulation (Hernán/Robins framework) using the TriNetX Global Network (124.7 M patients, 69 healthcare organizations, Jan 2021–Dec 2025). Adults with metastatic cancer initiating any of eight approved ICIs; exposure defined as ≥1 dose of BNT162b2 or mRNA-1273 within 100 days pre-ICI. 1:1 propensity score matching yielded <strong>3,609 vs 3,609</strong> patients with all baseline SMDs &lt;0.1 across demographics, cancer types, ICI agents, and comorbidities. Primary outcome: composite irAE at 36 months.
+    </p>
+
+    <h3>Headline results</h3>
+    <div class="kv">
+      <div class="stat">
+        <span class="num" style="color:#b34d3b">HR 1.22</span>
+        <span class="lab">Overall irAE (95% CI 1.17–1.28) · E-value 1.74</span>
+      </div>
+      <div class="stat">
+        <span class="num" style="color:#b34d3b">HR 1.48</span>
+        <span class="lab">Ocular irAE (95% CI 1.17–1.87) · only organ significant after FDR</span>
+      </div>
+      <div class="stat">
+        <span class="num" style="color:#2c8a5b">HR 0.86</span>
+        <span class="lab">All-cause mortality (95% CI 0.80–0.93) · 11.8% vs 17.5% at 36 mo</span>
+      </div>
+      <div class="stat">
+        <span class="num" style="color:#2c8a5b">HR 0.43</span>
+        <span class="lab">ICU admission (95% CI 0.25–0.73) · 57% relative reduction</span>
+      </div>
+    </div>
+
+    <h3>Robustness</h3>
+    <p>
+      The irAE signal survived (i) on-treatment restriction (HR 1.12), (ii) US-only restriction (HR 1.07), (iii) 1-, 2-, and 3-month landmark exclusions, (iv) calendar-time stratification (2021–22 vs 2023–25, HR 1.19 vs 1.21), (v) fixed-window analyses, (vi) competing-risk (Aalen-Johansen) analysis with death as the competing event, and (vii) sensitivity re-matching after adding performance-status proxies to the PS model (HR 1.211, &lt;1% change). Three negative-control outcomes (inguinal hernia, gallstones, fractures) were null; a novel ocular negative-control composite (age-related cataract + glaucoma) was also null, arguing against differential ophthalmological surveillance as an explanation for the ocular signal.
+    </p>
+
+    <h3>Clinical implication</h3>
+    <p>
+      COVID-19 mRNA vaccination should continue in all eligible ICI-treated cancer patients — the ~6 percentage-point absolute mortality reduction and 57% ICU reduction substantially outweigh the ~10 percentage-point excess in overall irAE incidence. However, clinicians should (i) proactively counsel about the excess irAE risk, (ii) implement heightened ophthalmological surveillance (baseline exam pre-ICI where feasible; low threshold for referral on any persistent ocular symptom), (iii) apply stratified monitoring for females and patients ≥50 years given numerically stronger irAE signals in these subgroups, and (iv) integrate this evidence into shared decision-making rather than deferring or omitting vaccination.
+    </p>
+  </section>
+
+  <!-- ================= CHINESE FULL BODY ================= -->
+
+  <div class="tldr">
+    <div class="tldr-label">TL;DR — 一段話總結</div>
+    <p>
+      在 TriNetX 1.25 億人的資料中,我們用 target trial emulation 抓出 7,218 位新開始免疫治療的成人癌症病人,1:1 propensity score matching 之後比較「開始 ICI 前 100 天內有沒有打過 COVID-19 mRNA 疫苗」兩組的 3 年結果。<strong>打疫苗組 irAE 增加 22%(HR 1.22)</strong>,主要由眼睛副作用驅動(HR 1.48,葡萄膜炎 + 視神經炎);但同時<strong>全死因死亡率降低 14%(HR 0.86)、ICU 入院率降低 57%(HR 0.43)、有紀錄的 COVID 感染率降低 50%</strong>。訊號通過三個 negative-control、performance-status proxy sensitivity(HR 幾乎不動)、on-treatment / US-only / landmark / calendar-time 分層 / 競爭風險等所有 robustness 測試。<strong>臨床建議:繼續打,但加強眼科監測,特別是女性和 ≥ 50 歲族群。</strong>
+    </p>
+  </div>
+
+  <h2>為什麼要做這個研究 — 臨床上的問題</h2>
+
+  <p>
+    這幾年在門診最常被問的問題之一:「我在打 pembrolizumab / nivolumab,還能不能打 COVID-19 mRNA 疫苗?」病人和家屬的擔心並非空穴來風 — ICI 讓 60-70% 的病人會出現某種程度的 irAE,而 mRNA 疫苗會強烈啟動 type-I interferon 路徑與 T-cell activation。理論上「解除煞車的 checkpoint blockade」+「大力踩油門的 mRNA priming」放在一起,就有可能拉低 self-tolerance 的門檻,讓自體免疫反應在更多器官冒出來。
+  </p>
+
+  <p>
+    但另一邊已經有訊號說相反的事情。<strong>Grippin 等人(2024)</strong> 在轉移性 NSCLC 中報告,ICI 前 100 天內打 mRNA 疫苗的病人,中位 OS 從 20.6 個月拉到 37.3 個月(HR 0.51),暗示疫苗對 ICI 的 antitumor immunity 可能是加分而不是扣分。過去所有評估 COVID 疫苗 + ICI 安全性的研究都受限於樣本數 ≤ 400、沒有 PSM、沒有 quantitative bias analysis,結論一致是「沒看到 irAE 增加訊號」— 但這幾乎肯定是 underpowered 而不是真的 null。
+  </p>
+
+  <p>
+    所以我們想做的事很直接:<em>用大樣本 + 嚴謹方法,把「疫苗 → irAE」的因果關係量化到臨床可用的程度,並且和 mortality、ICU 這些 hard endpoints 一起看。</em>
+  </p>
+
+  <h2>研究怎麼做的 — 設計選擇</h2>
+
+  <h3>資料來源與時間窗口</h3>
+  <p>
+    TriNetX Research Global Network,涵蓋 69 家醫療機構、1.25 億病人的 federated EHR,時間 2021 年 1 月到 2025 年 12 月(涵蓋原始株、Delta、Omicron 各波,以及 monovalent / bivalent / updated 各版本疫苗)。
+  </p>
+
+  <h3>Cohort assembly</h3>
+  <ul>
+    <li><strong>Inclusion</strong>:成人(≥18)、metastatic cancer、第一次拿到八種 approved ICI 之一(pembro、nivo、cemiplimab、atezo、durva、avelumab、ipi、tremelimumab)、至少 6 個月追蹤。</li>
+    <li><strong>Exclusion</strong>:過去 ICI 使用、baseline autoimmune / inflammatory 疾病(定義為 ICI 前 30 天內出現 irAE-defining ICD-10)、免疫抑制狀態或用藥。</li>
+    <li><strong>Exposure</strong>:ICI 開始前 100 天內至少一劑 BNT162b2 或 mRNA-1273。100 天外的視為 unvaccinated,任何殘存免疫記憶會 bias 向 null,因此我們的估計是保守的。</li>
+  </ul>
+
+  <h3>從 1.25 億人到 3,609 對配對</h3>
+  <p>
+    235,748 位 2021 年後開始 ICI 的癌症病人 → 220,045 符合 inclusion/exclusion → 155,300 有足夠追蹤 → 其中 3,609 (2.3%) 落在 100 天曝露窗口。1:1 PSM 用 greedy nearest-neighbor,匹配後每組 3,609 人,所有 baseline covariates SMD &lt; 0.1。
+  </p>
+
+  <h3>Outcome definitions</h3>
+  <ul>
+    <li><strong>Primary</strong>:36 個月內首次出現任一 irAE 的複合終點(cardiac、endocrine、GI、hematologic、ocular、pulmonary、dermatologic、rheumatologic、renal、neurological)。</li>
+    <li><strong>Severe irAE</strong>:operationally defined 為需要住院、ICU 入院、或特定高嚴重度診斷(myocarditis、pneumonitis、hepatic failure、需手術的 colitis、Stevens-Johnson)。</li>
+    <li><strong>Secondary</strong>:organ-specific irAE、all-cause mortality、pneumonia、ICU admission。</li>
+    <li><strong>Negative controls</strong>:inguinal hernia、gallstones、traumatic fractures(常規三個),再加眼科專屬的 age-related cataract + glaucoma composite — 這個是為了排除「打疫苗的人剛好比較常看眼科所以更容易被診斷 uveitis」的偵測偏差,是這篇論文方法學上的亮點之一。</li>
+  </ul>
+
+  <h3>Robustness 的十個檢驗</h3>
+  <p>
+    這是這篇 paper 特別下功夫的地方,值得列出來:
+  </p>
+  <ul>
+    <li>Cause-specific hazard(主分析)+ Aalen-Johansen CIF(competing risk with death)</li>
+    <li>Fixed-follow-up sensitivity(1-year、2-year 相同觀察窗)</li>
+    <li>On-treatment cohort(≥ 2 次 ICI 給藥)</li>
+    <li>US-only geographic restriction</li>
+    <li>Vaccination window 縮到 50 天</li>
+    <li>Landmark analyses(排除 1、2、3 個月內事件)</li>
+    <li>Calendar-time stratification(2021-22 vs 2023-25)</li>
+    <li>Performance-status proxy sensitivity(加入 palliative care encounters、weakness、fatigue、gait abnormality)</li>
+    <li>Ocular sensitivity(排除 90 天內眼睛事件後 re-match)</li>
+    <li>VanderWeele-Ding QBA,50,000 次 Monte Carlo</li>
+  </ul>
+
+  <h2>主要結果 — 三張表看完</h2>
+
+  <div class="grid-2">
+    <div class="data-card">
+      <div class="label">Overall irAE (primary)</div>
+      <div class="value up">HR 1.22</div>
+      <div class="ci">95% CI 1.17–1.28<br>1,986 (55.0%) vs 1,629 (45.1%)<br>E-value 1.74</div>
+    </div>
+    <div class="data-card">
+      <div class="label">Severe irAE</div>
+      <div class="value up">HR 1.11</div>
+      <div class="ci">95% CI 1.04–1.18<br>398 vs 105 events<br>+11% relative增加</div>
+    </div>
+    <div class="data-card">
+      <div class="label">All-cause mortality</div>
+      <div class="value down">HR 0.86</div>
+      <div class="ci">95% CI 0.80–0.93<br>11.8% vs 17.5% at 36 mo<br>絕對差 5.7 pp</div>
+    </div>
+    <div class="data-card">
+      <div class="label">ICU admission</div>
+      <div class="value down">HR 0.43</div>
+      <div class="ci">95% CI 0.25–0.73<br>−57% relative<br>本篇最戲劇性訊號</div>
+    </div>
+  </div>
+
+  <h3>時間動態:副作用是「累積」的,不是「即時」的</h3>
+
+  <p>
+    Overall irAE HR 隨追蹤時間逐漸走高:1 個月 1.03、3 個月 1.07、6 個月 1.06、12 個月 1.09(開始達顯著)、24 個月 1.14、36 個月 1.22。這個「gradual accumulation」pattern 比較符合「疫苗預先讓 T-cell repertoire 敏化,和後續 ICI 交互作用要時間發酵」的機制,而不太可能是 acute confounding(那應該一開始最強、後來衰減)。
+  </p>
+
+  <h3>Organ-specific:眼睛是唯一 survive FDR correction 的訊號</h3>
+
+  <table>
+    <thead>
+      <tr><th>器官系統</th><th class="num">HR @ 36 mo (95% CI)</th><th class="num">Raw p</th><th class="num">FDR-adjusted</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ocular(uveitis + optic neuritis)</td><td class="num up">1.48 (1.17–1.87)</td><td class="num">0.001</td><td class="num up">0.006 ★</td></tr>
+      <tr><td>Rheumatologic</td><td class="num">1.13 (0.96–1.32)</td><td class="num">0.138</td><td class="num neu">NS</td></tr>
+      <tr><td>Dermatologic</td><td class="num">1.08 (0.97–1.21)</td><td class="num">0.143</td><td class="num neu">NS</td></tr>
+      <tr><td>Cardiac</td><td class="num">1.08 (0.96–1.22)</td><td class="num">0.204</td><td class="num neu">NS</td></tr>
+      <tr><td>Endocrine</td><td class="num">1.07 (0.99–1.17)</td><td class="num">0.082</td><td class="num neu">NS</td></tr>
+      <tr><td>Pulmonary(pneumonitis)</td><td class="num">1.40 (0.94–2.08)</td><td class="num">0.094</td><td class="num neu">NS</td></tr>
+      <tr><td>Hematologic / GI / Renal / Neuro</td><td class="num">1.05–1.12</td><td class="num">NS</td><td class="num neu">NS</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    這裡的統計哲學值得一提:所有 organ-specific HR 都在 1.05–1.12 之間 systematically 大於 1,方向一致但單一 organ 都 underpowered。Composite endpoint 之所以能達到 primary significance,就是因為把這些方向一致的小訊號 aggregate 起來。這也是為什麼 primary outcome 統計顯著、但除了眼睛之外沒有任何 organ 通過 FDR — 沒有矛盾,只是統計 power 的自然結果。
+  </p>
+
+  <h3>Ocular signal 的三層驗證</h3>
+
+  <p>
+    眼睛副作用 HR 1.48 是這篇 paper 最新穎、也最容易被 confounding 攻擊的點。作者用三個 stress test 支持:
+  </p>
+
+  <ol>
+    <li><strong>排除 90 天內眼睛事件後 re-match</strong>(切掉最可能是 vaccine-related、不是 ICI-related 的早期事件):HR <em>上升</em>到 1.608,而不是消失或減弱。→ 意味著早期 ocular events 稀釋而非驅動這個訊號,真正的貢獻是後期 ICI-mediated ocular irAE。</li>
+    <li><strong>Ocular negative control</strong>:age-related cataract + glaucoma composite HR 1.03(0.91–1.17)。→ 打疫苗的人並沒有系統性地更常做眼科檢查。</li>
+    <li><strong>族群級別的背景率反推</strong>:vaccine-associated uveitis 在一般人群的通報率是 0.57 / 百萬劑(BNT),不可能解釋我們看到的 194 vs 108 事件差距。</li>
+  </ol>
+
+  <h2>Mechanism — 為什麼是眼睛?</h2>
+
+  <p>
+    眼睛是經典的 immune-privileged site:blood-ocular barrier、缺乏 lymphatic drainage、局部 TGF-β / α-MSH / FasL 免疫抑制環境。ICI 本身就會 breach 這個 privilege(single-agent ICI ocular irAE 大約 1-3%),而 mRNA-primed type-I IFN pathway sensitization 進一步降低 tolerance threshold — 兩者疊加,眼睛特別脆弱是可以理解的。
+  </p>
+
+  <p>
+    另一個相關的機制論述在 Discussion 出現:<em>irAE 出現本身可能是 antitumor immunity 的 marker</em>。若真如此,「irAE 增加」和「survival 改善」不是獨立的兩件事,而是同一個底層 immune activation 的兩面。這個 hypothesis 需要正式的 mediation analysis 驗證,但 TriNetX platform 上做不了(需要 individual-level time-to-event 資料匯出)。
+  </p>
+
+  <h2>Discussion — 幾個容易被誤讀的點</h2>
+
+  <h3>「severe irAE 增加 vs ICU 減少」是矛盾嗎?</h3>
+  <p>
+    表面上看起來很衝突,但拆開就懂了。ICU admission 是 all-cause,而 vaccinated 組的 documented COVID-19 感染 HR 0.50 — 少掉的 infection-driven ICU admission 是主因。同時 irAE severity 增加只是 relative 11%(絕對事件 398 vs 105 差 293 起),遠不足以蓋過 COVID pneumonia / sepsis 減少帶來的 ICU 節省。加上作者做了 performance-status proxy sensitivity,加入 palliative care / weakness / fatigue / gait 進 PS model 之後 HR 只從 1.22 動到 1.211(&lt; 1% 變化),支持 ICU 差距不是被 healthier vaccinated 的 confounding 驅動。
+  </p>
+
+  <h3>Vaccination rate 只有 2.3%,是不是資料有問題?</h3>
+  <p>
+    這是這篇最容易被 peer review 打的問題。作者花了整段 discussion 說明:100 天窗口天生就會抓到很少人。如果拉到 365 天,COVID vaccination rate 上升到 7.3%(和 post-outbreak booster era 的美國成人 14-22% uptake 一致);同樣窗口下 influenza 3.8%、pneumococcal 1.1%、zoster &lt; 0.1%,也都低,證明是窗口窄不是 EHR 漏抓。加上藥局施打的 COVID 疫苗常沒同步回 EHR,只會讓 exposure 被 misclassified 到 unvaccinated → bias toward null,結果反而是 conservative。
+  </p>
+
+  <h3>2.3% 選擇的人是不是特別 healthy?(healthy vaccinee bias)</h3>
+  <p>
+    這個擔憂被三件事削弱:(a) 三個 non-COVID vaccine(flu、pneumo、zoster)在 365 天窗口中兩組 SMD 都 &lt; 0.02,若是 systematic healthy vaccinee bias 應該三種都會偏,結果沒有;(b) performance-status proxy sensitivity HR 幾乎不動;(c) VanderWeele-Ding QBA 顯示 median adjusted HR 1.034,P(HR &gt; 1.0) = 61.7%,P(HR &gt; 1.1) = 27.4%,P(HR &gt; 1.2) = 6.0%,E-value 1.74。這代表「要有一個相當強、且是 measured covariates 沒抓到的 confounder,才能把 22% 訊號完全 explain away」— 存在可能,但門檻高。
+  </p>
+
+  <h2>Limitations — 該說的都要說</h2>
+  <ul>
+    <li>Observational,無法完全排除 residual confounding,尤其 ECOG PS 沒有直接紀錄。QBA 顯示 partial robustness 是本研究最主要的 caveat。</li>
+    <li>Outpatient-only 輕度 irAE 可能被漏抓。</li>
+    <li>Administrative data 沒有 CTCAE severity grading,我們用 operational definition 近似。</li>
+    <li>36 個月 follow-up 抓不到 &gt; 3 年的 late irAE。</li>
+    <li>2.3% vaccinated 是被 selected 的族群,絕對 effect estimate 的 generalizability 受限;不過生物機制(mRNA priming + ICI synergy)不太可能是族群 specific。</li>
+    <li>沒有 individual-level data 可以做 Fine-Gray subdistribution hazard 或 formal mediation analysis。</li>
+  </ul>
+
+  <h2>臨床操作 — 我怎麼跟病人和 team 說</h2>
+
+  <blockquote>
+    對即將開始 ICI 的病人:<br>
+    「疫苗照打。研究顯示 3 年下來,打疫苗的人死亡率會低 14%、進 ICU 的機會少一半以上、感染 COVID 的機會也少一半。代價是免疫副作用會多一些,主要集中在眼睛。所以我們會在治療前先做一次基準眼科,治療期間任何持續超過一週的視力模糊、畏光、眼睛痛,馬上告訴我,不要拖。其他副作用機會也稍微上升,但都是我們熟悉、可以處理的。」
+  </blockquote>
+
+  <blockquote>
+    對護理 / MDT team:<br>
+    「這篇 JITC 之後,建議在 ICI onboarding checklist 加一項『recent COVID mRNA vaccination status(&lt; 100 days)』,vaccinated 的病人 flag 為 ophthalmology surveillance high-priority — baseline exam + 每 3 個月主動 screen ocular symptoms,女性和 ≥ 50 歲降到每 2 個月。任何 uveitis / optic neuritis 立刻 ophthalmology consult,不要等病人自己抱怨。」
+  </blockquote>
+
+  <h2>下一步該回答的問題</h2>
+  <ul>
+    <li><strong>Mediation analysis</strong> quantifying how much of the survival benefit is mediated through vaccine-enhanced ICI antitumor immunity vs COVID infection prevention — 需要有 individual-level data 的 registry。</li>
+    <li><strong>Prospective ocular monitoring cohort</strong>,用 SLIT-lamp + OCT + PROMs 更精確 phenotype vaccine-conditional ocular irAE。</li>
+    <li><strong>Vaccine formulation 比較</strong>:2024-25 更新版單價 vs 過去 bivalent 在同一 cohort 內的 head-to-head safety comparison。</li>
+    <li><strong>Timing optimization</strong>:vaccine → ICI 的最佳 interval,以及 boost during ICI 是否有不同 risk profile。</li>
+    <li><strong>Genetic / autoantibody predictors</strong> of vaccine-conditional irAE risk,讓 stratification 從 age/sex 進化到 molecular level。</li>
+  </ul>
+
+  <div class="bottom-cta">
+    <h3>Discuss this study / 對這個研究有想法嗎?</h3>
+    <p>
+      Full text is open access at <a href="https://doi.org/10.1136/jitc-2025-014726" target="_blank">JITC (BMJ)</a>. Reach me via the
+      <a href="../index.html#contact">contact page</a>, drop a comment below, or email
+      <a href="mailto:drleechohao@gmail.com">drleechohao@gmail.com</a>. Discussion — especially from ophthalmology and vaccine safety colleagues — is very welcome.
+    </p>
+  </div>
+
+  <section class="refs">
+    <h2>Key References</h2>
+    <ol>
+      <li><strong>Chen PH</strong>, Chang WC, Jhou HJ, Chen HY, Kao LT, Hsieh TYJ, Dai MS, <strong>Lee CH</strong>. COVID-19 mRNA vaccination and immune-related adverse events in patients with cancer receiving immune checkpoint inhibitors: a target trial emulation study. <em>J Immunother Cancer</em>. 2026;14:e014726. doi:10.1136/jitc-2025-014726. <strong>(this study)</strong></li>
+      <li>Grippin AJ, et al. mRNA vaccination and outcomes in patients with advanced non-small cell lung cancer receiving immune checkpoint inhibitors. <em>[Companion efficacy study — cited as ref 2 in the primary paper.]</em></li>
+      <li>Hernán MA, Robins JM. Using big data to emulate a target trial when a randomized trial is not available. <em>Am J Epidemiol</em>. 2016;183(8):758–764.</li>
+      <li>VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. <em>Ann Intern Med</em>. 2017;167(4):268–274.</li>
+      <li>Hansford HJ, Cashin AG, et al. Reporting of observational studies explicitly aiming to emulate randomized trials (STaRT-RWE / STaRT-TTE). <em>JAMA Netw Open</em>. 2023;6:e2336023.</li>
+      <li>Postow MA, Sidlow R, Hellmann MD. Immune-related adverse events associated with immune checkpoint blockade. <em>N Engl J Med</em>. 2018;378(2):158–168.</li>
+      <li>Streilein JW. Ocular immune privilege: therapeutic opportunities from an experiment of nature. <em>Nat Rev Immunol</em>. 2003;3(11):879–889.</li>
+      <li>Sagiv O, et al. Ocular adverse events after COVID-19 vaccination: a systematic review. <em>Eye (Lond)</em>. Recent systematic reviews describing mean onset 6.5–9.4 days post-vaccination.</li>
+      <li>Skarbinski J, et al. COVID-19 bivalent vaccine uptake in patients with cancer. <em>JAMA Oncol</em>. 2025.</li>
+      <li>Petrelli F, et al. Association of steroids use with survival in patients treated with immune checkpoint inhibitors: a systematic review and meta-analysis. <em>Cancers</em>. Discussion reference on irAE-survival relationship.</li>
+      <li>Brahmer JR, et al. NCCN Guidelines: Management of Immunotherapy-Related Toxicities. Current version.</li>
+      <li>Schneider BJ, Naidoo J, et al. Management of Immune-Related Adverse Events in Patients Treated With Immune Checkpoint Inhibitor Therapy: ASCO Guideline Update. <em>J Clin Oncol</em>. 2021;39(36):4073–4126.</li>
+    </ol>
+  </section>
+
+</article>
+
+<!-- ============== Cusdis 留言系統 ============== -->
+<!-- 把 REPLACE_WITH_YOUR_CUSDIS_APP_ID 換成你在 cusdis.com 註冊後拿到的 App ID -->
+<section style="max-width:760px;margin:48px auto 32px;padding:32px 24px 0;border-top:1px solid #e0d7c5;">
+  <h2 style="font-family:'Noto Serif TC',serif;color:#1a3d3a;font-size:22px;margin:0 0 12px;border:none;padding:0;">留言討論 / Comments</h2>
+  <p style="color:#5a6160;font-size:14px;margin:0 0 24px;line-height:1.7;">
+    歡迎留言提問或分享你的看法。輸入暱稱即可留言,不需註冊任何帳號。<br>
+    Comments welcome — no account needed, just enter a name.
+  </p>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="REPLACE_WITH_YOUR_CUSDIS_APP_ID"
+    data-theme="light"
+  ></div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+<!-- ============ End Cusdis 留言系統 ============ -->
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁 / Home</a>
+</footer>
+
+</body>
+</html>

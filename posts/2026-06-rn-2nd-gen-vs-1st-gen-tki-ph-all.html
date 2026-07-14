@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+
+<!-- ============== Google Analytics (GA4) ============== -->
+<!-- 把下方兩處 G-XXXXXXXXXX 換成你的 Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- ================ End Google Analytics ================ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>研究筆記｜成人費城染色體陽性 ALL 第二代 vs 第一代 TKI — Zhang X, Jhou HJ, Chen HY, Xiao N, Chen PH, Lee CH, JCO Oncology Practice 2026</title>
+<meta name="description" content="2026 年發表於 JCO Oncology Practice 的真實世界 target trial emulation — 在成人費城染色體陽性 ALL,第一線使用第二代 TKI(以 dasatinib 為主)與 imatinib 比較 5 年存活與毒性。研究筆記:研究問題、設計選擇、結果、年齡分層、副作用取捨、方法學反思。" />
+<meta name="keywords" content="Philadelphia chromosome positive, Ph+ ALL, acute lymphoblastic leukemia, imatinib, dasatinib, nilotinib, bosutinib, tyrosine kinase inhibitor, TKI, target trial emulation, propensity score matching, TriNetX, real-world evidence, 李卓豪, hematology, 急性淋巴性白血病" />
+<meta name="author" content="Cho-Hao Howard Lee, MD" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://doctor-howard-lee.github.io/posts/2026-06-rn-2nd-gen-vs-1st-gen-tki-ph-all.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="李卓豪 醫師 ・ Cho-Hao Howard Lee, MD" />
+<meta property="og:url" content="https://doctor-howard-lee.github.io/posts/2026-06-rn-2nd-gen-vs-1st-gen-tki-ph-all.html" />
+<meta property="og:title" content="研究筆記:成人 Ph+ ALL 第二代 TKI 比 imatinib 多救了 12% 的人 — 真實世界 5 年追蹤" />
+<meta property="og:description" content="2026 JCO Oncology Practice 真實世界 target trial emulation — 第一線 dasatinib 等第二代 TKI 對比 imatinib,5 年死亡率 26.4% vs 38.7%,HR 0.677。年齡 ≥65 歲的長者並未受惠。神經病變、血液毒性、腸胃毒性都增加,但未抵銷存活效益。" />
+<meta property="og:image" content="https://doctor-howard-lee.github.io/images/posts/2026-06-rn-2nd-gen-vs-1st-gen-tki-ph-all-cover.svg" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="article:author" content="Cho-Hao Howard Lee" />
+<meta property="article:published_time" content="2026-06-16" />
+<meta property="article:section" content="Research Notes" />
+<meta property="article:tag" content="real-world evidence" />
+<meta property="article:tag" content="target trial emulation" />
+<meta property="article:tag" content="Philadelphia chromosome positive ALL" />
+<meta property="article:tag" content="dasatinib" />
+<meta property="article:tag" content="imatinib" />
+<meta property="article:tag" content="hematologic malignancy" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="研究筆記:成人 Ph+ ALL 第二代 vs 第一代 TKI" />
+<meta name="twitter:description" content="2026 JCO Oncology Practice 真實世界 target trial emulation — 第二代 TKI 5 年死亡率比 imatinib 低 12 個百分點,但 ≥65 歲長者未受惠,毒性顯著增加。" />
+<meta name="twitter:image" content="https://doctor-howard-lee.github.io/images/posts/2026-06-rn-2nd-gen-vs-1st-gen-tki-ph-all-cover.svg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Target Trial Emulation of Second-Generation Versus First-Generation Tyrosine Kinase Inhibitors in Adult Philadelphia Chromosome–Positive Acute Lymphoblastic Leukemia",
+  "description": "Research note on a TriNetX target-trial-emulation, propensity-matched retrospective analysis comparing first-line second-generation TKIs (predominantly dasatinib) with imatinib in adults with newly diagnosed Philadelphia chromosome-positive acute lymphoblastic leukemia.",
+  "datePublished": "2026-06-16",
+  "author": [
+    {"@type":"Person","name":"Xiaoyi Zhang"},
+    {"@type":"Person","name":"Hong-Jie Jhou"},
+    {"@type":"Person","name":"Hsin-Yu Chen"},
+    {"@type":"Person","name":"Na Xiao"},
+    {"@type":"Person","name":"Po-Huang Chen"},
+    {"@type":"Person","name":"Cho-Hao Lee"}
+  ],
+  "publisher": {"@type":"Organization","name":"American Society of Clinical Oncology"},
+  "isPartOf": {"@type":"PublicationIssue","isPartOf":{"@type":"Periodical","name":"JCO Oncology Practice","issn":"2688-1535"}},
+  "sameAs": "https://doi.org/10.1200/OP-25-01316"
+}
+</script>
+
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+
+<style>
+  :root{
+    --paper:#f8f4ec;
+    --paper-warm:#f1ead8;
+    --ink:#1d2424;
+    --ink-soft:#3d4544;
+    --stone:#6a6f6d;
+    --green-deep:#1a3d3a;
+    --accent:#2c5b6e;
+    --accent-soft:#7ea2b1;
+    --rule:#e0d7c5;
+    --sans-cjk:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+    --sans:'Inter','Helvetica Neue',Arial,sans-serif;
+    --serif-cjk:'Noto Serif TC','Songti TC','PMingLiU',serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--sans-cjk);background:var(--paper);color:var(--ink);
+    line-height:1.75;font-size:17px;
+  }
+  a{color:inherit}
+  a:hover{color:var(--accent)}
+
+  header.site{
+    max-width:760px;margin:0 auto;padding:32px 24px 0;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    display:flex;align-items:center;gap:8px;text-decoration:none;
+    font-family:var(--serif-cjk);font-size:15px;font-weight:500;
+    color:var(--green-deep);letter-spacing:.01em;
+  }
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
+  .back-link{
+    font-family:var(--sans);font-size:13px;color:var(--ink-soft);
+    text-decoration:none;transition:color .2s;
+  }
+  .back-link:hover{color:var(--accent)}
+
+  article{max-width:760px;margin:0 auto;padding:48px 24px 32px}
+
+  .article-meta{
+    display:flex;flex-wrap:wrap;gap:8px;font-size:13px;
+    color:var(--stone);margin-bottom:32px;
+  }
+  .article-meta .tag{
+    padding:4px 10px;background:var(--accent);color:var(--paper);
+    border:1px solid var(--accent);border-radius:30px;
+    font-size:12px;letter-spacing:.02em;
+  }
+  .article-meta .tag.outline{background:transparent;color:var(--accent);}
+  .article-meta .date{margin-left:auto;font-family:var(--sans)}
+
+  h1{
+    font-family:var(--serif-cjk);font-weight:600;font-size:34px;line-height:1.35;
+    letter-spacing:-.005em;color:var(--green-deep);margin-bottom:24px;
+  }
+  h1 .sub{
+    display:block;margin-top:14px;font-size:19px;font-weight:400;line-height:1.55;
+    color:var(--accent);
+  }
+
+  .cite{
+    margin:0 0 36px;padding:18px 22px;font-style:italic;font-size:14.5px;
+    background:var(--paper-warm);border-left:3px solid var(--accent);
+    border-radius:0 6px 6px 0;
+    line-height:1.65;color:var(--ink-soft);
+  }
+  .cite strong{color:var(--green-deep);font-style:normal;font-weight:600}
+  .cite a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+  .author{
+    display:flex;align-items:center;gap:14px;margin:0 0 40px;padding-bottom:24px;
+    border-bottom:1px solid var(--rule);
+  }
+  .author-avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--accent);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif-cjk);font-size:16px;font-weight:600;
+  }
+  .author-text{font-size:14px;color:var(--ink-soft)}
+  .author-text strong{color:var(--ink);display:block;font-size:15px;margin-bottom:2px}
+
+  .tldr{
+    margin:0 0 48px;padding:28px 28px;border-radius:8px;
+    background:var(--green-deep);color:var(--paper);
+    border-left:4px solid var(--accent-soft);
+  }
+  .tldr-label{
+    font-family:var(--sans);font-size:11px;letter-spacing:.18em;
+    font-weight:600;color:var(--accent-soft);
+    text-transform:uppercase;margin-bottom:12px;
+  }
+  .tldr p{font-size:15.5px;line-height:1.75;
+    color:var(--paper);margin-bottom:0;
+  }
+  .tldr p strong{color:#fff}
+
+  h2{
+    font-family:var(--serif-cjk);font-weight:600;font-size:24px;
+    color:var(--green-deep);margin:56px 0 18px;
+    padding-bottom:8px;border-bottom:1px solid var(--rule);
+  }
+  h3{
+    font-family:var(--serif-cjk);font-weight:600;font-size:18px;
+    color:var(--accent);margin:32px 0 12px;
+  }
+
+  p{margin:0 0 18px}
+  ul,ol{margin:0 0 22px;padding-left:24px}
+  li{margin-bottom:8px}
+  li strong{color:var(--green-deep)}
+
+  .data-card{
+    margin:24px 0;padding:22px 24px;background:#fff;
+    border:1px solid var(--rule);border-radius:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,.03);
+  }
+  .data-card .label{
+    font-family:var(--sans);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--stone);margin-bottom:8px;
+  }
+  .data-card .value{
+    font-family:var(--serif-cjk);font-size:28px;font-weight:600;
+    color:var(--green-deep);line-height:1.2;margin-bottom:6px;
+  }
+  .data-card .ci{font-size:13.5px;color:var(--ink-soft);font-family:var(--sans)}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  @media(max-width:560px){.grid-2{grid-template-columns:1fr}}
+
+  table{
+    width:100%;border-collapse:collapse;margin:24px 0;font-size:14.5px;
+    background:#fff;border-radius:6px;overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.04);
+  }
+  th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+  th{background:var(--paper-warm);color:var(--green-deep);font-weight:600;font-size:13.5px}
+  tr:last-child td{border-bottom:none}
+  td.num{font-family:var(--sans);text-align:right;font-variant-numeric:tabular-nums}
+  .ae-up{color:#b34d3b;font-weight:600}
+  .ae-neutral{color:var(--stone)}
+  .ae-down{color:#2c8a5b;font-weight:600}
+
+  blockquote{
+    margin:24px 0;padding:14px 22px;
+    border-left:3px solid var(--accent-soft);
+    background:rgba(126,162,177,.08);
+    font-size:15.5px;color:var(--ink-soft);
+  }
+
+  .bottom-cta{
+    margin:48px 0 8px;padding:28px 28px;border-radius:8px;
+    background:var(--paper-warm);border-left:3px solid var(--accent);
+  }
+  .bottom-cta h3{margin:0 0 8px;color:var(--green-deep)}
+  .bottom-cta p{font-size:15px;color:var(--ink-soft);margin:0;line-height:1.7}
+
+  .refs{margin:56px 0 0;padding-top:24px;border-top:1px solid var(--rule)}
+  .refs h2{border:none;padding:0;margin-bottom:14px;font-size:20px}
+  .refs ol{font-size:13.5px;color:var(--ink-soft);padding-left:24px}
+  .refs li{margin-bottom:8px;line-height:1.6}
+  .refs li em{color:var(--green-deep)}
+
+  footer{
+    max-width:760px;margin:0 auto;padding:24px;text-align:center;
+    font-size:13px;color:var(--stone);
+    border-top:1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="../index.html">
+    <span class="dot"></span>
+    <span>李卓豪 醫師 ・ Cho-Hao Howard Lee, MD</span>
+  </a>
+  <a class="back-link" href="../index.html">← 回首頁</a>
+</header>
+
+<article>
+
+  <div class="article-meta">
+    <span class="tag">研究筆記</span>
+    <span class="tag outline">Hematologic malignancy</span>
+    <span class="tag outline">Ph+ ALL</span>
+    <span class="tag outline">Target trial emulation</span>
+    <span class="date">2026 年 6 月 16 日</span>
+  </div>
+
+  <h1>
+    成人費城染色體陽性 ALL:第一線該用 imatinib 還是 dasatinib?
+    <span class="sub">— 2,295 名病人、592 對 PSM 配對、5 年追蹤的真實世界 target trial emulation,以及它告訴我們的事(尤其是長者該怎麼想)</span>
+  </h1>
+
+  <div class="cite">
+    <strong>Zhang X</strong>, Jhou HJ, Chen HY, Xiao N, <strong>Chen PH</strong>, <strong>Lee CH</strong>.
+    Target Trial Emulation of Second-Generation Versus First-Generation Tyrosine Kinase Inhibitors in Adult Philadelphia Chromosome–Positive Acute Lymphoblastic Leukemia.
+    <em>JCO Oncology Practice</em>. 2026 [Epub ahead of print]. DOI:
+    <a href="https://doi.org/10.1200/OP-25-01316" target="_blank">10.1200/OP-25-01316</a>。
+    本研究先以摘要形式發表於 ASH 2025 年會(Orlando, FL),由國防醫學院/三軍總醫院血液腫瘤科李卓豪醫師擔任 senior / corresponding author。
+  </div>
+
+  <div class="author">
+    <div class="author-avatar">李</div>
+    <div class="author-text">
+      <strong>李卓豪 醫師 ・ Cho-Hao Howard Lee, MD</strong>
+      三軍總醫院血液腫瘤科 ・ 國防醫學院助理教授
+    </div>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-label">TL;DR — 一段話總結</div>
+    <p>
+      在 <strong>TriNetX 14 萬個機構、1.57 億人</strong>的資料中,我們抓出 2,764 位「新診斷成人 Ph+ ALL」、做 1:1 propensity score matching 之後比較第二代 TKI(以 dasatinib 為主)和 imatinib 兩條第一線路徑。<strong>5 年死亡率 26.4% vs 38.7%(HR 0.677,p&lt;0.001)</strong>,On-treatment 敏感度分析甚至壓到 HR 0.508。但這個存活優勢<strong>幾乎完全集中在 65 歲以下</strong>族群,&ge;65 歲的長者沒有看到統計學上顯著差別;同時第二代 TKI 在<strong>周邊神經病變、發燒性嗜中性白血球低下、血小板低下、噁心嘔吐腹瀉、靜脈血栓、高血脂</strong>等副作用都比較多 — 但這些都<strong>沒有抵銷</strong>存活效益。臨床的話會這樣說:<strong>&lt; 65 歲的新診斷 Ph+ ALL,如果沒有特別禁忌,dasatinib-based 的第二代 TKI 應該優先於 imatinib;&ge; 65 歲的人則要根據共病、體能、副作用耐受度個別化決定。</strong>
+    </p>
+  </div>
+
+  <h2>為什麼要做這個研究 — 臨床上的問題從哪裡來</h2>
+
+  <p>
+    成人費城染色體陽性急性淋巴性白血病(Philadelphia chromosome-positive acute lymphoblastic leukemia,Ph+ ALL)是成人 ALL 中最常見的細胞遺傳學亞型,佔 20%-30%,而且發生率隨年齡上升。BCR::ABL1 融合基因是它的標誌,這也是 imatinib 在 2000 年代被加進化療之後一度改寫了臨床面貌的原因:完全緩解率從 60% 多拉到 90% 以上,5 年 OS 從 30%-40% 變成現在的常態。
+  </p>
+
+  <p>
+    但 imatinib 不是終點。CNS penetration 差、T315I 等 kinase domain mutation 容易冒出來,讓不少病人在誘導後幾年內復發。第二代 TKI(dasatinib、nilotinib、bosutinib)在 CML 領域早就證明可以救回 imatinib failure 的病人;兒科的 CCCG-ALL-2015 RCT 也已經顯示在兒童 Ph+ ALL,dasatinib 比 imatinib 4 年 EFS 71% vs 49%、OS 88% vs 69%,差距相當顯著。
+  </p>
+
+  <p>
+    可是<strong>在成人,沒有一個第三期 RCT 直接比較過 imatinib vs 第二代 TKI 作為第一線</strong>。PhALLCON 試驗 2024 年顯示 ponatinib(第三代)優於 imatinib,但臨床現實是:在很多醫療系統,ponatinib 跟 blinatumomab 都還受限於健保給付與藥品供應,dasatinib 仍是最常被處方的第二代 TKI。我們想知道一件事 — <em>當 RCT 結不出來、又跳到第三代之前,真實世界的成人 Ph+ ALL 病人到底有沒有從第二代 TKI 拿到好處?如果有,有多大?哪些族群拿到、哪些族群沒拿到?</em>
+  </p>
+
+  <h2>研究怎麼做的 — Target trial emulation 的設計選擇</h2>
+
+  <h3>資料來源:TriNetX Global Collaborative Network</h3>
+
+  <p>
+    我們用 TriNetX 的 federated electronic health record 資料,涵蓋 60 家機構、1.57 億人,時間範圍是 2014 年 1 月到 2025 年 2 月。研究經本院 IRB 認定為 non-human subjects research。
+  </p>
+
+  <h3>Target trial 的關鍵時間點:Index date 怎麼定</h3>
+
+  <p>
+    Target trial emulation(Hernán 和 Robins 的框架)最致命的兩個敵人是 <strong>immortal time bias</strong> 和 <strong>time-varying confounding</strong>。我們的處理方式是:
+  </p>
+
+  <ul>
+    <li><strong>Index date = 第一次拿到 imatinib 或第二代 TKI 的處方日</strong>,而不是診斷日。Follow-up 從此開始算,自然排除「還沒開始用藥就死掉的人會被歸到開始用藥那一組」的不公平比較。</li>
+    <li><strong>90 天窗口</strong>:診斷後 90 天內第一次給 TKI 才算 index — 這個窗口反映真實臨床的 work-up 與排程延遲,避免把太晚才開始 TKI 的人錯誤歸組。</li>
+    <li><strong>Exclusions</strong>:之前曾接觸過 TKI、TKI 之前已經做過 allo-HSCT、沒同時用化療或類固醇、追蹤 &lt; 30 天的病人全部排除。</li>
+  </ul>
+
+  <h3>從 1.57 億人到 592 對配對</h3>
+
+  <p>
+    經過篩選後共 3,042 人在診斷後 3 個月內收過 TKI,2,764 人符合臨床條件,2,295 人符合「as-started」exposure 定義(1,657 人開始第二代 TKI、638 人開始 imatinib)。1:1 propensity score matching 用 caliper 0.1 SD、無放回、最近鄰演算法,匹配後每組 592 人,所有共變量的 SMD 都 &lt; 0.1。
+  </p>
+
+  <h3>主要結果(Primary outcome)</h3>
+
+  <p>
+    <strong>OS:從 TKI 第一劑開始算的時間,事件為任何原因死亡,5 年(1,825 天)截尾。</strong>死亡資訊來自 EHR 死亡欄位與 ICD-10 R99 編碼。
+  </p>
+
+  <h3>次要結果與副作用</h3>
+
+  <p>
+    Allo-HSCT 率、CNS relapse、血液學毒性、心血管毒性、腸胃毒性、代謝毒性、神經學毒性 — 共 16 個次要終點,每一個都報告 RR + 95% CI + E-value。
+  </p>
+
+  <h3>三層敏感度與 falsification</h3>
+
+  <ul>
+    <li><strong>On-treatment cohort</strong>:要求第一劑後 6 個月內有 ≥ 12 次 TKI 相關處方紀錄,模擬 per-protocol effect</li>
+    <li><strong>US-only cohort</strong>:檢驗結果是否被非美國機構的編碼差異干擾</li>
+    <li><strong>Negative control outcomes</strong>:骨折、腎結石、膽結石 — 理論上跟 TKI generation 無關,如果有顯著差別代表 residual confounding 沒被控制掉</li>
+  </ul>
+
+  <h2>主要結果 — 第二代 TKI 5 年死亡率低了 12 個百分點</h2>
+
+  <div class="grid-2">
+    <div class="data-card">
+      <div class="label">PSM 後 OS</div>
+      <div class="value">HR 0.677</div>
+      <div class="ci">95% CI 0.544–0.842,p &lt; 0.001<br>第二代 TKI 592 vs imatinib 592</div>
+    </div>
+    <div class="data-card">
+      <div class="label">5 年全死因死亡率</div>
+      <div class="value">26.4% vs 38.7%</div>
+      <div class="ci">RR 0.681(95% CI 0.576–0.806),p &lt; 0.001<br>絕對差 12.3 個百分點(NNT ≈ 8)</div>
+    </div>
+  </div>
+
+  <p>
+    主要 cohort 的 median follow-up 是 1,140 天 vs 1,129 天,事件數 385,post-hoc power 96.9%。換句話說,這個 HR 估計值不是統計巧合 — 它是建立在足夠事件數上的穩定結果。
+  </p>
+
+  <h3>敏感度分析:結果一致</h3>
+
+  <table>
+    <thead>
+      <tr><th>分析</th><th class="num">N / arm</th><th class="num">HR (95% CI)</th><th class="num">p</th><th class="num">Power</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Primary (as-started PSM)</td><td class="num">592</td><td class="num">0.677 (0.544–0.842)</td><td class="num">&lt; 0.001</td><td class="num">96.9%</td></tr>
+      <tr><td>On-treatment (per-protocol)</td><td class="num">257</td><td class="num">0.508 (0.361–0.716)</td><td class="num">&lt; 0.001</td><td class="num">99.3%</td></tr>
+      <tr><td>US-only</td><td class="num">433</td><td class="num">0.753 (0.594–0.955)</td><td class="num">0.022</td><td class="num">66.7%</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    On-treatment 分析的 HR 從 0.677 進一步壓到 0.508,代表「真的有規律服藥」的病人能拿到更大的存活效益,符合直覺。US-only HR 0.753 也支持結果不是被特定地區的資料品質帶動。
+  </p>
+
+  <h3>Negative control 三個 outcome 全部沒差</h3>
+
+  <p>
+    骨折(RR 0.909, p=0.609)、腎結石(RR 1.000, p=1.000)、膽結石(RR 1.333, p=0.244)— 三個都應該跟 TKI 種類無關,結果也都沒差。這暗示 PSM 已經把主要的 measured confounders 控制好,residual confounding 對主要結果的影響應該不大。
+  </p>
+
+  <h2>年齡分層 — 真正的故事在這裡</h2>
+
+  <p>
+    這個研究最重要、也最值得臨床警覺的訊息其實是 <strong>subgroup 不是均一的</strong>:
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>年齡層</th><th class="num">N / arm</th><th class="num">HR (95% CI)</th><th class="num">p</th><th>臨床意涵</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>18-34 歲</td><td class="num">106</td><td class="num">0.55 (0.31–0.97)</td><td class="num">0.038</td><td>有效但 CI 較寬</td></tr>
+      <tr><td>35-64 歲</td><td class="num">268</td><td class="num">0.50 (0.35–0.72)</td><td class="num">0.001</td><td>效益最大,風險減半</td></tr>
+      <tr><td>≥ 65 歲</td><td class="num">218</td><td class="num">0.85 (0.63–1.14)</td><td class="num">0.267</td><td>未達顯著 / 次族群 power 僅 20.7%</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Age × treatment 的互動 p 值是 0.070 — 邊緣顯著,但方向是清楚的。<strong>第二代 TKI 的存活效益在 65 歲以下幾乎是整個臨床決策的支柱,但對 ≥ 65 歲的長者並未得到統計學上的確認</strong>。背後可能的機制有兩個:第一,長者比較少受得了第二代 TKI 較強的毒性,可能會被迫減量或換藥;第二,&ge; 65 歲在這個 cohort 只有 218 對,單一 subgroup 的 power 只有 20.7%,可能根本看不到中等大小的真實效應。所以結論不是「對長者沒效」,而是「在這份資料中,我們沒有足夠證據說它對長者有效」。
+  </p>
+
+  <h3>藥物別分析:效益主要由 dasatinib 撐起來</h3>
+
+  <table>
+    <thead>
+      <tr><th>第二代 TKI 種類</th><th class="num">N / arm</th><th class="num">HR (95% CI)</th><th class="num">p</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dasatinib</td><td class="num">517</td><td class="num">0.70 (0.57–0.86)</td><td class="num">0.001</td></tr>
+      <tr><td>Nilotinib</td><td class="num">48</td><td class="num">1.03 (0.53–1.51)</td><td class="num">0.897</td></tr>
+      <tr><td>Bosutinib</td><td class="num">27</td><td class="num">1.05 (0.44–1.74)</td><td class="num">0.879</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Nilotinib 和 bosutinib 的 neutral 結果幾乎肯定是 underpowered — 各組只有 48 對和 27 對,CI 寬到不可能看出真實效應。在 Ph+ ALL 真實世界第一線使用上,dasatinib 還是壓倒性多數,這也符合臨床直覺(dasatinib 的 CNS penetration 是它在 Ph+ ALL 被優先考慮的關鍵理由之一)。
+  </p>
+
+  <h2>副作用樣貌 — 哪些變多、哪些沒變</h2>
+
+  <p>
+    第二代 TKI 帶來存活效益的同時,副作用全面性地比 imatinib 多 — 但臨床上重要的是這些副作用是否抵銷存活優勢。在這份資料中,答案是:沒有。
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>毒性類別</th><th class="num">第二代 TKI</th><th class="num">Imatinib</th><th class="num">RR (95% CI)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Peripheral neuropathy</td><td class="num">27.9%</td><td class="num">14.1%</td><td class="num ae-up">1.98 (1.57–2.50)</td></tr>
+      <tr><td>Febrile neutropenia</td><td class="num">58.4%</td><td class="num">44.4%</td><td class="num ae-up">1.31 (1.18–1.47)</td></tr>
+      <tr><td>Severe thrombocytopenia</td><td class="num">62.3%</td><td class="num">46.9%</td><td class="num ae-up">1.33 (1.20–1.48)</td></tr>
+      <tr><td>Anemia</td><td class="num">66.2%</td><td class="num">52.0%</td><td class="num ae-up">1.27 (1.16–1.40)</td></tr>
+      <tr><td>Hypertension</td><td class="num">55.9%</td><td class="num">44.9%</td><td class="num ae-up">1.25 (1.11–1.39)</td></tr>
+      <tr><td>Venous thromboembolism</td><td class="num">23.9%</td><td class="num">17.7%</td><td class="num ae-up">1.35 (1.08–1.69)</td></tr>
+      <tr><td>Hyperlipidemia (LDL/TG)</td><td class="num">31.5%</td><td class="num">22.5%</td><td class="num ae-up">1.40 (1.16–1.69)</td></tr>
+      <tr><td>Nausea / vomiting</td><td class="num">63.1%</td><td class="num">48.0%</td><td class="num ae-up">1.31 (1.19–1.46)</td></tr>
+      <tr><td>Diarrhea</td><td class="num">54.1%</td><td class="num">37.7%</td><td class="num ae-up">1.44 (1.27–1.63)</td></tr>
+      <tr><td>Mucositis</td><td class="num">36.2%</td><td class="num">29.0%</td><td class="num ae-up">1.25 (1.06–1.47)</td></tr>
+      <tr><td>Arterial thrombosis (stroke / MI)</td><td class="num">11.1%</td><td class="num">11.6%</td><td class="num ae-neutral">0.96 (0.70–1.31)</td></tr>
+      <tr><td>QT prolongation / arrhythmia</td><td class="num">17.7%</td><td class="num">14.8%</td><td class="num ae-neutral">1.20 (0.93–1.55)</td></tr>
+      <tr><td>Hepatotoxicity</td><td class="num">11.5%</td><td class="num">11.8%</td><td class="num ae-neutral">0.97 (0.71–1.33)</td></tr>
+      <tr><td>Allo-HSCT 率</td><td class="num">35.7%</td><td class="num">32.8%</td><td class="num ae-neutral">1.09 (0.93–1.27)</td></tr>
+      <tr><td>CNS relapse</td><td class="num">5.2%</td><td class="num">3.1%</td><td class="num ae-neutral">1.68 (0.97–2.94)</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    要注意幾件事:
+  </p>
+
+  <ul>
+    <li><strong>Peripheral neuropathy 接近翻倍</strong>(27.9% vs 14.1%,RR 1.98)。這是這份資料中最值得臨床警覺的訊號。可能機轉是 dasatinib 的神經毒性、跟 vincristine 等併用化療的協同效應、或是 ICD-10 編碼把 BCR::ABL1 控制下隱性的化療相關神經病變捕捉出來。</li>
+    <li><strong>血液學毒性都全面升高</strong>,但 28 天內 30 天內死亡率沒有對應暴衝,代表這些事件大多被臨床處理(輸血、G-CSF、減量)接住了。</li>
+    <li><strong>Arterial thrombosis、QT、肝毒性沒差</strong> — 這在臨床上比較反直覺,因為過去 CML 的資料中第二代 TKI 的心血管事件是被認為比較高的。可能反映 Ph+ ALL 病人本身的化療毒性背景太強,把 TKI 自己的訊號 dilute 掉了。</li>
+    <li><strong>CNS relapse 第二代比第一代高(5.2% vs 3.1%,p=0.063)</strong> — 跟 dasatinib 跨血腦屏障的理論預期相反,可能是 sample size 限制(只有 51 個事件)或 imatinib 病人較早因其他原因死亡而沒等到 relapse(competing risk)。</li>
+  </ul>
+
+  <h2>臨床上怎麼用 — 我會怎麼跟病人解釋</h2>
+
+  <p>
+    我在門診跟一位新診斷 Ph+ ALL 的 50 多歲先生討論第一線方案時,大概會是這個版本的對話:
+  </p>
+
+  <blockquote>
+    「目前最大筆的真實世界資料告訴我們,在你這個年齡層的成人 Ph+ ALL,用 dasatinib 這類第二代藥物,5 年存活率比傳統的 imatinib 高出大約 12 個百分點。代價是你會比較容易出現手腳麻木、白血球降太低需要打針、腸胃不適、血脂上升這些副作用,但這些都是我們可以監測和處理的。如果你體能還可以、沒有特別嚴重的共病,我會建議 dasatinib 為基礎的方案。」
+  </blockquote>
+
+  <p>
+    如果是 70 多歲、有心衰竭和糖尿病的長者,我會謹慎得多:
+  </p>
+
+  <blockquote>
+    「在你的年紀層,我們手上這份研究的訊號是不確定的 — 不是說 dasatinib 無效,而是參與的長者人數不夠,沒辦法確認。考量你的心臟、血糖,可能 imatinib 是個比較溫和的起點;如果一個月後 BCR::ABL1 沒有掉下來,我們再評估是否需要加強或換藥。」
+  </blockquote>
+
+  <h2>方法學反思 — 這篇能告訴我們什麼、不能告訴我們什麼</h2>
+
+  <h3>強項</h3>
+  <ul>
+    <li><strong>Sample size 在 Ph+ ALL 領域罕見</strong> — 2,295 名 as-started、592 對 PSM,以這個疾病的稀有度來說是 RCT 不可能跑出的規模。</li>
+    <li><strong>Target trial framework 是預先註冊的</strong>,exposure、index date、follow-up 起點都明確,而且 emulated protocol 和 STROBE/STaRT-TTE checklist 都放在 Data Supplement。</li>
+    <li><strong>三層敏感度互相支持</strong>,且 negative control outcomes 全部 null — 對 residual confounding 的擔憂大幅降低。</li>
+  </ul>
+
+  <h3>限制</h3>
+  <ul>
+    <li><strong>沒有 MRD 資料</strong> — 這在 Ph+ ALL 是個硬傷,因為 MRD-negativity 是現代治療策略(transplant-sparing、blinatumomab 整合)的核心。我們的 HR 0.677 沒辦法被分解成「是因為 MRD 清除更快」還是「是因為 long-term suppression 較好」。</li>
+    <li><strong>沒有 dose intensity</strong>:TriNetX 不一致記錄劑量,所以 dose reduction、treatment interruption 的影響沒辦法看。On-treatment 分析只是用「處方頻次」的 proxy。</li>
+    <li><strong>Ph-like ALL 可能混在 cohort 內</strong>:ICD-10 編碼無法區分真正 BCR::ABL1+ 跟 Ph-like(BCR::ABL1-like signature 但無 fusion),這群人對 TKI 的反應跟真正 Ph+ 不一樣,可能 dilute 效應。</li>
+    <li><strong>整個 cohort 大致 predates 廣泛使用 ponatinib + blinatumomab 的時代</strong>(只有少數機構在 2023-2024 開始普遍使用)。所以這份結果應該被解讀為「dasatinib-based 第二代仍是標準的環境下,它優於 imatinib」,而不是「dasatinib 是 2026 年的最佳第一線」。</li>
+    <li><strong>≥ 65 歲 subgroup 真的太小</strong>(218 對,power 20.7%)。直接外推「對長者沒效」是過度解讀;但說「我們還不知道」是誠實的。</li>
+  </ul>
+
+  <h3>跟 PhALLCON、CCCG-ALL-2015 對話</h3>
+
+  <p>
+    這份研究跟兩個 RCT 形成 informative 的對照:
+  </p>
+  <ul>
+    <li><strong>PhALLCON</strong>(2024 JAMA,Jabbour et al.):ponatinib(第三代)優於 imatinib,MRD-negative CR 與 PFS 都顯著改善。我們這份研究填補的是「第二代 vs 第一代」這層比較,告訴你即使在還沒升到第三代之前,從 imatinib 換到 dasatinib 就已經有可觀效益。</li>
+    <li><strong>CCCG-ALL-2015</strong>(2020 JAMA Oncol,Shen et al.):兒科 RCT,dasatinib 4 年 OS 88% vs imatinib 69% — 兒科的效應比成人大很多。可能反映兒童 cohort 比較均一、沒有高齡共病的稀釋、化療強度與 TKI 協同效果更明顯。</li>
+  </ul>
+
+  <h2>下一步要回答的問題</h2>
+
+  <ul>
+    <li><strong>整合 MRD-adaptive design 的真實世界比較</strong>:當 MRD 監測在臨床更普及,我們需要看「第二代 TKI + MRD-guided escalation」vs「imatinib + transplant-driven」的長期結果。</li>
+    <li><strong>長者專屬 cohort</strong>:用 reduced-intensity chemo + dasatinib 的真實世界資料補足 &ge; 65 歲族群的 power 缺口。Rousselot 等人的 dasatinib + 低強度化療在長者已有 prospective 訊號,但 RWE 規模仍小。</li>
+    <li><strong>Ponatinib + blinatumomab 時代的比較</strong>:當 chemotherapy-free regimens 進入第一線,「第三代 vs 第二代」會是接下來的關鍵問題。</li>
+    <li><strong>Peripheral neuropathy 的拆解</strong>:這個訊號接近翻倍,需要區分究竟來自 dasatinib 本身、化療協同、還是 EHR 編碼差異。可能值得用 PRO-CTCAE / Total Neuropathy Score 做 prospective registry 確認。</li>
+  </ul>
+
+  <div class="bottom-cta">
+    <h3>對這個方法、結果或臨床應用有興趣討論?</h3>
+    <p>
+      歡迎透過 <a href="../index.html#contact">聯繫頁</a> 來信,或從
+      <a href="https://doi.org/10.1200/OP-25-01316" target="_blank">JCO Oncology Practice 期刊頁</a>
+      取得全文(ASCO 訂閱),也可以滑到下方留言區直接留言。
+    </p>
+  </div>
+
+  <section class="refs">
+    <h2>主要參考文獻 / Key References</h2>
+    <ol>
+      <li><strong>Zhang X</strong>, Jhou HJ, Chen HY, Xiao N, <strong>Chen PH</strong>, <strong>Lee CH</strong>. Target Trial Emulation of Second-Generation Versus First-Generation Tyrosine Kinase Inhibitors in Adult Philadelphia Chromosome–Positive Acute Lymphoblastic Leukemia. <em>JCO Oncology Practice</em>. 2026 [Epub ahead of print]. <strong>(本研究)</strong></li>
+      <li>Jabbour E, Kantarjian HM, Aldoss I, et al. Ponatinib vs imatinib in frontline Philadelphia chromosome–positive acute lymphoblastic leukemia: A randomized clinical trial (PhALLCON). <em>JAMA</em>. 2024;331(21):1814–1823.</li>
+      <li>Shen S, Chen X, Cai J, et al. Effect of dasatinib vs imatinib in pediatric Philadelphia chromosome-positive ALL: A randomized clinical trial (CCCG-ALL-2015). <em>JAMA Oncol</em>. 2020;6(3):358–366.</li>
+      <li>Foà R, Bassan R, Vitale A, et al. Dasatinib-blinatumomab for Ph-positive acute lymphoblastic leukemia in adults. <em>N Engl J Med</em>. 2020;383(17):1613–1623.</li>
+      <li>Foà R, Bassan R, Elia L, et al. Long-term results of the dasatinib-blinatumomab protocol for adult Philadelphia-positive ALL. <em>J Clin Oncol</em>. 2024;42(8):881–885.</li>
+      <li>Foà R, Chiaretti S. Philadelphia chromosome-positive acute lymphoblastic leukemia. <em>N Engl J Med</em>. 2022;386(25):2399–2411.</li>
+      <li>Rousselot P, Coudé MM, Gokbuget N, et al. Dasatinib and low-intensity chemotherapy in elderly patients with Ph+ ALL. <em>Blood</em>. 2016;128(6):774–782.</li>
+      <li>Slayton WB, Schultz KR, Kairalla JA, et al. Dasatinib plus intensive chemotherapy in children, adolescents, and young adults with Ph+ ALL. <em>J Clin Oncol</em>. 2018;36(22):2306–2314.</li>
+      <li>Hernán MA, Robins JM. Using big data to emulate a target trial when a randomized trial is not available. <em>Am J Epidemiol</em>. 2016;183(8):758–764.</li>
+      <li>Hansford HJ, Cashin AG, Jones MD, et al. Reporting of observational studies explicitly aiming to emulate randomized trials (STaRT-TTE): a systematic review. <em>JAMA Netw Open</em>. 2023;6(9):e2336023.</li>
+      <li>VanderWeele TJ, Ding P. Sensitivity analysis in observational research: introducing the E-value. <em>Ann Intern Med</em>. 2017;167(4):268–274.</li>
+      <li>Brown PA, Shah B, Advani A, et al. Acute lymphoblastic leukemia, version 2.2021, NCCN clinical practice guidelines in oncology. <em>JNCCN</em>. 2021;19(9):1079–1109.</li>
+    </ol>
+  </section>
+
+</article>
+
+<!-- ============== Cusdis 留言系統 ============== -->
+<!-- 把 REPLACE_WITH_YOUR_CUSDIS_APP_ID 換成你在 cusdis.com 註冊後拿到的 App ID -->
+<section style="max-width:760px;margin:48px auto 32px;padding:32px 24px 0;border-top:1px solid #e0d7c5;">
+  <h2 style="font-family:'Noto Serif TC',serif;color:#1a3d3a;font-size:22px;margin:0 0 12px;border:none;padding:0;">留言討論</h2>
+  <p style="color:#5a6160;font-size:14px;margin:0 0 24px;line-height:1.7;">
+    歡迎留言提問或分享你的看法。輸入暱稱即可留言,不需註冊任何帳號。為避免垃圾留言,留言會經過審核後顯示。
+  </p>
+  <div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="REPLACE_WITH_YOUR_CUSDIS_APP_ID"
+    data-theme="light"
+  ></div>
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+</section>
+<!-- ============ End Cusdis 留言系統 ============ -->
+
+<footer>
+  © 2026 Cho-Hao Howard Lee, MD ・ <a href="../index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
